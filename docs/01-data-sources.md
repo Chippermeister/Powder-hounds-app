@@ -131,12 +131,24 @@ served from a CDN. The browser reads our JSON and fetches **radar tiles directly
 
 ## 6. Competitive notes from this research
 
-- **Powder Chaser** (app.powderchaserapp.com): no public source code found. It appears to be closed-source.
+- **Powder Chaser**'s source is public at **github.com/wdvr/snow** (reviewed at its last commit, 2026-06-22):
+  - **License: PolyForm Noncommercial 1.0.0.** We may *read* it, but must not copy code **or data**
+    (including its `resorts.json` with 1,019 resorts and webcam URLs) into a project meant to become commercial.
+    Treat it as a reference only. Clean-room: we build our own resort dataset from OpenSkiMap + curation.
+  - **Confirmed: no radar anywhere in the codebase** (no radar/NEXRAD/MRMS/RainViewer references). The gap is real.
+  - **Correction to our assumptions:** it already has a **web app** (`web/`: React + Vite + Leaflet) and a
+    **native Android app in progress** (`android/`: Kotlin/Compose, not yet on Google Play). "They have no Android
+    / web" is not a durable differentiator. Radar, the snow-rate layer, and observed snowfall are.
+  - Data: Open-Meteo + Apple WeatherKit + **scraped** OnTheSnow and Snow-Forecast.com, merged with outlier detection.
+    It uses **no NOAA observations** (no SNOTEL/NOHRSC), so its "snowfall" is model-derived. Our measured, observation-backed
+    US snowfall is a second differentiator. We avoid scraping commercial sites (terms-of-service risk).
+  - Worth learning from (ideas, not code): a static-JSON-per-resort serving model (matches §5), and scoring at
+    three elevations.
 - **Powchasers** (powchasers.com) is a *different* product. It's the one with drive-time framing.
 - **ozemans/powdercast** (GitHub) is the closest open-source analogue. It uses the same stack recommended here
   (NWS + Open-Meteo multi-model + SNOTEL, Python ingest pipeline, Next.js front end), which is reassuring validation.
   **It has no LICENSE file, so it is legally "all rights reserved".** We can learn from its approach but must not copy its code.
-- None of the above show a snow-rate radar layer.
+- None of the above show a snow-rate radar layer or any radar at all.
 
 ---
 
@@ -157,3 +169,4 @@ served from a CDN. The browser reads our JSON and fetches **radar tiles directly
 - NOHRSC gridded snowfall: https://www.nohrsc.noaa.gov/snowfall_v2/
 - OpenSkiMap data: https://openskimap.org/?about=
 - powdercast: https://github.com/ozemans/powdercast
+- Powder Chaser source: https://github.com/wdvr/snow
