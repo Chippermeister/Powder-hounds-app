@@ -1,6 +1,6 @@
 # Phase 1 — Data Sourcing Decisions
 
-Status: **DRAFT, awaiting approval**. Researched 2026-09-25.
+Status: **APPROVED 2026-09-25** (v1 scope: western US + BC/AB; Open-Meteo free tier until pre-revenue). Researched 2026-09-25.
 
 The rule used to pick every source below: **free today, and with a clear path to commercial use later.**
 US federal data (NOAA/NWS/NRCS) is public domain, so it passes both tests. Anything else gets its
@@ -152,12 +152,12 @@ served from a CDN. The browser reads our JSON and fetches **radar tiles directly
 
 ---
 
-## Open decisions (need approval)
+## Decisions (approved 2026-09-25)
 
-1. **v1 geographic scope.** Recommendation: **western US + British Columbia/Alberta** (~150 resorts). Every source
+1. ✅ **v1 geographic scope.** Recommendation: **western US + British Columbia/Alberta** (~150 resorts). Every source
    above has full coverage there, and it's the core powder-chasing market. East/global comes later.
-2. **Accept Open-Meteo's non-commercial tier for now**, with a documented switch to paid/self-hosted before revenue.
-3. **Basemap + drive-time providers.** Deferred to the build-scoping step.
+2. ✅ **Accept Open-Meteo's non-commercial tier for now**, with a documented switch to paid/self-hosted before revenue.
+3. Basemap + drive-time providers: see `02-build-scope.md`.
 
 ## Sources
 - RainViewer API transition FAQ: https://www.rainviewer.com/api/transition-faq.html
