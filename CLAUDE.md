@@ -8,7 +8,8 @@ Owner is learning: explain reasoning briefly, but keep it short unless asked to 
 - Phase 1 data sourcing: DONE → `docs/01-data-sources.md` (approved)
 - Phase 2 build scope: APPROVED → `docs/02-build-scope.md`
 - M0 scaffold: DONE (Vite + React + TS, Tailwind v4, Vitest, oxlint, Prettier, CI). Run `npm run check` before committing.
-- Next step: M1 map + radar spike (needs network hosts from scope doc Risk D)
+- M1 map + radar spike: DONE. CORS OK on both radar servers (no proxy); findings in `docs/02-build-scope.md` § M1 findings.
+- Next step: M2 resorts on the map
 
 ## Locked decisions (don't re-research)
 
