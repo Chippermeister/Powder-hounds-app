@@ -91,12 +91,12 @@ Each milestone ends with a commit (or a few) and a check-in with you.
 
 ## Risks to check early
 
-**A. CORS on radar images (highest risk, checked in M1).**
+**A. CORS on radar images (highest risk, checked in M1).** ✅ **Resolved in M1: no proxy needed.**
 _Lesson:_ WebGL can only draw images from another domain if that server sends an `Access-Control-Allow-Origin`
 header. Leaflet doesn't care, but MapLibre does. If nowCOAST or GeoMet don't send it, we add a ~20-line
 Cloudflare Worker that proxies and caches tiles. That's also good for reducing load on the NOAA servers.
 
-**B. Exact WMS layer names/time formats** haven't been tested live yet (the sandbox blocked it). Verified in M1.
+**B. Exact WMS layer names/time formats** ✅ **Verified in M1** (see "M1 findings" below).
 
 **C. Curating ~150 resorts** (blurbs, webcam URLs) is real manual work: roughly an evening or two.
 Plan: I generate a draft from OpenSkiMap + each resort's site, and you review.
@@ -113,3 +113,20 @@ Plan: I generate a draft from OpenSkiMap + each resort's site, and you review.
 1. Approve the stack (§1–8), or name what to change.
 2. Approve the milestone order (radar spike before resorts).
 3. Hosting: Cloudflare Pages needs a free Cloudflare account on your side, which isn't needed until the first deploy.
+
+---
+
+## M1 findings (verified live 2026-09-25)
+
+| Product   | WMS endpoint                                                                                                             | Layer                            | Time dimension                                                         |
+| --------- | ------------------------------------------------------------------------------------------------------------------------ | -------------------------------- | ---------------------------------------------------------------------- |
+| Radar     | `nowcoast.noaa.gov/geoserver/weather_radar/conus_base_reflectivity_mosaic/ows` (per-layer: 10 KB capabilities vs 230 KB) | `conus_base_reflectivity_mosaic` | Comma list, ~4 min apart, ~8 h history, snaps to nearest               |
+| Snow rate | `geo.weather.gc.ca/geomet`                                                                                               | `RADAR_1KM_RSNO`                 | Interval `start/end/PT6M`, 3 h history, **exact times only** (no snap) |
+
+- **CORS:** both servers send `Access-Control-Allow-Origin: *` on capabilities _and_ GetMap images. No Cloudflare Worker needed.
+- **Coverage:** the nowCOAST "conus" MRMS mosaic reaches into southern BC/AB. GeoMet covers all of North America.
+- **Snow rate is not precipitation type.** `RSNO` converts radar returns to a snowfall rate everywhere, including where it's raining.
+  It's the right "how hard is it dumping" layer for mountains, but can't tell rain from snow on its own.
+- **Tiles:** 512 px WMS tiles; each frame is its own MapLibre layer, preloaded at opacity 0. Animating just swaps opacity.
+- **MapLibre 6 + Vite:** the worker must be built via `?worker&url` + `setWorkerUrl()`, with `worker.format: 'es'`.
+- **Bundle:** MapLibre makes the JS chunk ~1.25 MB (350 KB gzip). Code-split in M5 for Lighthouse.
