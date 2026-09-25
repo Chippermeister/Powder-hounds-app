@@ -1,0 +1,11 @@
+// Cloudflare deploy config. The Git integration runs `npm run build`, then `npx wrangler deploy`,
+// which uploads the static site in dist/. No server code: this is a static-assets-only Worker.
+{
+  // Must match the project name in the Cloudflare dashboard, or the deploy step fails.
+  "name": "powder-hounds-app",
+  "compatibility_date": "2026-09-25",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application",
+  },
+}
