@@ -4,11 +4,14 @@ Storm-tracking web app for powder chasers. Map of ski resorts + live radar (with
 Owner is learning: explain reasoning briefly, but keep it short unless asked to go deeper.
 
 ## Status
+
 - Phase 1 data sourcing: DONE → `docs/01-data-sources.md` (approved)
-- Phase 2 build scope: DRAFT awaiting approval → `docs/02-build-scope.md`
-- Next step: M0 scaffold (after scope approval)
+- Phase 2 build scope: APPROVED → `docs/02-build-scope.md`
+- M0 scaffold: DONE (Vite + React + TS, Tailwind v4, Vitest, oxlint, Prettier, CI). Run `npm run check` before committing.
+- Next step: M1 map + radar spike (needs network hosts from scope doc Risk D)
 
 ## Locked decisions (don't re-research)
+
 - v1 area: western US + BC/AB, ~150 resorts
 - Radar: NOAA MRMS via nowCOAST WMS; snow rate via MSC GeoMet `RADAR_1KM_RSNO`. RainViewer rejected (non-commercial since 2026).
 - Forecast: NWS api.weather.gov gridpoints + Open-Meteo (`elevation=`; free non-commercial tier until pre-revenue)
@@ -17,6 +20,7 @@ Owner is learning: explain reasoning briefly, but keep it short unless asked to 
 - Competitor code (github.com/wdvr/snow) is PolyForm Noncommercial: never copy code or data from it.
 
 ## Working rules
+
 - Stop for owner approval before risky or hard-to-reverse decisions (stack changes, new paid services, deletions).
 - One milestone per session. Read only the files the task needs; docs/ is the source of truth.
 - Commit after each meaningful step with a conventional message (`feat:`, `fix:`, `docs:`, `chore:`).
