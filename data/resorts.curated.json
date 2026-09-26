@@ -7,58 +7,74 @@
     "utah-olympic-park": "training and jumping venue"
   },
   "resorts": {
-    "ski-santa-fe-santa-fe-q38555": { "name": "Ski Santa Fe" },
-    "three-summits": { "name": "The Summit at Snoqualmie" },
-
+    "ski-santa-fe-santa-fe-q38555": {
+      "name": "Ski Santa Fe"
+    },
+    "three-summits": {
+      "name": "The Summit at Snoqualmie"
+    },
     "revelstoke-mountain-resort": {
       "name": "Revelstoke",
-      "blurb": "The longest lift-served vertical in North America (1,713 m), in the deep interior snowpack of BC's Selkirk Mountains. Big bowls and endless trees, with cat and heli skiing next door."
+      "blurb": "The longest lift-served vertical in North America (1,713 m), in the deep interior snowpack of BC's Selkirk Mountains. Big bowls and endless trees, with cat and heli skiing next door.",
+      "webcamUrl": "https://www.revelstokemountainresort.com/mountain/conditions/webcams/"
     },
     "whistler-blackcomb": {
       "blurb": "North America's largest ski area: two mountains and over 200 runs, linked by the Peak 2 Peak Gondola. Coastal storms bury the alpine, though the village can see rain."
     },
     "kicking-horse-resort": {
       "name": "Kicking Horse",
-      "blurb": "Steep, big-vertical mountain above Golden, BC, packed with inbounds chutes and ridgelines. Dry Rockies–Purcells snow, and a gondola straight to the summit."
+      "blurb": "Steep, big-vertical mountain above Golden, BC, packed with inbounds chutes and ridgelines. Dry Rockies–Purcells snow, and a gondola straight to the summit.",
+      "webcamUrl": "https://kickinghorseresort.com/conditions/mountain-cam/"
     },
     "fernie-alpine-resort": {
       "name": "Fernie",
-      "blurb": "Five big alpine bowls in the Lizard Range, which snags passing storms and averages about 9 m (30 ft) of snow a year."
+      "blurb": "Five big alpine bowls in the Lizard Range, which snags passing storms and averages about 9 m (30 ft) of snow a year.",
+      "webcamUrl": "https://skifernie.com/conditions/mountain-cam/"
     },
     "whitewater-ski-resort": {
       "name": "Whitewater",
-      "blurb": "Small, much-loved powder hill near Nelson, BC. About 12 m (40 ft) of snow a year, plenty of tree skiing and hardly any crowds."
+      "blurb": "Small, much-loved powder hill near Nelson, BC. About 12 m (40 ft) of snow a year, plenty of tree skiing and hardly any crowds.",
+      "webcamUrl": "https://whitewatermountainresort.com/webcams/",
+      "website": "https://whitewatermountainresort.com/"
     },
     "lake-louise-ski-area": {
       "name": "Lake Louise",
-      "blurb": "One of North America's largest ski areas, inside Banff National Park with views across to the Victoria Glacier. Cold, dry Rockies snow keeps the back bowls light."
+      "blurb": "One of North America's largest ski areas, inside Banff National Park with views across to the Victoria Glacier. Cold, dry Rockies snow keeps the back bowls light.",
+      "webcamUrl": "https://www.skilouise.com/mountain-cam/"
     },
     "big-sky-resort": {
       "name": "Big Sky",
-      "blurb": "Huge Montana resort topped by Lone Peak, with a tram to steep couloirs and a cold continental snowpack. Lift lines stay short for a mountain this size."
+      "blurb": "Huge Montana resort topped by Lone Peak, with a tram to steep couloirs and a cold continental snowpack. Lift lines stay short for a mountain this size.",
+      "webcamUrl": "https://www.bigskyresort.com/current-conditions/webcams"
     },
     "jackson-hole-mountain-resort": {
       "name": "Jackson Hole",
-      "blurb": "Legendary steeps off the Aerial Tram, including Corbet's Couloir, and 1,262 m (4,139 ft) of vertical. Teton storms regularly deliver big totals."
+      "blurb": "Legendary steeps off the Aerial Tram, including Corbet's Couloir, and 1,262 m (4,139 ft) of vertical. Teton storms regularly deliver big totals.",
+      "webcamUrl": "https://www.jacksonhole.com/mountain-report"
     },
     "grand-targhee-resort": {
       "name": "Grand Targhee",
-      "blurb": "On the snowy west side of the Tetons, reached via Driggs, Idaho, averaging about 12.7 m (500 in) a year. Relaxed vibe, open glades, and cat skiing on neighbouring Peaked Mountain."
+      "blurb": "On the snowy west side of the Tetons, reached via Driggs, Idaho, averaging about 12.7 m (500 in) a year. Relaxed vibe, open glades, and cat skiing on neighbouring Peaked Mountain.",
+      "webcamUrl": "https://www.grandtarghee.com/the-mountain/cams-conditions/webcams"
     },
     "alta-ski-area": {
       "name": "Alta",
-      "blurb": "Skiers-only Utah classic at the top of Little Cottonwood Canyon, averaging over 13 m (500+ in) of light Wasatch powder a year."
+      "blurb": "Skiers-only Utah classic at the top of Little Cottonwood Canyon, averaging over 13 m (500+ in) of light Wasatch powder a year.",
+      "webcamUrl": "https://www.alta.com/weather"
     },
     "snowbird": {
-      "blurb": "Steep, high-alpine terrain next door to Alta, served by a 125-passenger tram. The season often runs into late spring."
+      "blurb": "Steep, high-alpine terrain next door to Alta, served by a 125-passenger tram. The season often runs into late spring.",
+      "webcamUrl": "https://www.snowbird.com/the-mountain/webcams/view-all-webcams/"
     },
     "mammoth-mountain": {
       "name": "Mammoth",
-      "blurb": "Tall volcano on California's Eastern Sierra with a 3,369 m (11,053 ft) summit and one of the longest seasons in the West. Sierra storms can drop huge multi-day totals."
+      "blurb": "Tall volcano on California's Eastern Sierra with a 3,369 m (11,053 ft) summit and one of the longest seasons in the West. Sierra storms can drop huge multi-day totals.",
+      "webcamUrl": "https://www.mammothmountain.com/on-the-mountain/mountain-report"
     },
     "palisades-tahoe-olympic-valley": {
       "name": "Palisades Tahoe",
-      "blurb": "Host of the 1960 Winter Olympics, on Lake Tahoe's north shore. Known for steep terrain like KT-22, and linked by gondola to Alpine Meadows."
+      "blurb": "Host of the 1960 Winter Olympics, on Lake Tahoe's north shore. Known for steep terrain like KT-22, and linked by gondola to Alpine Meadows.",
+      "webcamUrl": "https://www.palisadestahoe.com/mountain-information/webcams"
     },
     "kirkwood-mountain-resort": {
       "name": "Kirkwood",
@@ -73,7 +89,8 @@
     },
     "mt-bachelor": {
       "name": "Mt. Bachelor",
-      "blurb": "Big volcano in central Oregon's Cascades, with lifts to the summit and 360° skiing off the top. Drier than the coastal Cascades, with a long season."
+      "blurb": "Big volcano in central Oregon's Cascades, with lifts to the summit and 360° skiing off the top. Drier than the coastal Cascades, with a long season.",
+      "webcamUrl": "https://www.mtbachelor.com/the-mountain/webcams/"
     },
     "steamboat-ski-resort": {
       "name": "Steamboat",
@@ -81,11 +98,13 @@
     },
     "wolf-creek-ski-area": {
       "name": "Wolf Creek",
-      "blurb": "Colorado's snowiest resort, averaging about 11 m (430 in) a year on the Continental Divide. No lodging on site, and often the first in the state to open."
+      "blurb": "Colorado's snowiest resort, averaging about 11 m (430 in) a year on the Continental Divide. No lodging on site, and often the first in the state to open.",
+      "webcamUrl": "https://wolfcreekski.com/webcams/"
     },
     "taos-ski-valley": {
       "name": "Taos",
-      "blurb": "Steep, high terrain in New Mexico's Sangre de Cristo Mountains, topped by Kachina Peak at 3,804 m (12,481 ft)."
+      "blurb": "Steep, high terrain in New Mexico's Sangre de Cristo Mountains, topped by Kachina Peak at 3,804 m (12,481 ft).",
+      "webcamUrl": "https://www.skitaos.com/weather"
     }
   }
 }
