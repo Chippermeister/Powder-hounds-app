@@ -19,9 +19,9 @@ Owner is learning: explain reasoning briefly, but keep it short unless asked to 
 - Pre-M5 UI review: DONE → `docs/02-build-scope.md` § Pre-M5 UI review (decisions + fix list).
 - M5a phone UX: DONE (bottom sheet, snow-coloured pins, search, radar legends, review phone fixes). Findings in
   `docs/02-build-scope.md` § M5a.
-- M5b IN PROGRESS, scope in `docs/02-build-scope.md` § M5b scope. Done: source research (§ M5b source research,
-  topo approved; satellite awaiting owner: see § Satellite follow-up) and style switcher with Standard/Dark/Topo
-  (§ M5b progress). Left: satellite style (after approval), cm/inch toggle, PWA install, code-splitting + Lighthouse ≥ 90,
+- M5b IN PROGRESS, scope in `docs/02-build-scope.md` § M5b scope. Done: source research, style switcher with
+  Standard/Dark/Topo/Satellite (§ M5b progress, § Satellite built). Satellite = USGS + Esri hybrid; Esri needs the owner's
+  `VITE_ESRI_API_KEY` (not set yet). Left: cm/inch toggle, PWA install, code-splitting + Lighthouse ≥ 90,
   accessibility pass. Drive time and distance are dropped from v1.
 
 ## Locked decisions (don't re-research)

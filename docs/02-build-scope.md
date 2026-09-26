@@ -326,8 +326,29 @@ Rejected: MapTiler and EOxCloudless (both non-commercial unless you pay).
   pay-as-you-go), MapTiler Satellite (from $29/mo), Google Map Tiles API (pay-as-you-go with a free monthly allowance).
   Truly free global imagery only exists at 10 m (Copernicus Sentinel-2, free for commercial use, but we'd have to
   build and host the mosaic ourselves; EOX's ready-made one is non-commercial).
-- **Suggested path:** a hybrid now and later: USGS where it has imagery (US, free, sharpest), Esri everywhere else.
+- **✅ Owner chose the hybrid (2026-09-26).** Suggested path was: a hybrid now and later: USGS where it has imagery (US, free, sharpest), Esri everywhere else.
   That keeps Esri usage (and cost) low and already works for a global map. Needs the Esri key either way.
+
+### Satellite built: USGS + Esri hybrid (2026-09-26)
+
+- **How it picks:** one imagery layer behind a custom tile protocol (`src/map/satellite.ts`). Each tile goes to
+  **USGS** if it lies wholly inside the western-US box (south of the straight 49° border, west of 95.2° W, north of
+  32.7° N) and is zoom ≥ 9; otherwise to **Esri**. Only one server is asked per tile, so Esri (the one that can bill)
+  never loads under USGS.
+- **Why not simply stack the two layers:** USGS paints "no imagery" as **opaque white**, not transparent (checked the
+  alpha channel), so a USGS layer over Esri would leave a white band along the border. USGS's NAIP ImageServer can
+  return transparent PNGs, but rendered on demand: ~0.8 s and ~110 KB per tile vs ~20 KB cached JPEGs.
+- **Fallback:** if a USGS tile comes back blank white (offshore, beyond its photos), that tile is fetched from Esri.
+- **Labels:** the style is OpenFreeMap Liberty cut down to its labels and borders over the imagery; our hillshade is
+  off (photos show the relief). Radar and pins sit on top as in every style.
+- **Zoomed out (≤ z8):** Esri everywhere, so the continent looks uniform (few tiles at those zooms).
+- **The key:** `VITE_ESRI_API_KEY`, baked in at build time. Without it, the US still works and the rest shows a
+  dark background. Needs setting in three places: Cloudflare Workers Builds (build variable), GitHub repo secret
+  `ESRI_API_KEY` (hourly deploy), `.env.local` for local dev (`.env.example`). It ships in the page, so restrict it
+  to our domains in ArcGIS; ArcGIS API keys expire (max 1 year), so note the date.
+- **Checked in Chromium (no key yet):** Alta at z12 loads USGS NAIP imagery; Whistler shows the dark background;
+  first load straight into Satellite works. Esri itself is **untested until the key exists**.
+- **Global later:** widen the USGS box (or swap it for a coverage polygon); everything else already works worldwide.
 
 ## Future: global coverage (owner goal, not yet scoped)
 
