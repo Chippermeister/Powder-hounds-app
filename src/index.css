@@ -32,7 +32,13 @@ body {
 
 /* Translucent "glass" panel floating over the map. */
 .glass {
-  background: color-mix(in srgb, var(--color-surface) 72%, transparent);
+  background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+  /* No -webkit- copy: the CSS build adds it for Safari, and with both it dropped the standard one. */
   backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+/* Nearly opaque, for panels full of text (resort card, search): pins and radar mustn't show through. */
+.panel {
+  background: color-mix(in srgb, var(--color-surface) 97%, transparent);
+  backdrop-filter: saturate(180%) blur(20px);
 }

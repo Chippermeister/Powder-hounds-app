@@ -1,6 +1,7 @@
 import { render, screen, within } from '@testing-library/react'
 import { afterEach, expect, test, vi } from 'vitest'
 import ObservedSection from './ObservedSection'
+import { snotelStaleness } from './stale'
 import type { ResortObserved } from './types'
 
 const days = Array.from({ length: 14 }, (_, i) => ({
@@ -39,9 +40,13 @@ const stubFetch = (res: Response) =>
     'fetch',
     vi.fn(async () => res),
   )
-afterEach(() => vi.unstubAllGlobals())
+afterEach(() => {
+  vi.unstubAllGlobals()
+  vi.useRealTimers()
+})
 
 test('shows SNOTEL and NOHRSC rows and the 14-day bars', async () => {
+  vi.useFakeTimers({ now: Date.parse('2026-01-14T12:30:00Z'), toFake: ['Date'] })
   stubFetch(Response.json(observed))
   render(<ObservedSection resortId="alta-ski-area" />)
   const table = await screen.findByRole('table', { name: 'Observed snow in inches' })
@@ -55,7 +60,24 @@ test('shows SNOTEL and NOHRSC rows and the 14-day bars', async () => {
   expect(within(history).getByText('Jan 13: 12 in new, 50 in depth')).toBeInTheDocument()
   expect(within(history).getByText('Jan 1: no data')).toBeInTheDocument()
   expect(within(history).getByText('Jan 2: no new snow, 50 in depth')).toBeInTheDocument()
-  expect(screen.getByText(/Season: Sep 30, 2025 – Jan 14, 2026/)).toBeInTheDocument()
+  expect(screen.getByText('Updated 30 min ago')).toBeInTheDocument()
+})
+
+test('flags a SNOTEL reading that is hours old', async () => {
+  vi.useFakeTimers({ now: Date.parse('2026-01-15T07:00:00Z'), toFake: ['Date'] })
+  stubFetch(Response.json(observed))
+  render(<ObservedSection resortId="alta-ski-area" />)
+  const table = await screen.findByRole('table', { name: 'Observed snow in inches' })
+  expect(within(table).getByRole('row', { name: /^SNOTEL/ })).toHaveTextContent(
+    '⚠ Last reading 20 h ago',
+  )
+  expect(within(table).getByRole('row', { name: /^NOHRSC/ })).not.toHaveTextContent('⚠')
+})
+
+test('snotelStaleness stays quiet for a fresh reading', () => {
+  const now = Date.parse('2026-01-14T13:00:00Z')
+  expect(snotelStaleness('2026-01-14T11:00:00Z', now)).toBeNull()
+  expect(snotelStaleness(null, now)).toBe('No recent reading')
 })
 
 test('a dry fortnight gets one line instead of an empty chart', async () => {

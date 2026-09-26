@@ -1,25 +1,45 @@
 import 'maplibre-gl/dist/maplibre-gl.css'
-import { Map as MapLibreMap, NavigationControl, TerrainControl, setWorkerUrl } from 'maplibre-gl'
+import {
+  LngLatBounds,
+  Map as MapLibreMap,
+  NavigationControl,
+  TerrainControl,
+  setWorkerUrl,
+} from 'maplibre-gl'
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
 import { useEffect, useRef, useState } from 'react'
+import type { ObservedIndex } from '../observed/types'
 import { RADAR_TILE_SIZE, radarTileUrl, type RadarProduct } from '../radar/wms'
 import type { Resort } from '../resorts/resorts'
-import { addResortLayers, highlightResort } from './resortLayers'
+import { isClear, measurePadding } from './padding'
+import { addResortLayers, highlightResort, setResortSnow } from './resortLayers'
 
 const STYLE_URL = 'https://tiles.openfreemap.org/styles/liberty'
 const TERRAIN_TILES = 'https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'
 const RADAR_OPACITY = 0.75
+/** Zoom a search jumps to: close enough to see the resort's neighbours by name. */
+const SEARCH_ZOOM = 9
+/** Open-Meteo data is CC BY 4.0, which requires this credit wherever it's shown. */
+const OPEN_METEO_CREDIT =
+  '<a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a> (CC BY 4.0)'
 
 // MapLibre looks for its worker next to its own file, but Vite moves the library into a bundle.
 // Let Vite build the worker as a separate asset and tell MapLibre where it ended up.
 setWorkerUrl(workerUrl)
+
+/** A resort the user picked. `via` decides the camera move; a new object re-runs it. */
+export interface Selection {
+  id: string
+  via: 'map' | 'search'
+}
 
 interface Props {
   product: RadarProduct
   frames: string[]
   frameIndex: number
   resorts: Resort[]
-  selectedResortId: string | null
+  observed: ObservedIndex | null
+  selection: Selection | null
   onSelectResort: (id: string) => void
 }
 
@@ -30,7 +50,7 @@ const radarId = (i: number) => `radar-${i}`
  * Animating is then just swapping which layer is visible, so there's no network wait between frames.
  */
 export default function RadarMap(props: Props) {
-  const { product, frames, frameIndex, resorts, selectedResortId } = props
+  const { product, frames, frameIndex, resorts, observed, selection } = props
   const container = useRef<HTMLDivElement>(null)
   const mapRef = useRef<MapLibreMap | null>(null)
   const [ready, setReady] = useState(false)
@@ -44,15 +64,27 @@ export default function RadarMap(props: Props) {
 
   useEffect(() => {
     if (!container.current) return
+    const small = window.matchMedia?.('(max-width: 640px)').matches ?? false
     const map = new MapLibreMap({
       container: container.current,
       style: STYLE_URL,
-      center: [-116.5, 45.5], // western US + BC/AB
-      zoom: 4.2,
+      // First view: every resort, clear of the search box and radar panel.
+      bounds: boundsOf(initialResorts.current),
+      fitBoundsOptions: { padding: measurePadding(container.current) },
       maxPitch: 70,
+      // Phones get the (i) button only; expanded, the credits cover the radar panel.
+      attributionControl: { compact: small, customAttribution: OPEN_METEO_CREDIT },
     })
     mapRef.current = map
     map.addControl(new NavigationControl({ visualizePitch: true }), 'top-right')
+    // MapLibre opens a compact attribution at first and only folds it on the first drag.
+    if (small) {
+      map.once('load', () =>
+        container.current
+          ?.querySelector('.maplibregl-ctrl-attrib')
+          ?.classList.remove('maplibregl-compact-show'),
+      )
+    }
 
     map.on('load', () => {
       map.addSource('terrain', {
@@ -126,8 +158,30 @@ export default function RadarMap(props: Props) {
 
   useEffect(() => {
     const map = mapRef.current
-    if (map && ready) highlightResort(map, selectedResortId)
-  }, [ready, selectedResortId])
+    if (map && ready && observed) setResortSnow(map, initialResorts.current, observed)
+  }, [ready, observed])
+
+  useEffect(() => {
+    const map = mapRef.current
+    if (map && ready) highlightResort(map, selection?.id ?? null)
+  }, [ready, selection?.id])
+
+  // Bring the picked resort into the part of the map no panel covers. The card or sheet for it
+  // is already in the DOM (same render), so it's part of the measurement.
+  useEffect(() => {
+    const map = mapRef.current
+    const resort = selection && initialResorts.current.find((r) => r.id === selection.id)
+    if (!map || !ready || !resort) return
+    const center: [number, number] = [resort.lon, resort.lat]
+    const padding = measurePadding(map.getContainer())
+    if (selection.via === 'search') {
+      map.flyTo({ center, zoom: Math.max(map.getZoom(), SEARCH_ZOOM), padding })
+      return
+    }
+    const { x, y } = map.project(center)
+    const { clientWidth: w, clientHeight: h } = map.getContainer()
+    if (!isClear(x, y, w, h, padding)) map.easeTo({ center, padding })
+  }, [ready, selection])
 
   // MapLibre's CSS forces `position: relative` on the map element, so position a wrapper instead.
   return (
@@ -135,6 +189,12 @@ export default function RadarMap(props: Props) {
       <div ref={container} className="h-full w-full" data-testid="map" />
     </div>
   )
+}
+
+function boundsOf(resorts: Resort[]): LngLatBounds {
+  const bounds = new LngLatBounds()
+  for (const r of resorts) bounds.extend([r.lon, r.lat])
+  return bounds
 }
 
 /** Insert our layers under the basemap's labels so place names stay readable over radar. */

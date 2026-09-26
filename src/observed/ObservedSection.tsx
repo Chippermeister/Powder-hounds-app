@@ -1,5 +1,6 @@
 import { useStaticJson } from '../data/useStaticJson'
 import { formatSnowIn, updatedAgo } from '../forecast/ForecastSection'
+import { snotelStaleness } from './stale'
 import type { ObservedDay, ResortObserved } from './types'
 
 const ft = (m: number) => Math.round(m * 3.28084).toLocaleString()
@@ -8,15 +9,6 @@ const mi = (km: number) => Math.max(1, Math.round(km * 0.621371))
 /** "2026-09-26T12:00:00Z" → "Sep 26" */
 const monthDay = (iso: string) =>
   new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' })
-
-/** "2025-09-30T12:00:00Z" → "Sep 30, 2025": the season window needs years, it can be last winter's. */
-const fullDate = (iso: string) =>
-  new Date(iso).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-    timeZone: 'UTC',
-  })
 
 /** Blank for "no data", "–" for a measured zero. */
 function inches(cm: number | null): string {
@@ -27,16 +19,18 @@ function inches(cm: number | null): string {
 
 function ObservedTable({ observed }: { observed: ResortObserved }) {
   const { snotel, nohrsc } = observed
-  const cell = 'py-1 text-center tabular-nums'
+  const cell = 'px-0.5 py-1 text-center tabular-nums'
   const rows = [
     snotel && {
       label: 'SNOTEL',
       sub: `${snotel.name} · ${ft(snotel.elevationM)} ft · ${mi(snotel.distanceKm)} mi`,
+      stale: snotelStaleness(snotel.updatedAt),
       values: [snotel.new24hCm, snotel.new72hCm, null, snotel.depthCm],
     },
     nohrsc && {
       label: 'NOHRSC',
       sub: '4 km analysis cell',
+      stale: null,
       values: [nohrsc.snow24hCm, nohrsc.snow72hCm, nohrsc.seasonCm, null],
     },
   ].filter((r) => !!r)
@@ -50,7 +44,7 @@ function ObservedTable({ observed }: { observed: ResortObserved }) {
             <span className="sr-only">Source</span>
           </th>
           {['24h', '72h', 'Season', 'Depth'].map((h) => (
-            <th key={h} scope="col" className={`${cell} font-normal`}>
+            <th key={h} scope="col" className={`${cell} w-12 font-normal`}>
               {h}
             </th>
           ))}
@@ -62,11 +56,16 @@ function ObservedTable({ observed }: { observed: ResortObserved }) {
             <th scope="row" className="py-1 pr-1 text-left font-medium leading-tight">
               {r.label}
               <span className="block text-[10px] font-normal text-ink-muted">{r.sub}</span>
+              {r.stale && (
+                <span className="mt-0.5 block text-[10px] font-medium text-amber-700 dark:text-amber-400">
+                  ⚠ {r.stale}
+                </span>
+              )}
             </th>
             {r.values.map((cm, i) => (
               <td
                 key={i}
-                className={`${cell} ${cm && i < 2 ? 'font-semibold text-accent' : ''} ${cm ? '' : 'text-ink-muted'}`}
+                className={`${cell} ${cm && i < 2 && !r.stale ? 'font-semibold text-accent' : ''} ${cm && !r.stale ? '' : 'text-ink-muted'}`}
               >
                 {inches(cm)}
               </td>
@@ -207,8 +206,7 @@ export default function ObservedSection({ resortId }: { resortId: string }) {
 }
 
 function ObservedDetail({ observed }: { observed: ResortObserved }) {
-  const { snotel, nohrsc } = observed
-  const days = snotel?.days ?? []
+  const days = observed.snotel?.days ?? []
   const measured = days.filter((d) => d.newCm != null)
   const anySnow = days.some((d) => (d.newCm ?? 0) > 0)
   return (
@@ -221,20 +219,7 @@ function ObservedDetail({ observed }: { observed: ResortObserved }) {
           No new snow at the SNOTEL station in the last {days.length} days.
         </p>
       )}
-      <p className="text-[10px] text-ink-muted">
-        {snotel && (
-          <>
-            SNOTEL reading {snotel.updatedAt ? updatedAgo(snotel.updatedAt) : 'missing'}; new snow
-            is the rise in settled depth, so it reads lower than a snow stake.{' '}
-          </>
-        )}
-        {nohrsc?.validAt && <>NOHRSC analysis {updatedAgo(nohrsc.validAt)}. </>}
-        {nohrsc?.seasonStart && nohrsc.seasonEnd && (
-          <>
-            Season: {fullDate(nohrsc.seasonStart)} – {fullDate(nohrsc.seasonEnd)}.
-          </>
-        )}
-      </p>
+      <p className="text-[10px] text-ink-muted">Updated {updatedAgo(observed.generatedAt)}</p>
     </>
   )
 }

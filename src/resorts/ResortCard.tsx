@@ -9,14 +9,23 @@ interface Props {
 
 const ft = (m: number) => Math.round(m * 3.28084).toLocaleString()
 
-/** Tap-a-pin card: stats, snow forecast, observed snow, links. */
+/** Desktop: the card floats down the left side, under the search box. */
 export default function ResortCard({ resort, onClose }: Props) {
   return (
     <section
       aria-label={resort.name}
-      className="glass absolute top-4 right-14 left-4 flex max-h-[45%] flex-col gap-3 overflow-y-auto rounded-2xl p-4 shadow-lg sm:right-auto sm:w-96 sm:max-h-[calc(100%-2rem)]"
+      className="panel flex min-h-0 flex-col gap-3 overflow-y-auto rounded-2xl p-4 shadow-lg"
     >
-      <header className="flex items-start gap-2">
+      <ResortDetails resort={resort} onClose={onClose} />
+    </section>
+  )
+}
+
+/** What a resort card shows, on the side card and the phone sheet alike: stats, forecast, observed, links. */
+export function ResortDetails({ resort, onClose }: Props) {
+  return (
+    <>
+      <header className="flex items-start gap-2" data-drag-zone>
         <div className="flex-1">
           <h2 className="text-lg leading-tight font-semibold">{resort.name}</h2>
           <p className="text-sm text-ink-muted">{regionLabel(resort.region)}</p>
@@ -72,6 +81,6 @@ export default function ResortCard({ resort, onClose }: Props) {
           )}
         </div>
       )}
-    </section>
+    </>
   )
 }

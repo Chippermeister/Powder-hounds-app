@@ -1,10 +1,12 @@
 import type { FeatureCollection, Point } from 'geojson'
 import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl'
+import type { ObservedIndex } from '../observed/types'
 import type { Resort } from '../resorts/resorts'
+import { NO_DATA, snowColorExpression, snowTextColorExpression } from './snowColors'
 
 const SOURCE = 'resorts'
 const FONT = ['Noto Sans Bold'] // must be a font the basemap style's glyph server has
-const ACCENT = '#0a84ff'
+const INK = '#1d1d1f'
 
 export const RESORT_LAYERS = {
   clusters: 'resort-clusters',
@@ -14,18 +16,35 @@ export const RESORT_LAYERS = {
   selected: 'resort-selected',
 } as const
 
+export interface PinProps {
+  id: string
+  name: string
+  /** Observed 72 h snow in cm, or NO_DATA */
+  snow72: number
+}
+
 /** Pins only carry what the map draws; the card looks the rest up by id. */
 export function resortsToGeoJSON(
   resorts: Resort[],
-): FeatureCollection<Point, { id: string; name: string }> {
+  observed?: ObservedIndex | null,
+): FeatureCollection<Point, PinProps> {
   return {
     type: 'FeatureCollection',
     features: resorts.map((r) => ({
       type: 'Feature',
       geometry: { type: 'Point', coordinates: [r.lon, r.lat] },
-      properties: { id: r.id, name: r.name },
+      properties: {
+        id: r.id,
+        name: r.name,
+        snow72: observed?.resorts[r.id]?.new72hCm ?? NO_DATA,
+      },
     })),
   }
+}
+
+/** Swap in pins coloured by the latest observations. */
+export function setResortSnow(map: MapLibreMap, resorts: Resort[], observed: ObservedIndex) {
+  map.getSource<GeoJSONSource>(SOURCE)?.setData(resortsToGeoJSON(resorts, observed))
 }
 
 /**
@@ -43,6 +62,8 @@ export function addResortLayers(
     cluster: true,
     clusterRadius: 40,
     clusterMaxZoom: 8,
+    // A cluster takes the colour of its snowiest member.
+    clusterProperties: { maxSnow72: ['max', ['get', 'snow72']] },
     attribution: '<a href="https://openskimap.org">Resorts: © OpenSkiMap</a> (ODbL)',
   })
 
@@ -52,7 +73,7 @@ export function addResortLayers(
     source: SOURCE,
     filter: ['has', 'point_count'],
     paint: {
-      'circle-color': ACCENT,
+      'circle-color': snowColorExpression(['get', 'maxSnow72']),
       'circle-radius': ['step', ['get', 'point_count'], 14, 10, 18, 30, 22],
       'circle-stroke-width': 2,
       'circle-stroke-color': '#ffffff',
@@ -69,7 +90,7 @@ export function addResortLayers(
       'text-size': 12,
       'text-allow-overlap': true,
     },
-    paint: { 'text-color': '#ffffff' },
+    paint: { 'text-color': snowTextColorExpression(['get', 'maxSnow72']) },
   })
   map.addLayer({
     id: RESORT_LAYERS.pins,
@@ -77,7 +98,7 @@ export function addResortLayers(
     source: SOURCE,
     filter: ['!', ['has', 'point_count']],
     paint: {
-      'circle-color': ACCENT,
+      'circle-color': snowColorExpression(['get', 'snow72']),
       'circle-radius': 7,
       'circle-stroke-width': 2,
       'circle-stroke-color': '#ffffff',
@@ -88,11 +109,12 @@ export function addResortLayers(
     type: 'circle',
     source: SOURCE,
     filter: ['==', ['get', 'id'], ''],
+    // A ring around the pin, so its snow colour still shows.
     paint: {
-      'circle-color': '#ffffff',
-      'circle-radius': 10,
-      'circle-stroke-width': 4,
-      'circle-stroke-color': ACCENT,
+      'circle-opacity': 0,
+      'circle-radius': 11,
+      'circle-stroke-width': 3,
+      'circle-stroke-color': INK,
     },
   })
   map.addLayer({
@@ -109,7 +131,7 @@ export function addResortLayers(
       'text-anchor': 'top',
       'text-optional': true,
     },
-    paint: { 'text-color': '#1d1d1f', 'text-halo-color': '#ffffff', 'text-halo-width': 1.5 },
+    paint: { 'text-color': INK, 'text-halo-color': '#ffffff', 'text-halo-width': 1.5 },
   })
 
   map.on('click', RESORT_LAYERS.clusters, async (e) => {
