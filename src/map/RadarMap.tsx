@@ -7,14 +7,15 @@ import {
   setWorkerUrl,
 } from 'maplibre-gl'
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { createPortal } from 'react-dom'
 import type { ObservedIndex } from '../observed/types'
 import { RADAR_TILE_SIZE, radarTileUrl, type RadarProduct } from '../radar/wms'
 import type { Resort } from '../resorts/resorts'
 import { isClear, measurePadding } from './padding'
 import { addResortLayers, highlightResort, setResortSnow } from './resortLayers'
+import { MAP_STYLES, carryOver, type MapStyleId } from './styles'
 
-const STYLE_URL = 'https://tiles.openfreemap.org/styles/liberty'
 const TERRAIN_TILES = 'https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'
 const RADAR_OPACITY = 0.75
 /** Zoom a search jumps to: close enough to see the resort's neighbours by name. */
@@ -41,6 +42,9 @@ interface Props {
   observed: ObservedIndex | null
   selection: Selection | null
   onSelectResort: (id: string) => void
+  mapStyle: MapStyleId
+  /** Extra buttons for MapLibre's top-right control stack (under zoom and 3D). */
+  controls?: ReactNode
 }
 
 const radarId = (i: number) => `radar-${i}`
@@ -54,6 +58,9 @@ export default function RadarMap(props: Props) {
   const container = useRef<HTMLDivElement>(null)
   const mapRef = useRef<MapLibreMap | null>(null)
   const [ready, setReady] = useState(false)
+  const [controlSlot, setControlSlot] = useState<HTMLElement | null>(null)
+  // The style the map is built with; later changes go through setStyle.
+  const appliedStyle = useRef(props.mapStyle)
   // The click handler is registered once on load; read the latest callback through a ref.
   const onSelectResort = useRef(props.onSelectResort)
   // The resort list is static for the page's lifetime, so the map is built with the first one.
@@ -67,7 +74,7 @@ export default function RadarMap(props: Props) {
     const small = window.matchMedia?.('(max-width: 640px)').matches ?? false
     const map = new MapLibreMap({
       container: container.current,
-      style: STYLE_URL,
+      style: MAP_STYLES[appliedStyle.current].url,
       // First view: every resort, clear of the search box and radar panel.
       bounds: boundsOf(initialResorts.current),
       fitBoundsOptions: { padding: measurePadding(container.current) },
@@ -100,11 +107,15 @@ export default function RadarMap(props: Props) {
           id: 'hillshade',
           type: 'hillshade',
           source: 'terrain',
-          paint: { 'hillshade-exaggeration': 0.35, 'hillshade-shadow-color': '#3d4a5c' },
+          paint: MAP_STYLES[appliedStyle.current].hillshade,
         },
         firstSymbolLayer(map),
       )
       map.addControl(new TerrainControl({ source: 'terrain', exaggeration: 1.4 }), 'top-right')
+      const slot = document.createElement('div')
+      slot.className = 'maplibregl-ctrl maplibregl-ctrl-group'
+      map.addControl({ onAdd: () => slot, onRemove: () => slot.remove() }, 'top-right')
+      setControlSlot(slot)
       // Added last, so pins sit above radar and basemap labels.
       addResortLayers(map, initialResorts.current, (id) => onSelectResort.current(id))
       setReady(true)
@@ -115,6 +126,17 @@ export default function RadarMap(props: Props) {
       mapRef.current = null
     }
   }, [])
+
+  // Swap the basemap, keeping our radar, pins, hillshade and 3D terrain (see carryOver).
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map || !ready || props.mapStyle === appliedStyle.current) return
+    const style = MAP_STYLES[props.mapStyle]
+    appliedStyle.current = style.id
+    map.setStyle(style.url, {
+      transformStyle: (prev, next) => carryOver(prev, next, style.hillshade),
+    })
+  }, [ready, props.mapStyle])
 
   // (Re)build radar layers when the product or frame list changes.
   useEffect(() => {
@@ -187,6 +209,7 @@ export default function RadarMap(props: Props) {
   return (
     <div className="absolute inset-0">
       <div ref={container} className="h-full w-full" data-testid="map" />
+      {controlSlot && props.controls && createPortal(props.controls, controlSlot)}
     </div>
   )
 }

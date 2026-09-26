@@ -3,6 +3,8 @@ import { useStaticJson } from './data/useStaticJson'
 import { OVERLAY_ATTR } from './map/padding'
 import RadarMap, { type Selection } from './map/RadarMap'
 import SnowLegend from './map/SnowLegend'
+import StyleSwitcher from './map/StyleSwitcher'
+import { defaultStyle, loadStyle, saveStyle, type MapStyleId } from './map/styles'
 import type { ObservedIndex } from './observed/types'
 import RadarControls from './radar/RadarControls'
 import ResortCard from './resorts/ResortCard'
@@ -29,6 +31,14 @@ export default function App() {
   const resort = selection && RESORTS.find((r) => r.id === selection.id)
   const observed = useStaticJson<ObservedIndex>('/observed/index.json')
   const wide = useMediaQuery(WIDE)
+  // A saved pick wins; otherwise the basemap follows the OS light/dark setting.
+  const [pickedStyle, setPickedStyle] = useState<MapStyleId | null>(loadStyle)
+  const prefersDark = useMediaQuery('(prefers-color-scheme: dark)')
+  const mapStyle = pickedStyle ?? defaultStyle(prefersDark)
+  const pickStyle = (id: MapStyleId) => {
+    saveStyle(id)
+    setPickedStyle(id)
+  }
 
   // Advance while playing; linger on the newest frame so "now" is easy to read.
   useEffect(() => {
@@ -54,6 +64,8 @@ export default function App() {
         observed={observed.status === 'ready' ? observed.data : null}
         selection={selection}
         onSelectResort={(id) => setSelection({ id, via: 'map' })}
+        mapStyle={mapStyle}
+        controls={<StyleSwitcher styleId={mapStyle} onChange={pickStyle} />}
       />
       <RadarControls
         productId={productId}
