@@ -229,6 +229,25 @@ Owner reviewed every feature on the live site (desktop + phone, light + dark). P
 
 - NOHRSC 72h map layer (optional since M4): not discussed. Pin colours may cover the same need.
 
+## M5a findings (2026-09-26)
+
+Built: phone bottom sheet, pins coloured by 72h snow + legend, resort search, "Updated …" fine print (Open-Meteo credit
+now in the map attribution), and the phone fixes. Checked at 390×844 and 1440×900 in Chromium.
+
+- **Bottom sheet** (< 640 px): opens at 42% of the screen (name, stats, forecast). Swipe or tap the handle for the full
+  card; swipe down to shrink, further to close. No gesture library; pointer events only.
+- **Keeping pins in view:** panels marked `data-map-overlay` are measured and turned into MapLibre padding
+  (`src/map/padding.ts`). Used for the first view (fit all resorts) and when a resort is picked (pan only if hidden;
+  search flies in to zoom ≥ 9).
+- **Pin colours:** one blue ramp (0–1″, 1–6″, 6–12″, 12″+), grey for no data. Clusters use MapLibre
+  `clusterProperties` `max`, so they show the snowiest member. In late September nearly every pin is the palest step.
+- **Radar legends:** colours read from each server's `GetLegendGraphic` (nowCOAST default style, GeoMet
+  `Radar-Snow_14colors`). The snow-rate scale is cm/h on uneven steps; ticks sit at 0.1, ½, 1, 2, 4 in/h.
+- **Stale SNOTEL:** a reading older than 6 h gets an amber "⚠ Last reading N h ago" in its row and its numbers are
+  greyed.
+- **Bug found:** the CSS build dropped the standard `backdrop-filter` when a `-webkit-` copy was also written, so
+  Chrome/Android never blurred the panels. Fixed by writing only the standard property (the build adds the prefix).
+
 ## Future: global coverage (owner goal, not yet scoped)
 
 | Piece         | Global?                                                                                                                                     |

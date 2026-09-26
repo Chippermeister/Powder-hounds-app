@@ -17,7 +17,10 @@ Owner is learning: explain reasoning briefly, but keep it short unless asked to 
 - M4 observed snow: DONE (SNOTEL + NOHRSC → `public/observed/*.json`, card table + 14-day bars). Findings in
   `docs/02-build-scope.md` § M4. NOHRSC 72h map layer not built (optional).
 - Pre-M5 UI review: DONE → `docs/02-build-scope.md` § Pre-M5 UI review (decisions + fix list).
-- Next step: M5 (bottom sheet, pin colours by 72h snow, search, short fine print, plus the review fix list)
+- M5a phone UX: DONE (bottom sheet, snow-coloured pins, search, radar legends, review phone fixes). Findings in
+  `docs/02-build-scope.md` § M5a.
+- Next step: M5b (drive time, PWA install, dark basemap, cm/inch toggle, straight-line distance,
+  code-splitting + Lighthouse ≥ 90, accessibility pass)
 
 ## Locked decisions (don't re-research)
 
