@@ -94,10 +94,14 @@ export function HistoryBars({ days }: { days: ObservedDay[] }) {
     (best, d) => ((d.newCm ?? 0) > (best?.newCm ?? 0) ? d : best),
     null,
   )
-  const label = (d: ObservedDay) =>
-    `${monthDay(`${d.date}T12:00:00Z`)}: ${
-      d.newCm == null ? 'no data' : `${formatSnowIn(d.newCm)} in new`
-    }${d.depthCm == null ? '' : `, ${formatSnowIn(d.depthCm)} in depth`}`
+  const label = (d: ObservedDay) => {
+    const date = monthDay(`${d.date}T12:00:00Z`)
+    if (d.newCm == null) return `${date}: no data`
+    const fresh = d.newCm === 0 ? 'no new snow' : `${formatSnowIn(d.newCm)} in new`
+    if (d.depthCm == null) return `${date}: ${fresh}`
+    const depth = d.depthCm === 0 ? 'bare ground' : `${formatSnowIn(d.depthCm)} in depth`
+    return `${date}: ${fresh}, ${depth}`
+  }
 
   return (
     <figure className="flex flex-col gap-0.5">
@@ -204,11 +208,19 @@ export default function ObservedSection({ resortId }: { resortId: string }) {
 
 function ObservedDetail({ observed }: { observed: ResortObserved }) {
   const { snotel, nohrsc } = observed
-  const hasHistory = snotel?.days.some((d) => d.newCm != null)
+  const days = snotel?.days ?? []
+  const measured = days.filter((d) => d.newCm != null)
+  const anySnow = days.some((d) => (d.newCm ?? 0) > 0)
   return (
     <>
       <ObservedTable observed={observed} />
-      {snotel && hasHistory && <HistoryBars days={snotel.days} />}
+      {/* An all-zero chart is an empty band, so a dry spell gets one line instead. */}
+      {anySnow && <HistoryBars days={days} />}
+      {measured.length > 0 && !anySnow && (
+        <p className="text-xs text-ink-muted">
+          No new snow at the SNOTEL station in the last {days.length} days.
+        </p>
+      )}
       <p className="text-[10px] text-ink-muted">
         {snotel && (
           <>
