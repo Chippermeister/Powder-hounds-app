@@ -21,6 +21,9 @@ export const V1_REGIONS = new Set([
 /** Smallest vertical drop (m) that counts as a destination resort rather than a rope-tow hill. */
 export const MIN_VERTICAL_M = 250
 
+/** Nordic trail networks are tagged "downhill" by some mappers but have no lifts. */
+export const MIN_LIFTS = 1
+
 type Position = [number, number, ...number[]]
 type Geometry =
   | { type: 'Point'; coordinates: Position }
@@ -41,7 +44,8 @@ export interface SkiAreaFeature {
     status?: string | null
     activities?: string[]
     websites?: string[]
-    location?: { iso3166_2?: string | null } | null
+    /** Every region the area touches; cross-border areas list several. */
+    places?: { iso3166_2?: string | null }[] | null
     statistics?:
       | (Elevations & {
           runs?: Elevations
@@ -93,8 +97,8 @@ const round = (n: number, dp: number) => Math.round(n * 10 ** dp) / 10 ** dp
 
 export function toCandidate(feature: SkiAreaFeature): Omit<ResortCandidate, 'id'> | null {
   const p = feature.properties
-  const region = p.location?.iso3166_2 ?? ''
-  if (!feature.geometry || !p.name || !V1_REGIONS.has(region)) return null
+  const region = p.places?.map((pl) => pl.iso3166_2 ?? '').find((r) => V1_REGIONS.has(r))
+  if (!feature.geometry || !p.name || !region) return null
   if ((p.status ?? 'operating') !== 'operating') return null
   if (!p.activities?.includes('downhill')) return null
 
@@ -104,6 +108,7 @@ export function toCandidate(feature: SkiAreaFeature): Omit<ResortCandidate, 'id'
   if (top == null || base == null || top - base < MIN_VERTICAL_M) return null
 
   const lifts = Object.values(s.lifts?.byType ?? {}).reduce((n, t) => n + (t.count ?? 0), 0)
+  if (lifts < MIN_LIFTS) return null
   const [lon, lat] = representativePoint(feature.geometry)
   return {
     openSkiMapId: p.id,

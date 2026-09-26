@@ -14,7 +14,7 @@ function area(
       status: 'operating',
       activities: ['downhill'],
       websites: [`https://${id}.example`],
-      location: { iso3166_2: 'US-CO' },
+      places: [{ iso3166_2: 'US-CO' }],
       statistics: {
         minElevation: 2400,
         maxElevation: 3600,
@@ -52,22 +52,36 @@ describe('buildCandidates', () => {
     expect(c).toMatchObject({ id: 'aspen', verticalM: 1200, lifts: 9, region: 'US-CO', lat: 39.2 })
   })
 
-  test('drops areas outside v1, closed, nordic-only, small or unnamed', () => {
+  test('drops areas outside v1, closed, nordic-only, small, unnamed or liftless', () => {
     const out = buildCandidates([
-      area('vermont', { location: { iso3166_2: 'US-VT' } }),
+      area('vermont', { places: [{ iso3166_2: 'US-VT' }] }),
       area('closed', { status: 'abandoned' }),
       area('xc', { activities: ['nordic'] }),
       area('bump', { statistics: { minElevation: 1000, maxElevation: 1100 } }),
       area('nameless', { name: null }),
+      area('trails', { statistics: { minElevation: 1000, maxElevation: 2000 } }),
     ])
     expect(out).toEqual([])
+  })
+
+  test('uses the first v1 region of a cross-border area', () => {
+    const [c] = buildCandidates([
+      area('border', { places: [{ iso3166_2: 'US-MT' }, { iso3166_2: 'CA-BC' }] }),
+    ])
+    expect(c.region).toBe('US-MT')
   })
 
   test('sorts by vertical and de-duplicates ids', () => {
     const out = buildCandidates([
       area('a', { name: 'Snow King' }),
-      area('b', { name: 'Snow King', location: { iso3166_2: 'US-WY' } }),
-      area('big', { statistics: { minElevation: 1000, maxElevation: 3000 } }),
+      area('b', { name: 'Snow King', places: [{ iso3166_2: 'US-WY' }] }),
+      area('big', {
+        statistics: {
+          minElevation: 1000,
+          maxElevation: 3000,
+          lifts: { byType: { t_bar: { count: 1 } } },
+        },
+      }),
     ])
     expect(out.map((c) => c.id)).toEqual(['big', 'snow-king', 'snow-king-wy'])
   })
