@@ -268,6 +268,37 @@ service.
 Suggested order: research the satellite and topo sources first and bring a recommendation (they need approval), build
 the style switcher with Standard/Dark/3D while waiting, then the rest. Measure Lighthouse last.
 
+### M5b source research: satellite and topo (2026-09-26, needs owner approval)
+
+Checked live: tile fetches from here, CORS headers, and coverage at Alta (UT), Whistler (BC) and Banff (AB).
+
+**Satellite candidates**
+
+| Source                                        | Coverage                                                         | Licence / terms                                                                                                  | Key / account                                                     |
+| --------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| USGS National Map `USGSImageryOnly`           | US: sharp (NAIP) to z16. **BC/AB: nothing past z11** (tiles 404) | Public domain, no usage limits. Credit requested, not required                                                   | None. CORS `*`                                                    |
+| Esri World Imagery (ArcGIS Location Platform) | Global, high-res                                                 | Commercial use allowed. Free tier 2 M basemap tiles/month, then pay-as-you-go. "Powered by Esri" + source credit | **Free account + API key** (referrer-restricted, sits in the app) |
+| MapTiler Satellite                            | Global                                                           | Free plan is **non-commercial only**; commercial from $29/mo                                                     | Account + key                                                     |
+| EOxCloudless (Sentinel-2)                     | Global, but 10 m pixels: blurry at resort zoom                   | CC BY-NC-SA 4.0 (non-commercial); commercial needs an EOX licence                                                | None for the preview tiles                                        |
+
+Rejected: MapTiler and EOxCloudless (both non-commercial unless you pay).
+
+**Topo candidates**
+
+| Source                                     | What it adds                                                                                     | Licence / terms                                          | Cost / new service                                     |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------- | ------------------------------------------------------ |
+| `maplibre-contour` + our AWS terrain tiles | Contour lines (ft or m) drawn in the browser from the tiles we already load for hillshade and 3D | Library BSD-3. Terrain tiles are AWS Open Data, as today | **No new service.** Adds one small library (~11 KB gz) |
+| USGS National Map `USGSTopo`               | Classic USGS topo raster                                                                         | Public domain                                            | None, but **BC/AB blank past z11**, same as imagery    |
+
+**Recommendation**
+
+- **Topo: `maplibre-contour`.** No new service, works in Canada too, contours sit on our existing hillshade, and the
+  contour interval can follow the cm/inch toggle (metres vs feet). Topo 3D is then just Topo plus the 3D terrain button.
+- **Satellite: Esri World Imagery** because it's the only commercial-OK option that covers BC/AB. It needs you to make
+  a free ArcGIS Location Platform account and give me a referrer-restricted API key. 2 M tiles/month is plenty for now;
+  past that it bills, so set a spending cap on the account.
+  **No-signup fallback:** USGS imagery (US only), with a "No satellite imagery here yet" note when zoomed in over BC/AB.
+
 ## Future: global coverage (owner goal, not yet scoped)
 
 | Piece         | Global?                                                                                                                                     |
