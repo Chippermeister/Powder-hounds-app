@@ -187,7 +187,7 @@ Plan: I generate a draft from OpenSkiMap + each resort's site, and you review.
   `nohrsc.noaa.gov/snowfall_v2/data/YYYYMM/`: `sfav2_CONUS_{6,24,48,72}h_YYYYMMDDHH.tif` at 00Z/12Z, and a daily
   season file `sfav2_CONUS_{YYYY}093012_to_{YYYYMMDD}12.tif`. GeoTIFFs are a plain 0.04° lat/lon grid (−126…−66°,
   21…55°N), float32, LZW, **inches** (checked against the official PNG legend). `src/observed/geotiff.ts` reads them
-  (~150 lines, no dependency) and only decodes the rows it needs. CONUS only: BC/AB resorts get nothing.
+  (~200 lines, no dependency) and only decodes the rows it needs. CONUS only: BC/AB resorts get nothing.
 - **Call budget per run:** 1 AWDB station list (only when a resort is new/moved) + 5 AWDB data calls + 2 NOHRSC folder
   listings + 3 GeoTIFFs (~0.2–2.5 MB each). Hourly: ~120 AWDB and ~120 NOHRSC requests/day, no keys or published caps.
   NOHRSC only changes twice a day, so a 3-hourly observed run would lose nothing if we ever need to trim.
