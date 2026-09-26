@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import RadarMap from './map/RadarMap'
 import RadarControls from './radar/RadarControls'
+import ResortCard from './resorts/ResortCard'
+import { RESORTS } from './resorts/resorts'
 import { useRadarFrames } from './radar/useRadarFrames'
 import { RADAR_PRODUCTS, type RadarProductId } from './radar/wms'
 
@@ -16,6 +18,8 @@ export default function App() {
   const frameIndex = position.frames === frames ? position.index : Math.max(frames.length - 1, 0)
   const setFrameIndex = (index: number) => setPosition({ frames, index })
   const [playing, setPlaying] = useState(true)
+  const [resortId, setResortId] = useState<string | null>(null)
+  const resort = RESORTS.find((r) => r.id === resortId)
 
   // Advance while playing; linger on the newest frame so "now" is easy to read.
   useEffect(() => {
@@ -31,7 +35,14 @@ export default function App() {
   return (
     <main className="relative h-full overflow-hidden">
       <h1 className="sr-only">Powder Hounds</h1>
-      <RadarMap product={product} frames={frames} frameIndex={frameIndex} />
+      <RadarMap
+        product={product}
+        frames={frames}
+        frameIndex={frameIndex}
+        resorts={RESORTS}
+        selectedResortId={resortId}
+        onSelectResort={setResortId}
+      />
       <RadarControls
         productId={productId}
         onProductChange={setProductId}
@@ -42,6 +53,7 @@ export default function App() {
         onPlayingChange={setPlaying}
         error={error}
       />
+      {resort && <ResortCard resort={resort} onClose={() => setResortId(null)} />}
     </main>
   )
 }

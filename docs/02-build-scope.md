@@ -130,3 +130,31 @@ Plan: I generate a draft from OpenSkiMap + each resort's site, and you review.
 - **Tiles:** 512 px WMS tiles; each frame is its own MapLibre layer, preloaded at opacity 0. Animating just swaps opacity.
 - **MapLibre 6 + Vite:** the worker must be built via `?worker&url` + `setWorkerUrl()`, with `worker.format: 'es'`.
 - **Bundle:** MapLibre makes the JS chunk ~1.25 MB (350 KB gzip). Code-split in M5 for Lighthouse.
+
+---
+
+## M2 findings (2026-09-26)
+
+- **Source:** `tiles.openskimap.org/geojson/ski_areas.geojson` (~12,300 ski areas worldwide). `npm run resorts:fetch`
+  writes `data/resorts.openskimap.json`. Region lives in `properties.places[].iso3166_2` (a list: cross-border areas have several).
+- **Filter:** v1 regions, `status: operating`, downhill, ≥ 250 m vertical, ≥ 1 lift → **163 candidates**
+  (BC 34, CO 26, CA 19, UT 16, MT 14, ID 12, WA 11, OR 8, WY 8, NM 8, AB 7, NV 3, AZ 2).
+- **Curation:** `data/resorts.curated.json` = `exclude` (id → reason) + `resorts` (id → optional overrides:
+  `name`, `blurb`, `webcamUrl`, `website`, `lat`, `lon`). A test fails if a curated id no longer matches a candidate.
+  First pass: 20 marquee resorts have blurbs; 15 have verified webcam links. Whistler, Kirkwood, Crystal and Steamboat
+  sit behind bot protection (can't verify from a script); Mt. Baker has no webcam page.
+- **Map:** MapLibre's built-in clustering (`cluster: true`, splits by zoom 9). Tap a cluster → zoom to where it splits;
+  tap a pin → card (summit, vertical, lifts, blurb, webcam + website buttons). Screenshots: `m2-resorts.png`, `m2-card.png`.
+- **Known issue for M5:** on phones the attribution line overlaps the radar panel.
+
+## Future: global coverage (owner goal, not yet scoped)
+
+| Piece         | Global?                                                                                                                                     |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Resorts       | ✅ OpenSkiMap is already global; widen `V1_REGIONS`. Curation effort scales with the number of resorts.                                     |
+| Forecast      | ✅ Open-Meteo is global (NWS is US-only and stays a US bonus).                                                                              |
+| Observed snow | ⚠️ SNOTEL/NOHRSC are US-only; other countries need per-country sources or model snow depth.                                                 |
+| Radar         | ⚠️ No single free global radar. Patchwork of national/regional feeds, with a satellite/model precipitation layer as the fallback elsewhere. |
+
+The radar code already treats each feed as a `RadarProduct`, so adding regions means adding providers, not a rewrite.
+Licensing must be checked per feed before choosing (same rule as RainViewer).

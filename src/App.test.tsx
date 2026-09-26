@@ -3,10 +3,16 @@ import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 import App from './App'
 
 // jsdom has no WebGL, so stand the map in with a stub that shows which frame is active.
+// A button stands in for tapping the Alta pin.
 vi.mock('./map/RadarMap', () => ({
-  default: ({ product, frameIndex }: { product: { id: string }; frameIndex: number }) => (
+  default: (props: {
+    product: { id: string }
+    frameIndex: number
+    onSelectResort: (id: string) => void
+  }) => (
     <div data-testid="map">
-      {product.id}:{frameIndex}
+      {props.product.id}:{props.frameIndex}
+      <button onClick={() => props.onSelectResort('alta-ski-area')}>pin</button>
     </div>
   ),
 }))
@@ -41,4 +47,21 @@ test('switching to snow rate loads GeoMet frames', async () => {
   fireEvent.click(screen.getByRole('radio', { name: 'Snow rate' }))
   // 11 six-minute steps in the hour; 10-minute spacing keeps every other one → 6 frames.
   await waitFor(() => expect(screen.getByTestId('map')).toHaveTextContent('snowRate:5'))
+})
+
+test('tapping a pin opens the resort card with webcam and site links', () => {
+  render(<App />)
+  fireEvent.click(screen.getByRole('button', { name: 'pin' }))
+  const card = screen.getByRole('region', { name: 'Alta' })
+  expect(card).toHaveTextContent('Little Cottonwood')
+  expect(screen.getByRole('link', { name: 'Webcams' })).toHaveAttribute(
+    'href',
+    'https://www.alta.com/weather',
+  )
+  expect(screen.getByRole('link', { name: 'Website' })).toHaveAttribute(
+    'href',
+    'https://www.alta.com/',
+  )
+  fireEvent.click(screen.getByRole('button', { name: 'Close' }))
+  expect(screen.queryByRole('region', { name: 'Alta' })).not.toBeInTheDocument()
 })
