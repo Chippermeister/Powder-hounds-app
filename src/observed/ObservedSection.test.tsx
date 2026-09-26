@@ -54,7 +54,18 @@ test('shows SNOTEL and NOHRSC rows and the 14-day bars', async () => {
   const history = screen.getByRole('table', { name: 'New snow per day' })
   expect(within(history).getByText('Jan 13: 12 in new, 50 in depth')).toBeInTheDocument()
   expect(within(history).getByText('Jan 1: no data')).toBeInTheDocument()
+  expect(within(history).getByText('Jan 2: no new snow, 50 in depth')).toBeInTheDocument()
   expect(screen.getByText(/Season: Sep 30, 2025 – Jan 14, 2026/)).toBeInTheDocument()
+})
+
+test('a dry fortnight gets one line instead of an empty chart', async () => {
+  const dry = days.map((d) => ({ ...d, newCm: d.newCm == null ? null : 0, depthCm: 0 }))
+  stubFetch(Response.json({ ...observed, snotel: { ...observed.snotel!, days: dry } }))
+  render(<ObservedSection resortId="alta-ski-area" />)
+  expect(
+    await screen.findByText('No new snow at the SNOTEL station in the last 14 days.'),
+  ).toBeInTheDocument()
+  expect(screen.queryByRole('img', { name: /New snow per day/ })).not.toBeInTheDocument()
 })
 
 test('says so for resorts outside SNOTEL/NOHRSC coverage', async () => {
