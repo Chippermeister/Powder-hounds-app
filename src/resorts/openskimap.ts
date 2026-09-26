@@ -120,7 +120,8 @@ export function toCandidate(feature: SkiAreaFeature): Omit<ResortCandidate, 'id'
     baseM: Math.round(base),
     verticalM: Math.round(top - base),
     lifts,
-    website: p.websites?.[0] ?? null,
+    // Upgrade to https: the app is served over https, and every major resort site supports it.
+    website: p.websites?.[0]?.replace(/^http:/, 'https:') ?? null,
   }
 }
 

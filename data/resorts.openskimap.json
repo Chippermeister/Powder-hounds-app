@@ -1,7 +1,7 @@
 {
   "source": "https://tiles.openskimap.org/geojson/ski_areas.geojson",
   "license": "ODbL 1.0 — © OpenSkiMap.org contributors, © OpenStreetMap contributors",
-  "fetchedAt": "2026-09-26T00:11:13.861Z",
+  "fetchedAt": "2026-09-26T00:12:51.259Z",
   "resorts": [
     {
       "id": "revelstoke-mountain-resort",
@@ -352,7 +352,7 @@
       "baseM": 2829,
       "verticalM": 913,
       "lifts": 20,
-      "website": "http://keystoneresort.com/"
+      "website": "https://keystoneresort.com/"
     },
     {
       "id": "mammoth-mountain",
@@ -651,7 +651,7 @@
       "baseM": 2791,
       "verticalM": 718,
       "lifts": 8,
-      "website": "http://www.arizonasnowbowl.com/"
+      "website": "https://www.arizonasnowbowl.com/"
     },
     {
       "id": "crested-butte-mountain-resort",
@@ -1496,7 +1496,7 @@
       "baseM": 715,
       "verticalM": 447,
       "lifts": 3,
-      "website": "http://www.shamesmountain.com"
+      "website": "https://www.shamesmountain.com"
     },
     {
       "id": "pajarito-mountain",
@@ -1925,7 +1925,7 @@
       "baseM": 2121,
       "verticalM": 305,
       "lifts": 3,
-      "website": "http://www.mtwaterman.org/"
+      "website": "https://www.mtwaterman.org/"
     },
     {
       "id": "clearwater-ski-hill",
@@ -1938,7 +1938,7 @@
       "baseM": 418,
       "verticalM": 302,
       "lifts": 2,
-      "website": "http://www.clearwaterskihill.com"
+      "website": "https://www.clearwaterskihill.com"
     },
     {
       "id": "hoodoo-ski-area",

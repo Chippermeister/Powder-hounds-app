@@ -48,8 +48,9 @@ describe('representativePoint', () => {
 
 describe('buildCandidates', () => {
   test('keeps operating downhill areas in the v1 regions', () => {
-    const [c] = buildCandidates([area('aspen')])
+    const [c] = buildCandidates([area('aspen', { websites: ['http://aspen.example/'] })])
     expect(c).toMatchObject({ id: 'aspen', verticalM: 1200, lifts: 9, region: 'US-CO', lat: 39.2 })
+    expect(c.website).toBe('https://aspen.example/')
   })
 
   test('drops areas outside v1, closed, nordic-only, small, unnamed or liftless', () => {
