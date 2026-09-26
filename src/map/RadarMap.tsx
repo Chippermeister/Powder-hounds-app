@@ -3,6 +3,8 @@ import { Map as MapLibreMap, NavigationControl, TerrainControl, setWorkerUrl } f
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
 import { useEffect, useRef, useState } from 'react'
 import { RADAR_TILE_SIZE, radarTileUrl, type RadarProduct } from '../radar/wms'
+import type { Resort } from '../resorts/resorts'
+import { addResortLayers, highlightResort } from './resortLayers'
 
 const STYLE_URL = 'https://tiles.openfreemap.org/styles/liberty'
 const TERRAIN_TILES = 'https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'
@@ -16,6 +18,9 @@ interface Props {
   product: RadarProduct
   frames: string[]
   frameIndex: number
+  resorts: Resort[]
+  selectedResortId: string | null
+  onSelectResort: (id: string) => void
 }
 
 const radarId = (i: number) => `radar-${i}`
@@ -24,10 +29,18 @@ const radarId = (i: number) => `radar-${i}`
  * Full-screen map. Every radar frame gets its own layer, all loaded up front at opacity 0.
  * Animating is then just swapping which layer is visible, so there's no network wait between frames.
  */
-export default function RadarMap({ product, frames, frameIndex }: Props) {
+export default function RadarMap(props: Props) {
+  const { product, frames, frameIndex, resorts, selectedResortId } = props
   const container = useRef<HTMLDivElement>(null)
   const mapRef = useRef<MapLibreMap | null>(null)
   const [ready, setReady] = useState(false)
+  // The click handler is registered once on load; read the latest callback through a ref.
+  const onSelectResort = useRef(props.onSelectResort)
+  // The resort list is static for the page's lifetime, so the map is built with the first one.
+  const initialResorts = useRef(resorts)
+  useEffect(() => {
+    onSelectResort.current = props.onSelectResort
+  })
 
   useEffect(() => {
     if (!container.current) return
@@ -60,6 +73,8 @@ export default function RadarMap({ product, frames, frameIndex }: Props) {
         firstSymbolLayer(map),
       )
       map.addControl(new TerrainControl({ source: 'terrain', exaggeration: 1.4 }), 'top-right')
+      // Added last, so pins sit above radar and basemap labels.
+      addResortLayers(map, initialResorts.current, (id) => onSelectResort.current(id))
       setReady(true)
     })
 
@@ -108,6 +123,11 @@ export default function RadarMap({ product, frames, frameIndex }: Props) {
       map.setPaintProperty(radarId(i), 'raster-opacity', i === frameIndex ? RADAR_OPACITY : 0)
     })
   }, [ready, frames, frameIndex])
+
+  useEffect(() => {
+    const map = mapRef.current
+    if (map && ready) highlightResort(map, selectedResortId)
+  }, [ready, selectedResortId])
 
   // MapLibre's CSS forces `position: relative` on the map element, so position a wrapper instead.
   return (

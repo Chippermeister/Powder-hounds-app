@@ -9,7 +9,10 @@ Owner is learning: explain reasoning briefly, but keep it short unless asked to 
 - Phase 2 build scope: APPROVED → `docs/02-build-scope.md`
 - M0 scaffold: DONE (Vite + React + TS, Tailwind v4, Vitest, oxlint, Prettier, CI). Run `npm run check` before committing.
 - M1 map + radar spike: DONE. CORS OK on both radar servers (no proxy); findings in `docs/02-build-scope.md` § M1 findings.
-- Next step: M2 resorts on the map
+- Deploy: LIVE at https://powder-hounds-app.luckyohara.workers.dev (Cloudflare Workers static assets, `wrangler.jsonc`).
+  Auto-deploys on push to the default branch `claude/ski-storm-tracker-app-q5iist` (there is no `main`). Merge work via PR.
+- M2 resorts on the map: DONE (163 resorts, clustering, card). 20 curated so far; findings in `docs/02-build-scope.md` § M2.
+- Next step: M3 forecast pipeline (and more resort curation in batches)
 
 ## Locked decisions (don't re-research)
 
