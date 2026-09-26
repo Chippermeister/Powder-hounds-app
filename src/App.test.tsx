@@ -49,6 +49,24 @@ test('switching to snow rate loads GeoMet frames', async () => {
   await waitFor(() => expect(screen.getByTestId('map')).toHaveTextContent('snowRate:5'))
 })
 
+test('searching for a resort opens its card', async () => {
+  render(<App />)
+  const box = screen.getByRole('combobox', { name: 'Search resorts' })
+  fireEvent.change(box, { target: { value: 'alt' } })
+  const option = screen.getByRole('option', { name: /^Alta/ })
+  fireEvent.mouseDown(option)
+  expect(screen.getByRole('region', { name: 'Alta' })).toBeInTheDocument()
+  expect(screen.queryByRole('listbox')).not.toBeInTheDocument()
+})
+
+test('keyboard: arrows move through matches, Enter picks', () => {
+  render(<App />)
+  const box = screen.getByRole('combobox', { name: 'Search resorts' })
+  fireEvent.change(box, { target: { value: 'alta' } })
+  fireEvent.keyDown(box, { key: 'Enter' })
+  expect(screen.getByRole('region', { name: 'Alta' })).toBeInTheDocument()
+})
+
 test('tapping a pin opens the resort card with webcam and site links', () => {
   render(<App />)
   fireEvent.click(screen.getByRole('button', { name: 'pin' }))

@@ -112,16 +112,7 @@ export default function ForecastSection({ resortId }: { resortId: string }) {
         <>
           <ForecastTable forecast={state.forecast} />
           <p className="text-[10px] text-ink-muted">
-            Updated {updatedAgo(state.forecast.generatedAt)} · Summit/base from{' '}
-            <a
-              href="https://open-meteo.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="underline"
-            >
-              Open-Meteo
-            </a>{' '}
-            (CC BY 4.0), NWS for the surrounding 2.5 km grid cell
+            Updated {updatedAgo(state.forecast.generatedAt)}
           </p>
         </>
       )}
