@@ -147,6 +147,24 @@ Plan: I generate a draft from OpenSkiMap + each resort's site, and you review.
   tap a pin → card (summit, vertical, lifts, blurb, webcam + website buttons). Screenshots: `m2-resorts.png`, `m2-card.png`.
 - **Known issue for M5:** on phones the attribution line overlaps the radar panel.
 
+## M3 findings (2026-09-26)
+
+- **Pipeline:** `npm run forecast` (`scripts/fetch-forecast.ts`) writes `public/forecast/{id}.json` + `index.json`
+  (gitignored; ~4 KB per resort). Vite copies them into `dist/`. The card fetches `/forecast/{id}.json`. A full run takes ~1 min.
+- **Deploys:** Workers Builds runs it automatically before every build (`prebuild`, only when `WORKERS_CI` is set),
+  so each push ships fresh data. `.github/workflows/forecast.yml` refreshes hourly (`:17`) and runs `wrangler deploy`,
+  which **needs repo secrets `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`** (skips the deploy until they exist).
+- **Open-Meteo `snowfall` ignores `elevation=`.** It's the model cell's snow, so a base at +7 °C still "gets" 13 cm.
+  Temperature _is_ downscaled, so we compute snow from hourly precipitation × rain/snow split (all snow ≤ 0 °C, all rain
+  ≥ 2 °C) × snow ratio (10:1 near freezing → 15:1 when cold). Simple on purpose; tested in `openMeteo.test.ts`.
+- **Open-Meteo budget:** one request per 40 resorts, but each location counts as a call: 159 × 2 = 318 per run,
+  ~7.6k/day hourly against the 10k/day free cap. Adding many resorts means going 2-hourly or paying.
+- **NWS:** `/points` lookups are stable, cached in `data/nws-grid.json` (commit it after adding resorts). Gridpoint
+  `snowfallAmount` comes in 6 h ISO intervals (UTC); we split them by hour into local days. Grid cells are 2.5 km,
+  so NWS elevation often sits well below the summit (e.g. Timberline: grid 4,843 ft vs summit 8,481 ft). The card labels each row's elevation.
+- **"Today"** includes hours that have already passed, for both sources.
+- Units are inches on the card for now; a cm toggle for BC/AB fits M5.
+
 ## Future: global coverage (owner goal, not yet scoped)
 
 | Piece         | Global?                                                                                                                                     |
