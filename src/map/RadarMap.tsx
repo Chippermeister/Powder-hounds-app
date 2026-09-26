@@ -15,7 +15,15 @@ import type { Resort } from '../resorts/resorts'
 import { isClear, measurePadding } from './padding'
 import { addResortLayers, highlightResort, setResortSnow } from './resortLayers'
 import { CONTOUR_LAYERS, CONTOUR_SOURCE, TERRAIN_TILES, contourSource } from './contours'
-import { MAP_STYLES, carryOver, firstLabelIndex, type MapStyle, type MapStyleId } from './styles'
+import { satelliteBase, satelliteSource } from './satellite'
+import {
+  MAP_STYLES,
+  carryOver,
+  firstLabelIndex,
+  type Extras,
+  type MapStyle,
+  type MapStyleId,
+} from './styles'
 
 const RADAR_OPACITY = 0.75
 /** Zoom a search jumps to: close enough to see the resort's neighbours by name. */
@@ -74,7 +82,6 @@ export default function RadarMap(props: Props) {
     const small = window.matchMedia?.('(max-width: 640px)').matches ?? false
     const map = new MapLibreMap({
       container: container.current,
-      style: MAP_STYLES[appliedStyle.current].url,
       // First view: every resort, clear of the search box and radar panel.
       bounds: boundsOf(initialResorts.current),
       fitBoundsOptions: { padding: measurePadding(container.current) },
@@ -83,6 +90,8 @@ export default function RadarMap(props: Props) {
       attributionControl: { compact: small, customAttribution: OPEN_METEO_CREDIT },
     })
     mapRef.current = map
+    // Loaded here rather than via `style:` so the first style goes through the same reshaping as later swaps.
+    applyStyle(map, MAP_STYLES[appliedStyle.current])
     map.addControl(new NavigationControl({ visualizePitch: true }), 'top-right')
     // MapLibre opens a compact attribution at first and only folds it on the first drag.
     if (small) {
@@ -111,7 +120,7 @@ export default function RadarMap(props: Props) {
         },
         firstSymbolLayer(map),
       )
-      const contours = contoursFor(MAP_STYLES[appliedStyle.current])
+      const { contours } = extrasFor(MAP_STYLES[appliedStyle.current])
       if (contours) {
         map.addSource(contours.id, contours.source)
         for (const l of contours.layers) map.addLayer(l, firstSymbolLayer(map))
@@ -137,12 +146,8 @@ export default function RadarMap(props: Props) {
   useEffect(() => {
     const map = mapRef.current
     if (!map || !ready || props.mapStyle === appliedStyle.current) return
-    const style = MAP_STYLES[props.mapStyle]
-    appliedStyle.current = style.id
-    const contours = contoursFor(style)
-    map.setStyle(style.url, {
-      transformStyle: (prev, next) => carryOver(prev, next, style, contours),
-    })
+    appliedStyle.current = props.mapStyle
+    applyStyle(map, MAP_STYLES[props.mapStyle])
   }, [ready, props.mapStyle])
 
   // (Re)build radar layers when the product or frame list changes.
@@ -233,8 +238,17 @@ function firstSymbolLayer(map: MapLibreMap): string | undefined {
   return layers[firstLabelIndex(layers)]?.id
 }
 
-function contoursFor(style: MapStyle) {
-  return style.contours
-    ? { id: CONTOUR_SOURCE, source: contourSource(), layers: CONTOUR_LAYERS }
-    : undefined
+function extrasFor(style: MapStyle): Extras {
+  const satellite = style.satellite ? satelliteSource() : undefined
+  return {
+    contours: style.contours
+      ? { id: CONTOUR_SOURCE, source: contourSource(), layers: CONTOUR_LAYERS }
+      : undefined,
+    base: satellite && ((next) => satelliteBase(next, satellite)),
+  }
+}
+
+function applyStyle(map: MapLibreMap, style: MapStyle) {
+  const extras = extrasFor(style)
+  map.setStyle(style.url, { transformStyle: (prev, next) => carryOver(prev, next, style, extras) })
 }

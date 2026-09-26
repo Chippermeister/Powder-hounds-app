@@ -2,6 +2,7 @@
 # build, and deploy to Cloudflare. Pushes still deploy through Workers Builds (which also fetches both, via "prebuild").
 # Needs repo secrets CLOUDFLARE_API_TOKEN ("Edit Cloudflare Workers" template) and CLOUDFLARE_ACCOUNT_ID.
 # Until they exist, the job fetches and builds but skips the deploy.
+# Optional secret ESRI_API_KEY: satellite imagery outside the US (see src/map/satellite.ts).
 name: Forecast
 
 on:
@@ -20,6 +21,7 @@ jobs:
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      VITE_ESRI_API_KEY: ${{ secrets.ESRI_API_KEY }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7

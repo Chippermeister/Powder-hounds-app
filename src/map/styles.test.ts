@@ -97,7 +97,7 @@ test('Topo adds contours above the hillshade; leaving Topo drops them', () => {
     standard,
     style([layer('bg', 'background'), layer('place', 'symbol')], ['openmaptiles']),
     MAP_STYLES.topo,
-    contours,
+    { contours },
   )
   expect(topo.layers.map((l) => l.id)).toEqual([
     'bg',
@@ -118,6 +118,12 @@ test('Topo adds contours above the hillshade; leaving Topo drops them', () => {
   )
   expect(back.layers.map((l) => l.id)).toEqual(['bg', 'hillshade', 'radar-0', 'place'])
   expect(back.sources.contours).toBeUndefined()
+})
+
+test('a base transform reshapes the new style, even on first load', () => {
+  const downloaded = style([layer('bg', 'background'), layer('place', 'symbol')], ['openmaptiles'])
+  const base = (s: StyleSpecification) => ({ ...s, layers: s.layers.slice(1) })
+  expect(carryOver(undefined, downloaded, MAP_STYLES.satellite, { base }).layers).toHaveLength(1)
 })
 
 test('remembers the pick, and ignores junk or broken storage', () => {

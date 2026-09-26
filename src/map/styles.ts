@@ -5,7 +5,7 @@ import type {
   StyleSpecification,
 } from 'maplibre-gl'
 
-export type MapStyleId = 'standard' | 'dark' | 'topo'
+export type MapStyleId = 'standard' | 'dark' | 'topo' | 'satellite'
 
 export interface MapStyle {
   id: MapStyleId
@@ -15,6 +15,8 @@ export interface MapStyle {
   hillshade: HillshadeLayerSpecification['paint']
   /** Draw contour lines (src/map/contours.ts). */
   contours?: boolean
+  /** Imagery under the basemap's labels (src/map/satellite.ts). */
+  satellite?: boolean
 }
 
 /** Basemaps the user can pick. Radar, pins and hillshade are ours and ride along on every one. */
@@ -41,6 +43,14 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
     url: 'https://tiles.openfreemap.org/styles/liberty',
     hillshade: { 'hillshade-exaggeration': 0.5, 'hillshade-shadow-color': '#3d4a5c' },
     contours: true,
+  },
+  satellite: {
+    id: 'satellite',
+    label: 'Satellite',
+    url: 'https://tiles.openfreemap.org/styles/liberty',
+    // Photos already show the relief.
+    hillshade: { 'hillshade-exaggeration': 0 },
+    satellite: true,
   },
 }
 
@@ -92,6 +102,12 @@ export interface Contours {
   layers: LayerSpecification[]
 }
 
+export interface Extras {
+  contours?: Contours
+  /** Reshapes the downloaded basemap before our layers go in (satellite: imagery + labels only). */
+  base?: (next: StyleSpecification) => StyleSpecification
+}
+
 /**
  * `setStyle` replaces everything, so copy our sources and layers from the old style into the new one.
  * Layers that sat under the old basemap's labels (hillshade, radar) go under the new one's labels;
@@ -100,10 +116,11 @@ export interface Contours {
  */
 export function carryOver(
   prev: StyleSpecification | undefined,
-  next: StyleSpecification,
+  downloaded: StyleSpecification,
   target: MapStyle,
-  contours?: Contours,
+  { contours, base }: Extras = {},
 ): StyleSpecification {
+  const next = base ? base(downloaded) : downloaded
   if (!prev) return next
   const keep = (id: string) => isOwnId(id) && (!isContourId(id) || !!contours)
   const sources = Object.fromEntries(Object.entries(prev.sources).filter(([id]) => keep(id)))
