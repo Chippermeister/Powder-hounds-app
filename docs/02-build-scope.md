@@ -299,6 +299,18 @@ Rejected: MapTiler and EOxCloudless (both non-commercial unless you pay).
   past that it bills, so set a spending cap on the account.
   **No-signup fallback:** USGS imagery (US only), with a "No satellite imagery here yet" note when zoomed in over BC/AB.
 
+### M5b progress (2026-09-26)
+
+- **Style switcher built** with Standard (OpenFreeMap Liberty) and Dark (OpenFreeMap Dark). Layers button sits under
+  the 3D button in the map's control stack. With no saved choice the basemap follows the OS light/dark setting, so the
+  review's "panels dark, map light" bug is fixed. A pick is saved in `localStorage`.
+- **How the swap works:** MapLibre's `setStyle` throws away every layer, so `carryOver` (`src/map/styles.ts`) copies
+  our sources and layers (radar frames, pins, hillshade, 3D terrain) into the new style: radar and hillshade under its
+  labels, pins on top. Checked in Chromium: radar, pins, current frame and 3D terrain all survive a swap.
+- The Dark style gets its own hillshade colours: the default white highlights glared on black.
+- **3D:** the existing 3D terrain button works on every style, so Topo 3D = Topo + that button (no separate entry).
+- Upstream quirk: OpenFreeMap Dark logs a harmless "circle-11 could not be loaded" console warning (its own sprite).
+
 ## Future: global coverage (owner goal, not yet scoped)
 
 | Piece         | Global?                                                                                                                                     |
