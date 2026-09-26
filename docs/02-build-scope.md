@@ -165,6 +165,37 @@ Plan: I generate a draft from OpenSkiMap + each resort's site, and you review.
 - **"Today"** includes hours that have already passed, for both sources.
 - Units are inches on the card for now; a cm toggle for BC/AB fits M5.
 
+## M4 findings (2026-09-26)
+
+- **Pipeline:** `npm run observed` (`scripts/fetch-observed.ts`) writes `public/observed/{id}.json` + `index.json`
+  (gitignored; ~4 KB per resort). It's a sibling of the forecast script: same `prebuild` in Workers Builds, same hourly
+  Forecast workflow (now "fetch forecast, fetch observed, build, deploy"). A full run takes ~15 s. Shared fetch/retry code
+  moved to `scripts/lib.ts`.
+- **SNOTEL (AWDB REST, no key):** `/stations?stationTriplets=*:*:SNTL&activeOnly=true` lists 919 stations (elevation in
+  **feet**). `/data?stationTriplets=a,b,c&elements=SNWD,WTEQ&duration=HOURLY` takes many stations per call; dates are
+  station-local **standard** time (`dataTimeZone`, e.g. −8). We fetch 15 days hourly, 25 stations per call.
+- **Station matching:** nearest station within 30 km whose elevation is between base − 300 m and summit + 150 m.
+  Cached (with up to 3 candidates) in `data/snotel-stations.json`; commit it after adding resorts, `--rematch` redoes all.
+  105 of 120 US resorts match (median 4 km). Misses are mostly California (it uses CDEC, not SNOTEL): Mammoth, June,
+  SoCal areas, China Peak, Dodge Ridge, Shasta; plus Whitefish, 49° North, Sandia, Kelly Canyon.
+- **New snow from depth:** SNOTEL measures depth, not snowfall. We median-filter hourly depth (5 h) and add up climbs;
+  a climb ends when depth drops >1″ below its peak, and climbs of ≤1″ are ignored (the sensor reads whole inches and
+  jitters ±1). Checked on Snowbird-area data Jan–Mar 2026: every remaining snow day lined up with a SWE gain. It's
+  settled snow, so it reads lower than a snow stake; the card says so. SNOTEL gives no season total (NOHRSC does).
+- **NOHRSC snowfall is not on the ArcGIS server.** `mapservices.weather.noaa.gov/.../NOHRSC_Snow_Analysis` only has
+  SNODAS depth + SWE, so there's no "identify" for snowfall. The National Snowfall Analysis v2 is published as files at
+  `nohrsc.noaa.gov/snowfall_v2/data/YYYYMM/`: `sfav2_CONUS_{6,24,48,72}h_YYYYMMDDHH.tif` at 00Z/12Z, and a daily
+  season file `sfav2_CONUS_{YYYY}093012_to_{YYYYMMDD}12.tif`. GeoTIFFs are a plain 0.04° lat/lon grid (−126…−66°,
+  21…55°N), float32, LZW, **inches** (checked against the official PNG legend). `src/observed/geotiff.ts` reads them
+  (~150 lines, no dependency) and only decodes the rows it needs. CONUS only: BC/AB resorts get nothing.
+- **Call budget per run:** 1 AWDB station list (only when a resort is new/moved) + 5 AWDB data calls + 2 NOHRSC folder
+  listings + 3 GeoTIFFs (~0.2–2.5 MB each). Hourly: ~120 AWDB and ~120 NOHRSC requests/day, no keys or published caps.
+  NOHRSC only changes twice a day, so a 3-hourly observed run would lose nothing if we ever need to trim.
+- **Season window:** NOHRSC's season starts Sep 30 12Z, so until Oct 1 the card shows last season's total, labelled
+  with its dates.
+- **Not done (optional):** NOHRSC 72h map layer. The ArcGIS server doesn't have it; doing it means colouring the 72h
+  GeoTIFF into a PNG in the pipeline and adding it as a MapLibre image source. A candidate for the M5 UI review.
+
 ## Future: global coverage (owner goal, not yet scoped)
 
 | Piece         | Global?                                                                                                                                     |
