@@ -1,5 +1,5 @@
-# Hourly forecast refresh: fetch NWS + Open-Meteo, build, and deploy to Cloudflare.
-# Pushes still deploy through Workers Builds (which also fetches forecasts, via "prebuild").
+# Hourly data refresh: fetch forecasts (NWS + Open-Meteo) and observed snow (SNOTEL + NOHRSC),
+# build, and deploy to Cloudflare. Pushes still deploy through Workers Builds (which also fetches both, via "prebuild").
 # Needs repo secrets CLOUDFLARE_API_TOKEN ("Edit Cloudflare Workers" template) and CLOUDFLARE_ACCOUNT_ID.
 # Until they exist, the job fetches and builds but skips the deploy.
 name: Forecast
@@ -28,6 +28,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run forecast
+      - run: npm run observed
       - run: npm run build
       - name: Deploy
         if: env.CLOUDFLARE_API_TOKEN != ''

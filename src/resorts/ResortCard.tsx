@@ -1,4 +1,5 @@
 import ForecastSection from '../forecast/ForecastSection'
+import ObservedSection from '../observed/ObservedSection'
 import { regionLabel, type Resort } from './resorts'
 
 interface Props {
@@ -8,7 +9,7 @@ interface Props {
 
 const ft = (m: number) => Math.round(m * 3.28084).toLocaleString()
 
-/** Tap-a-pin card. M4 adds observed snow below the forecast. */
+/** Tap-a-pin card: stats, snow forecast, observed snow, links. */
 export default function ResortCard({ resort, onClose }: Props) {
   return (
     <section
@@ -43,6 +44,7 @@ export default function ResortCard({ resort, onClose }: Props) {
       </dl>
 
       <ForecastSection resortId={resort.id} />
+      <ObservedSection resortId={resort.id} />
 
       {resort.blurb && <p className="text-sm leading-relaxed">{resort.blurb}</p>}
 

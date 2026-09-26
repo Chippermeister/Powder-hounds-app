@@ -107,8 +107,9 @@ license written down next to it so we never build the product on data we can't s
 ### NOHRSC National Gridded Snowfall Analysis (gridded, all US)
 
 - 6/24/48/72-hour and **season-to-date** snowfall grids (season resets Oct 1), updated 4×/day.
-- Available as WMS/ArcGIS (`mapservices.weather.noaa.gov/raster/rest/services/snow/NOHRSC_Snow_Analysis/MapServer`)
-  and as GRIB2/netCDF from `nohrsc.noaa.gov/archived_data/`.
+- Available as GeoTIFF/netCDF/GRIB2 files from `nohrsc.noaa.gov/snowfall_v2/data/YYYYMM/` (units: inches).
+  _Correction (M4):_ the ArcGIS service `mapservices.weather.noaa.gov/.../NOHRSC_Snow_Analysis` only has SNODAS
+  depth/SWE, not snowfall. See `docs/02-build-scope.md` § M4 findings.
 - Doubles as a **map overlay** ("where did it snow the last 72h?") as well as a per-resort value.
 
 ### GHCN-Daily via RCC-ACIS (long-term history)

@@ -14,7 +14,9 @@ Owner is learning: explain reasoning briefly, but keep it short unless asked to 
 - M2 resorts on the map: DONE (163 resorts, clustering, card). 20 curated so far; findings in `docs/02-build-scope.md` § M2.
 - M3 forecast pipeline: DONE (NWS + Open-Meteo base/summit → static JSON, card table). Hourly deploy needs
   `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID` repo secrets. Findings in `docs/02-build-scope.md` § M3.
-- Next step: M4 observed snow (and more resort curation in batches)
+- M4 observed snow: DONE (SNOTEL + NOHRSC → `public/observed/*.json`, card table + 14-day bars). Findings in
+  `docs/02-build-scope.md` § M4. NOHRSC 72h map layer not built (optional).
+- Next step: owner reviews every feature and plans UI changes, then M5
 
 ## Locked decisions (don't re-research)
 

@@ -1,0 +1,3101 @@
+{
+  "49-north-mountain-resort": {
+    "lat": 48.2937,
+    "lon": -117.5615,
+    "stations": []
+  },
+  "alpental": {
+    "lat": 47.4441,
+    "lon": -121.4316,
+    "stations": [
+      {
+        "triplet": "672:WA:SNTL",
+        "name": "Olallie Meadows",
+        "lat": 47.37406,
+        "lon": -121.44213,
+        "elevationM": 1222,
+        "distanceKm": 7.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "899:WA:SNTL",
+        "name": "Tinkham Creek",
+        "lat": 47.33198,
+        "lon": -121.46975,
+        "elevationM": 914,
+        "distanceKm": 12.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "898:WA:SNTL",
+        "name": "Mount Gardner",
+        "lat": 47.35768,
+        "lon": -121.56812,
+        "elevationM": 893,
+        "distanceKm": 14.1,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "alta-ski-area": {
+    "lat": 40.5799,
+    "lon": -111.6223,
+    "stations": [
+      {
+        "triplet": "1308:UT:SNTL",
+        "name": "Atwater",
+        "lat": 40.59124,
+        "lon": -111.63775,
+        "elevationM": 2667,
+        "distanceKm": 1.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "766:UT:SNTL",
+        "name": "Snowbird",
+        "lat": 40.56914,
+        "lon": -111.65852,
+        "elevationM": 2795,
+        "distanceKm": 3.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "366:UT:SNTL",
+        "name": "Brighton",
+        "lat": 40.59936,
+        "lon": -111.58167,
+        "elevationM": 2679,
+        "distanceKm": 4.1,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "angel-fire-resort": {
+    "lat": 36.3816,
+    "lon": -105.2495,
+    "stations": [
+      {
+        "triplet": "1170:NM:SNTL",
+        "name": "Palo",
+        "lat": 36.40869,
+        "lon": -105.33038,
+        "elevationM": 2844,
+        "distanceKm": 7.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "934:NM:SNTL",
+        "name": "Tolby",
+        "lat": 36.47498,
+        "lon": -105.19534,
+        "elevationM": 3112,
+        "distanceKm": 11.5,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1307:NM:SNTL",
+        "name": "Taos Pueblo",
+        "lat": 36.54099,
+        "lon": -105.35944,
+        "elevationM": 3350,
+        "distanceKm": 20.3,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "antelope-butte": {
+    "lat": 44.6055,
+    "lon": -107.5124,
+    "stations": [
+      {
+        "triplet": "358:WY:SNTL",
+        "name": "Bone Springs Div",
+        "lat": 44.67881,
+        "lon": -107.5811,
+        "elevationM": 2847,
+        "distanceKm": 9.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "751:WY:SNTL",
+        "name": "Shell Creek",
+        "lat": 44.50012,
+        "lon": -107.42947,
+        "elevationM": 2917,
+        "distanceKm": 13.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "798:WY:SNTL",
+        "name": "Sucker Creek",
+        "lat": 44.72279,
+        "lon": -107.40035,
+        "elevationM": 2694,
+        "distanceKm": 15.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "arapahoe-basin": {
+    "lat": 39.6315,
+    "lon": -105.8771,
+    "stations": [
+      {
+        "triplet": "505:CO:SNTL",
+        "name": "Grizzly Peak",
+        "lat": 39.64646,
+        "lon": -105.8694,
+        "elevationM": 3386,
+        "distanceKm": 1.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "602:CO:SNTL",
+        "name": "Loveland Basin",
+        "lat": 39.67428,
+        "lon": -105.90264,
+        "elevationM": 3478,
+        "distanceKm": 5.2,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "935:CO:SNTL",
+        "name": "Jackwhacker Gulch",
+        "lat": 39.57096,
+        "lon": -105.80355,
+        "elevationM": 3362,
+        "distanceKm": 9.2,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "arizona-snowbowl": {
+    "lat": 35.3292,
+    "lon": -111.698,
+    "stations": [
+      {
+        "triplet": "927:AZ:SNTL",
+        "name": "Snowslide Canyon",
+        "lat": 35.34179,
+        "lon": -111.65084,
+        "elevationM": 2963,
+        "distanceKm": 4.5,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "aspen-highlands": {
+    "lat": 39.1637,
+    "lon": -106.8616,
+    "stations": [
+      {
+        "triplet": "1326:CO:SNTL",
+        "name": "Castle Peak",
+        "lat": 39.00074,
+        "lon": -106.83912,
+        "elevationM": 3508,
+        "distanceKm": 18.2,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1141:CO:SNTL",
+        "name": "Upper Taylor",
+        "lat": 38.99071,
+        "lon": -106.74504,
+        "elevationM": 3264,
+        "distanceKm": 21.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1101:CO:SNTL",
+        "name": "Chapman Tunnel",
+        "lat": 39.2621,
+        "lon": -106.62944,
+        "elevationM": 3075,
+        "distanceKm": 22.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "aspen-mountain": {
+    "lat": 39.1656,
+    "lon": -106.8193,
+    "stations": [
+      {
+        "triplet": "1326:CO:SNTL",
+        "name": "Castle Peak",
+        "lat": 39.00074,
+        "lon": -106.83912,
+        "elevationM": 3508,
+        "distanceKm": 18.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1101:CO:SNTL",
+        "name": "Chapman Tunnel",
+        "lat": 39.2621,
+        "lon": -106.62944,
+        "elevationM": 3075,
+        "distanceKm": 19.6,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "542:CO:SNTL",
+        "name": "Independence Pass",
+        "lat": 39.07543,
+        "lon": -106.61154,
+        "elevationM": 3222,
+        "distanceKm": 20.5,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "aspen-snowmass": {
+    "lat": 39.1986,
+    "lon": -106.9498,
+    "stations": [
+      {
+        "triplet": "669:CO:SNTL",
+        "name": "North Lost Trail",
+        "lat": 39.07818,
+        "lon": -107.14388,
+        "elevationM": 2801,
+        "distanceKm": 21.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "737:CO:SNTL",
+        "name": "Schofield Pass",
+        "lat": 39.01467,
+        "lon": -107.04933,
+        "elevationM": 3243,
+        "distanceKm": 22.2,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1326:CO:SNTL",
+        "name": "Castle Peak",
+        "lat": 39.00074,
+        "lon": -106.83912,
+        "elevationM": 3508,
+        "distanceKm": 24,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "bear-mountain": {
+    "lat": 34.2197,
+    "lon": -116.8605,
+    "stations": []
+  },
+  "bear-paw-ski-bowl": {
+    "lat": 48.1642,
+    "lon": -109.6702,
+    "stations": [
+      {
+        "triplet": "917:MT:SNTL",
+        "name": "Rocky Boy",
+        "lat": 48.17478,
+        "lon": -109.64728,
+        "elevationM": 1442,
+        "distanceKm": 2.1,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "bear-valley": {
+    "lat": 38.4827,
+    "lon": -120.0496,
+    "stations": [
+      {
+        "triplet": "356:CA:SNTL",
+        "name": "Blue Lakes",
+        "lat": 38.60801,
+        "lon": -119.92455,
+        "elevationM": 2457,
+        "distanceKm": 17.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1331:CA:SNTL",
+        "name": "Lost Lakes",
+        "lat": 38.64745,
+        "lon": -119.95141,
+        "elevationM": 2633,
+        "distanceKm": 20.2,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "462:CA:SNTL",
+        "name": "Ebbetts Pass",
+        "lat": 38.5497,
+        "lon": -119.80468,
+        "elevationM": 2640,
+        "distanceKm": 22.6,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "beaver-creek": {
+    "lat": 39.6134,
+    "lon": -106.5358,
+    "stations": [
+      {
+        "triplet": "1040:CO:SNTL",
+        "name": "Mccoy Park",
+        "lat": 39.60231,
+        "lon": -106.544,
+        "elevationM": 2896,
+        "distanceKm": 1.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1041:CO:SNTL",
+        "name": "Beaver Ck Village",
+        "lat": 39.59871,
+        "lon": -106.51113,
+        "elevationM": 2600,
+        "distanceKm": 2.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "842:CO:SNTL",
+        "name": "Vail Mountain",
+        "lat": 39.61765,
+        "lon": -106.38019,
+        "elevationM": 3136,
+        "distanceKm": 13.3,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "beaver-mountain": {
+    "lat": 41.9718,
+    "lon": -111.5501,
+    "stations": [
+      {
+        "triplet": "1115:UT:SNTL",
+        "name": "Klondike Narrows",
+        "lat": 41.96769,
+        "lon": -111.59713,
+        "elevationM": 2219,
+        "distanceKm": 3.9,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1114:UT:SNTL",
+        "name": "Garden City Summit",
+        "lat": 41.9215,
+        "lon": -111.4693,
+        "elevationM": 2341,
+        "distanceKm": 8.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "484:ID:SNTL",
+        "name": "Franklin Basin",
+        "lat": 42.0505,
+        "lon": -111.6012,
+        "elevationM": 2481,
+        "distanceKm": 9.7,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "big-sky-resort": {
+    "lat": 45.2739,
+    "lon": -111.4194,
+    "stations": [
+      {
+        "triplet": "590:MT:SNTL",
+        "name": "Lone Mountain",
+        "lat": 45.27412,
+        "lon": -111.42692,
+        "elevationM": 2688,
+        "distanceKm": 0.6,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "blacktail-mountain-ski-area": {
+    "lat": 48.0229,
+    "lon": -114.3735,
+    "stations": [
+      {
+        "triplet": "1144:MT:SNTL",
+        "name": "Blacktail Mtn",
+        "lat": 47.98317,
+        "lon": -114.35443,
+        "elevationM": 1725,
+        "distanceKm": 4.6,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "bluewood": {
+    "lat": 46.0764,
+    "lon": -117.8512,
+    "stations": [
+      {
+        "triplet": "824:WA:SNTL",
+        "name": "Touchet",
+        "lat": 46.11868,
+        "lon": -117.8505,
+        "elevationM": 1682,
+        "distanceKm": 4.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1079:OR:SNTL",
+        "name": "Milk Shakes",
+        "lat": 45.9821,
+        "lon": -117.94883,
+        "elevationM": 1701,
+        "distanceKm": 12.9,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "984:WA:SNTL",
+        "name": "Spruce Springs",
+        "lat": 46.18287,
+        "lon": -117.54155,
+        "elevationM": 1734,
+        "distanceKm": 26.6,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "bogus-basin-mountain-recreation-area": {
+    "lat": 43.7703,
+    "lon": -116.0932,
+    "stations": [
+      {
+        "triplet": "978:ID:SNTL",
+        "name": "Bogus Basin",
+        "lat": 43.76377,
+        "lon": -116.09685,
+        "elevationM": 1942,
+        "distanceKm": 0.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "breckenridge": {
+    "lat": 39.4784,
+    "lon": -106.0606,
+    "stations": [
+      {
+        "triplet": "415:CO:SNTL",
+        "name": "Copper Mountain",
+        "lat": 39.48917,
+        "lon": -106.17154,
+        "elevationM": 3200,
+        "distanceKm": 9.6,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "531:CO:SNTL",
+        "name": "Hoosier Pass",
+        "lat": 39.36092,
+        "lon": -106.05999,
+        "elevationM": 3536,
+        "distanceKm": 13.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "937:CO:SNTL",
+        "name": "Michigan Creek",
+        "lat": 39.43579,
+        "lon": -105.91072,
+        "elevationM": 3261,
+        "distanceKm": 13.7,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "brian-head-resort": {
+    "lat": 37.6892,
+    "lon": -112.8461,
+    "stations": [
+      {
+        "triplet": "1154:UT:SNTL",
+        "name": "Brian Head",
+        "lat": 37.67994,
+        "lon": -112.85674,
+        "elevationM": 3060,
+        "distanceKm": 1.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1197:UT:SNTL",
+        "name": "Yankee Reservoir",
+        "lat": 37.74797,
+        "lon": -112.77495,
+        "elevationM": 2646,
+        "distanceKm": 9,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "390:UT:SNTL",
+        "name": "Castle Valley",
+        "lat": 37.66098,
+        "lon": -112.74093,
+        "elevationM": 2926,
+        "distanceKm": 9.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "bridger-bowl": {
+    "lat": 45.818,
+    "lon": -110.9123,
+    "stations": [
+      {
+        "triplet": "929:MT:SNTL",
+        "name": "Sacajawea",
+        "lat": 45.87395,
+        "lon": -110.92783,
+        "elevationM": 2015,
+        "distanceKm": 6.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "365:MT:SNTL",
+        "name": "Brackett Creek",
+        "lat": 45.89107,
+        "lon": -110.93851,
+        "elevationM": 2246,
+        "distanceKm": 8.4,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "brighton-resort": {
+    "lat": 40.5946,
+    "lon": -111.582,
+    "stations": [
+      {
+        "triplet": "366:UT:SNTL",
+        "name": "Brighton",
+        "lat": 40.59936,
+        "lon": -111.58167,
+        "elevationM": 2679,
+        "distanceKm": 0.5,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1308:UT:SNTL",
+        "name": "Atwater",
+        "lat": 40.59124,
+        "lon": -111.63775,
+        "elevationM": 2667,
+        "distanceKm": 4.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "814:UT:SNTL",
+        "name": "Thaynes Canyon",
+        "lat": 40.6235,
+        "lon": -111.53322,
+        "elevationM": 2822,
+        "distanceKm": 5.2,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "brundage-mountain": {
+    "lat": 44.9998,
+    "lon": -116.1426,
+    "stations": [
+      {
+        "triplet": "370:ID:SNTL",
+        "name": "Brundage Reservoir",
+        "lat": 45.04315,
+        "lon": -116.13253,
+        "elevationM": 1914,
+        "distanceKm": 4.9,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "319:ID:SNTL",
+        "name": "Bear Basin",
+        "lat": 44.95222,
+        "lon": -116.14293,
+        "elevationM": 1631,
+        "distanceKm": 5.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "740:ID:SNTL",
+        "name": "Secesh Summit",
+        "lat": 45.18848,
+        "lon": -115.97152,
+        "elevationM": 1990,
+        "distanceKm": 24.9,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "buttermilk": {
+    "lat": 39.1923,
+    "lon": -106.8701,
+    "stations": [
+      {
+        "triplet": "1101:CO:SNTL",
+        "name": "Chapman Tunnel",
+        "lat": 39.2621,
+        "lon": -106.62944,
+        "elevationM": 3075,
+        "distanceKm": 22.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "658:CO:SNTL",
+        "name": "Nast Lake",
+        "lat": 39.29695,
+        "lon": -106.60786,
+        "elevationM": 2655,
+        "distanceKm": 25.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "556:CO:SNTL",
+        "name": "Kiln",
+        "lat": 39.3172,
+        "lon": -106.61501,
+        "elevationM": 2929,
+        "distanceKm": 26,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "cherry-peak-ski-area": {
+    "lat": 41.9252,
+    "lon": -111.754,
+    "stations": [
+      {
+        "triplet": "1115:UT:SNTL",
+        "name": "Klondike Narrows",
+        "lat": 41.96769,
+        "lon": -111.59713,
+        "elevationM": 2219,
+        "distanceKm": 13.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1113:UT:SNTL",
+        "name": "Tony Grove RS",
+        "lat": 41.88573,
+        "lon": -111.56918,
+        "elevationM": 1926,
+        "distanceKm": 15.9,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1013:UT:SNTL",
+        "name": "Temple Fork",
+        "lat": 41.793,
+        "lon": -111.54605,
+        "elevationM": 2262,
+        "distanceKm": 22.6,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "china-peak-mountain-resort": {
+    "lat": 37.2264,
+    "lon": -119.1581,
+    "stations": []
+  },
+  "copper-mountain": {
+    "lat": 39.4915,
+    "lon": -106.1584,
+    "stations": [
+      {
+        "triplet": "415:CO:SNTL",
+        "name": "Copper Mountain",
+        "lat": 39.48917,
+        "lon": -106.17154,
+        "elevationM": 3200,
+        "distanceKm": 1.2,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "485:CO:SNTL",
+        "name": "Fremont Pass",
+        "lat": 39.38014,
+        "lon": -106.19784,
+        "elevationM": 3447,
+        "distanceKm": 12.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "531:CO:SNTL",
+        "name": "Hoosier Pass",
+        "lat": 39.36092,
+        "lon": -106.05999,
+        "elevationM": 3536,
+        "distanceKm": 16.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "crested-butte-mountain-resort": {
+    "lat": 38.8994,
+    "lon": -106.9498,
+    "stations": [
+      {
+        "triplet": "380:CO:SNTL",
+        "name": "Butte",
+        "lat": 38.89435,
+        "lon": -106.95327,
+        "elevationM": 3106,
+        "distanceKm": 0.6,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1326:CO:SNTL",
+        "name": "Castle Peak",
+        "lat": 39.00074,
+        "lon": -106.83912,
+        "elevationM": 3508,
+        "distanceKm": 14.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "737:CO:SNTL",
+        "name": "Schofield Pass",
+        "lat": 39.01467,
+        "lon": -107.04933,
+        "elevationM": 3243,
+        "distanceKm": 15.4,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "crystal-mountain": {
+    "lat": 46.9348,
+    "lon": -121.4902,
+    "stations": [
+      {
+        "triplet": "642:WA:SNTL",
+        "name": "Morse Lake",
+        "lat": 46.90585,
+        "lon": -121.4827,
+        "elevationM": 1646,
+        "distanceKm": 3.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1085:WA:SNTL",
+        "name": "Cayuse Pass",
+        "lat": 46.86956,
+        "lon": -121.53434,
+        "elevationM": 1603,
+        "distanceKm": 8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "418:WA:SNTL",
+        "name": "Corral Pass",
+        "lat": 47.01872,
+        "lon": -121.46464,
+        "elevationM": 1771,
+        "distanceKm": 9.5,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "deer-valley-resort": {
+    "lat": 40.6277,
+    "lon": -111.4829,
+    "stations": [
+      {
+        "triplet": "814:UT:SNTL",
+        "name": "Thaynes Canyon",
+        "lat": 40.6235,
+        "lon": -111.53322,
+        "elevationM": 2822,
+        "distanceKm": 4.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "366:UT:SNTL",
+        "name": "Brighton",
+        "lat": 40.59936,
+        "lon": -111.58167,
+        "elevationM": 2679,
+        "distanceKm": 8.9,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "856:UT:SNTL",
+        "name": "Parleys Upper",
+        "lat": 40.70194,
+        "lon": -111.60619,
+        "elevationM": 2539,
+        "distanceKm": 13.3,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "diamond-peak": {
+    "lat": 39.2536,
+    "lon": -119.9161,
+    "stations": [
+      {
+        "triplet": "1242:NV:SNTL",
+        "name": "Little Valley",
+        "lat": 39.25259,
+        "lon": -119.8771,
+        "elevationM": 1981,
+        "distanceKm": 3.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "652:NV:SNTL",
+        "name": "Mt Rose Ski Area",
+        "lat": 39.31573,
+        "lon": -119.89473,
+        "elevationM": 2685,
+        "distanceKm": 7.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "615:NV:SNTL",
+        "name": "Marlette Lake",
+        "lat": 39.16395,
+        "lon": -119.89672,
+        "elevationM": 2396,
+        "distanceKm": 10.1,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "discovery-ski-area": {
+    "lat": 46.265,
+    "lon": -113.2511,
+    "stations": [
+      {
+        "triplet": "850:MT:SNTL",
+        "name": "Warm Springs",
+        "lat": 46.27368,
+        "lon": -113.164,
+        "elevationM": 2390,
+        "distanceKm": 6.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "930:MT:SNTL",
+        "name": "Peterson Meadows",
+        "lat": 46.12588,
+        "lon": -113.30792,
+        "elevationM": 2192,
+        "distanceKm": 16.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "313:MT:SNTL",
+        "name": "Barker Lakes",
+        "lat": 46.09713,
+        "lon": -113.13038,
+        "elevationM": 2515,
+        "distanceKm": 20.9,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "dodge-ridge-ski-area": {
+    "lat": 38.1899,
+    "lon": -119.9393,
+    "stations": []
+  },
+  "eagle-point": {
+    "lat": 38.3222,
+    "lon": -112.378,
+    "stations": [
+      {
+        "triplet": "339:UT:SNTL",
+        "name": "Big Flat",
+        "lat": 38.30183,
+        "lon": -112.35672,
+        "elevationM": 3146,
+        "distanceKm": 2.9,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "621:UT:SNTL",
+        "name": "Merchant Valley",
+        "lat": 38.30285,
+        "lon": -112.43637,
+        "elevationM": 2655,
+        "distanceKm": 5.5,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "557:UT:SNTL",
+        "name": "Kimberly Mine",
+        "lat": 38.48383,
+        "lon": -112.39273,
+        "elevationM": 2777,
+        "distanceKm": 18,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "eldora": {
+    "lat": 39.9399,
+    "lon": -105.5918,
+    "stations": [
+      {
+        "triplet": "564:CO:SNTL",
+        "name": "Lake Eldora",
+        "lat": 39.93659,
+        "lon": -105.59031,
+        "elevationM": 2957,
+        "distanceKm": 0.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "838:CO:SNTL",
+        "name": "University Camp",
+        "lat": 40.03307,
+        "lon": -105.57562,
+        "elevationM": 3149,
+        "distanceKm": 10.5,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "663:CO:SNTL",
+        "name": "Niwot",
+        "lat": 40.03581,
+        "lon": -105.5452,
+        "elevationM": 3030,
+        "distanceKm": 11.4,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "granby-ranch": {
+    "lat": 40.0367,
+    "lon": -105.9048,
+    "stations": [
+      {
+        "triplet": "793:CO:SNTL",
+        "name": "Stillwater Creek",
+        "lat": 40.22532,
+        "lon": -105.9198,
+        "elevationM": 2670,
+        "distanceKm": 21,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1014:CO:SNTL",
+        "name": "Middle Fork Camp",
+        "lat": 39.79565,
+        "lon": -106.02802,
+        "elevationM": 2731,
+        "distanceKm": 28.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1251:CO:SNTL",
+        "name": "Sawtooth",
+        "lat": 40.13632,
+        "lon": -105.58486,
+        "elevationM": 2938,
+        "distanceKm": 29.4,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "grand-targhee-resort": {
+    "lat": 43.7864,
+    "lon": -110.9478,
+    "stations": [
+      {
+        "triplet": "1082:WY:SNTL",
+        "name": "Grand Targhee",
+        "lat": 43.77933,
+        "lon": -110.92783,
+        "elevationM": 2822,
+        "distanceKm": 1.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "great-divide-ski-area": {
+    "lat": 46.7521,
+    "lon": -112.3269,
+    "stations": [
+      {
+        "triplet": "903:MT:SNTL",
+        "name": "Nevada Ridge",
+        "lat": 46.84234,
+        "lon": -112.50787,
+        "elevationM": 2143,
+        "distanceKm": 17,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "heavenly-mountain-resort": {
+    "lat": 38.9375,
+    "lon": -119.9108,
+    "stations": [
+      {
+        "triplet": "518:CA:SNTL",
+        "name": "Heavenly Valley",
+        "lat": 38.92431,
+        "lon": -119.91641,
+        "elevationM": 2603,
+        "distanceKm": 1.5,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "508:CA:SNTL",
+        "name": "Hagans Meadow",
+        "lat": 38.8519,
+        "lon": -119.9374,
+        "elevationM": 2359,
+        "distanceKm": 9.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1050:CA:SNTL",
+        "name": "Horse Meadow",
+        "lat": 38.83652,
+        "lon": -119.88732,
+        "elevationM": 2615,
+        "distanceKm": 11.4,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "homewood-ski-area": {
+    "lat": 39.0782,
+    "lon": -120.1696,
+    "stations": [
+      {
+        "triplet": "848:CA:SNTL",
+        "name": "Ward Creek #3",
+        "lat": 39.13545,
+        "lon": -120.21865,
+        "elevationM": 2057,
+        "distanceKm": 7.6,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "724:CA:SNTL",
+        "name": "Rubicon #2",
+        "lat": 38.99927,
+        "lon": -120.13139,
+        "elevationM": 2304,
+        "distanceKm": 9.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "809:CA:SNTL",
+        "name": "Tahoe City Cross",
+        "lat": 39.17162,
+        "lon": -120.15362,
+        "elevationM": 2060,
+        "distanceKm": 10.5,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "hoodoo-ski-area": {
+    "lat": 44.4054,
+    "lon": -121.8792,
+    "stations": [
+      {
+        "triplet": "526:OR:SNTL",
+        "name": "Hogg Pass",
+        "lat": 44.42042,
+        "lon": -121.85655,
+        "elevationM": 1463,
+        "distanceKm": 2.5,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "733:OR:SNTL",
+        "name": "Santiam Jct.",
+        "lat": 44.43503,
+        "lon": -121.94502,
+        "elevationM": 1140,
+        "distanceKm": 6.2,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1166:OR:SNTL",
+        "name": "Bear Grass",
+        "lat": 44.3253,
+        "lon": -122.0938,
+        "elevationM": 1439,
+        "distanceKm": 19.2,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "jackson-hole-mountain-resort": {
+    "lat": 43.6032,
+    "lon": -110.85,
+    "stations": [
+      {
+        "triplet": "689:WY:SNTL",
+        "name": "Phillips Bench",
+        "lat": 43.51687,
+        "lon": -110.91258,
+        "elevationM": 2490,
+        "distanceKm": 10.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1082:WY:SNTL",
+        "name": "Grand Targhee",
+        "lat": 43.77933,
+        "lon": -110.92783,
+        "elevationM": 2822,
+        "distanceKm": 20.6,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "695:ID:SNTL",
+        "name": "Pine Creek Pass",
+        "lat": 43.56998,
+        "lon": -111.21157,
+        "elevationM": 2045,
+        "distanceKm": 29.4,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "june-mountain": {
+    "lat": 37.7537,
+    "lon": -119.0757,
+    "stations": []
+  },
+  "kelly-canyon-ski-resort": {
+    "lat": 43.6408,
+    "lon": -111.6222,
+    "stations": []
+  },
+  "keystone": {
+    "lat": 39.5833,
+    "lon": -105.9338,
+    "stations": [
+      {
+        "triplet": "505:CO:SNTL",
+        "name": "Grizzly Peak",
+        "lat": 39.64646,
+        "lon": -105.8694,
+        "elevationM": 3386,
+        "distanceKm": 8.9,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "602:CO:SNTL",
+        "name": "Loveland Basin",
+        "lat": 39.67428,
+        "lon": -105.90264,
+        "elevationM": 3478,
+        "distanceKm": 10.5,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "935:CO:SNTL",
+        "name": "Jackwhacker Gulch",
+        "lat": 39.57096,
+        "lon": -105.80355,
+        "elevationM": 3362,
+        "distanceKm": 11.2,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "kirkwood-mountain-resort": {
+    "lat": 38.679,
+    "lon": -120.0674,
+    "stations": [
+      {
+        "triplet": "1067:CA:SNTL",
+        "name": "Carson Pass",
+        "lat": 38.6927,
+        "lon": -120.0022,
+        "elevationM": 2548,
+        "distanceKm": 5.9,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1049:CA:SNTL",
+        "name": "Forestdale Creek",
+        "lat": 38.68245,
+        "lon": -119.9597,
+        "elevationM": 2454,
+        "distanceKm": 9.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1331:CA:SNTL",
+        "name": "Lost Lakes",
+        "lat": 38.64745,
+        "lon": -119.95141,
+        "elevationM": 2633,
+        "distanceKm": 10.7,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "lookout-pass": {
+    "lat": 47.4518,
+    "lon": -115.7159,
+    "stations": [
+      {
+        "triplet": "594:ID:SNTL",
+        "name": "Lookout",
+        "lat": 47.45749,
+        "lon": -115.70457,
+        "elevationM": 1579,
+        "distanceKm": 1.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "535:ID:SNTL",
+        "name": "Humboldt Gulch",
+        "lat": 47.53178,
+        "lon": -115.77643,
+        "elevationM": 1298,
+        "distanceKm": 10,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "803:ID:SNTL",
+        "name": "Sunset",
+        "lat": 47.55545,
+        "lon": -115.82422,
+        "elevationM": 1698,
+        "distanceKm": 14.1,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "lost-trail": {
+    "lat": 45.6963,
+    "lon": -113.9558,
+    "stations": [
+      {
+        "triplet": "727:MT:SNTL",
+        "name": "Saddle Mtn.",
+        "lat": 45.69259,
+        "lon": -113.96828,
+        "elevationM": 2405,
+        "distanceKm": 1.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "638:ID:SNTL",
+        "name": "Moose Creek",
+        "lat": 45.67008,
+        "lon": -113.95315,
+        "elevationM": 1881,
+        "distanceKm": 2.9,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "loup-loup-ski-bowl": {
+    "lat": 48.3928,
+    "lon": -119.9174,
+    "stations": [
+      {
+        "triplet": "1259:WA:SNTL",
+        "name": "Muckamuck",
+        "lat": 48.58526,
+        "lon": -119.86624,
+        "elevationM": 1362,
+        "distanceKm": 21.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "728:WA:SNTL",
+        "name": "Salmon Meadows",
+        "lat": 48.65518,
+        "lon": -119.8383,
+        "elevationM": 1359,
+        "distanceKm": 29.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "loveland-basin-ski-area": {
+    "lat": 39.6778,
+    "lon": -105.9092,
+    "stations": [
+      {
+        "triplet": "602:CO:SNTL",
+        "name": "Loveland Basin",
+        "lat": 39.67428,
+        "lon": -105.90264,
+        "elevationM": 3478,
+        "distanceKm": 0.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "505:CO:SNTL",
+        "name": "Grizzly Peak",
+        "lat": 39.64646,
+        "lon": -105.8694,
+        "elevationM": 3386,
+        "distanceKm": 4.9,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "970:CO:SNTL",
+        "name": "Jones Pass",
+        "lat": 39.7645,
+        "lon": -105.90655,
+        "elevationM": 3179,
+        "distanceKm": 9.6,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "mammoth-mountain": {
+    "lat": 37.6444,
+    "lon": -119.0088,
+    "stations": []
+  },
+  "maverick-mountain-ski-area": {
+    "lat": 45.4341,
+    "lon": -113.1277,
+    "stations": [
+      {
+        "triplet": "656:MT:SNTL",
+        "name": "Mule Creek",
+        "lat": 45.40957,
+        "lon": -112.95927,
+        "elevationM": 2530,
+        "distanceKm": 13.4,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "mccoy-park": {
+    "lat": 39.5903,
+    "lon": -106.5471,
+    "stations": [
+      {
+        "triplet": "1040:CO:SNTL",
+        "name": "Mccoy Park",
+        "lat": 39.60231,
+        "lon": -106.544,
+        "elevationM": 2896,
+        "distanceKm": 1.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1041:CO:SNTL",
+        "name": "Beaver Ck Village",
+        "lat": 39.59871,
+        "lon": -106.51113,
+        "elevationM": 2600,
+        "distanceKm": 3.2,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "842:CO:SNTL",
+        "name": "Vail Mountain",
+        "lat": 39.61765,
+        "lon": -106.38019,
+        "elevationM": 3136,
+        "distanceKm": 14.6,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "mission-ridge": {
+    "lat": 47.2806,
+    "lon": -120.4109,
+    "stations": [
+      {
+        "triplet": "841:WA:SNTL",
+        "name": "Upper Wheeler",
+        "lat": 47.28734,
+        "lon": -120.37015,
+        "elevationM": 1320,
+        "distanceKm": 3.2,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "507:WA:SNTL",
+        "name": "Grouse Camp",
+        "lat": 47.28107,
+        "lon": -120.48771,
+        "elevationM": 1643,
+        "distanceKm": 5.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "832:WA:SNTL",
+        "name": "Trough",
+        "lat": 47.23328,
+        "lon": -120.29412,
+        "elevationM": 1670,
+        "distanceKm": 10.3,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "monarch-mountain": {
+    "lat": 38.5168,
+    "lon": -106.3444,
+    "stations": [
+      {
+        "triplet": "701:CO:SNTL",
+        "name": "Porphyry Creek",
+        "lat": 38.48864,
+        "lon": -106.33967,
+        "elevationM": 3289,
+        "distanceKm": 3.2,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1100:CO:SNTL",
+        "name": "Saint Elmo",
+        "lat": 38.69985,
+        "lon": -106.36805,
+        "elevationM": 3176,
+        "distanceKm": 20.5,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1128:CO:SNTL",
+        "name": "Sargents Mesa",
+        "lat": 38.2856,
+        "lon": -106.37085,
+        "elevationM": 3502,
+        "distanceKm": 25.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "montana-snowbowl": {
+    "lat": 47.0204,
+    "lon": -114.0037,
+    "stations": [
+      {
+        "triplet": "901:MT:SNTL",
+        "name": "Stuart Mountain",
+        "lat": 46.99521,
+        "lon": -113.92667,
+        "elevationM": 2216,
+        "distanceKm": 6.5,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "mount-ashland": {
+    "lat": 42.0833,
+    "lon": -122.7128,
+    "stations": [
+      {
+        "triplet": "341:OR:SNTL",
+        "name": "Big Red Mountain",
+        "lat": 42.05257,
+        "lon": -122.85487,
+        "elevationM": 1847,
+        "distanceKm": 12.2,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "mount-rose-ski-tahoe": {
+    "lat": 39.3207,
+    "lon": -119.8844,
+    "stations": [
+      {
+        "triplet": "652:NV:SNTL",
+        "name": "Mt Rose Ski Area",
+        "lat": 39.31573,
+        "lon": -119.89473,
+        "elevationM": 2685,
+        "distanceKm": 1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "340:NV:SNTL",
+        "name": "Big Meadow",
+        "lat": 39.455,
+        "lon": -119.9422,
+        "elevationM": 2512,
+        "distanceKm": 15.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "615:NV:SNTL",
+        "name": "Marlette Lake",
+        "lat": 39.16395,
+        "lon": -119.89672,
+        "elevationM": 2396,
+        "distanceKm": 17.5,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "mount-waterman": {
+    "lat": 34.3437,
+    "lon": -117.9318,
+    "stations": []
+  },
+  "mountain-high": {
+    "lat": 34.3701,
+    "lon": -117.6895,
+    "stations": []
+  },
+  "mt-bachelor": {
+    "lat": 43.9939,
+    "lon": -121.6829,
+    "stations": [
+      {
+        "triplet": "815:OR:SNTL",
+        "name": "Three Creeks Meadow",
+        "lat": 44.14425,
+        "lon": -121.64095,
+        "elevationM": 1731,
+        "distanceKm": 17.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "619:OR:SNTL",
+        "name": "Mckenzie",
+        "lat": 44.2103,
+        "lon": -121.87292,
+        "elevationM": 1454,
+        "distanceKm": 28.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "719:OR:SNTL",
+        "name": "Roaring River",
+        "lat": 43.90098,
+        "lon": -122.03063,
+        "elevationM": 1512,
+        "distanceKm": 29.7,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "mt-baker": {
+    "lat": 48.8571,
+    "lon": -121.6652,
+    "stations": [
+      {
+        "triplet": "909:WA:SNTL",
+        "name": "Wells Creek",
+        "lat": 48.8661,
+        "lon": -121.78976,
+        "elevationM": 1231,
+        "distanceKm": 9.2,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "999:WA:SNTL",
+        "name": "Marten Ridge",
+        "lat": 48.76292,
+        "lon": -121.69823,
+        "elevationM": 1073,
+        "distanceKm": 10.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "998:WA:SNTL",
+        "name": "Easy Pass",
+        "lat": 48.85933,
+        "lon": -121.43895,
+        "elevationM": 1609,
+        "distanceKm": 16.6,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "mt-baldy": {
+    "lat": 34.2724,
+    "lon": -117.6102,
+    "stations": []
+  },
+  "mt-hood-meadows-ski-resort": {
+    "lat": 45.3352,
+    "lon": -121.6618,
+    "stations": [
+      {
+        "triplet": "651:OR:SNTL",
+        "name": "Mt Hood Test Site",
+        "lat": 45.32097,
+        "lon": -121.7158,
+        "elevationM": 1640,
+        "distanceKm": 4.5,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1314:OR:SNTL",
+        "name": "Fifteenmile",
+        "lat": 45.35265,
+        "lon": -121.53,
+        "elevationM": 1820,
+        "distanceKm": 10.5,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "655:OR:SNTL",
+        "name": "Mud Ridge",
+        "lat": 45.25362,
+        "lon": -121.73673,
+        "elevationM": 1241,
+        "distanceKm": 10.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "mt-hood-skibowl": {
+    "lat": 45.2943,
+    "lon": -121.7711,
+    "stations": [
+      {
+        "triplet": "651:OR:SNTL",
+        "name": "Mt Hood Test Site",
+        "lat": 45.32097,
+        "lon": -121.7158,
+        "elevationM": 1640,
+        "distanceKm": 5.2,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "655:OR:SNTL",
+        "name": "Mud Ridge",
+        "lat": 45.25362,
+        "lon": -121.73673,
+        "elevationM": 1241,
+        "distanceKm": 5.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "401:OR:SNTL",
+        "name": "Clear Lake",
+        "lat": 45.18832,
+        "lon": -121.6916,
+        "elevationM": 1161,
+        "distanceKm": 13.3,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "mt-shasta-ski-park": {
+    "lat": 41.3273,
+    "lon": -122.2008,
+    "stations": []
+  },
+  "mt-spokane": {
+    "lat": 47.9278,
+    "lon": -117.1072,
+    "stations": [
+      {
+        "triplet": "707:WA:SNTL",
+        "name": "Quartz Peak",
+        "lat": 47.87927,
+        "lon": -117.08938,
+        "elevationM": 1436,
+        "distanceKm": 5.6,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1081:ID:SNTL",
+        "name": "Ragged Mountain",
+        "lat": 47.85583,
+        "lon": -117.03667,
+        "elevationM": 1283,
+        "distanceKm": 9.6,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "nordic-valley-resort": {
+    "lat": 41.306,
+    "lon": -111.8665,
+    "stations": [
+      {
+        "triplet": "333:UT:SNTL",
+        "name": "Ben Lomond Trail",
+        "lat": 41.38291,
+        "lon": -111.92103,
+        "elevationM": 1820,
+        "distanceKm": 9.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "582:UT:SNTL",
+        "name": "Little Bear",
+        "lat": 41.40562,
+        "lon": -111.82607,
+        "elevationM": 1993,
+        "distanceKm": 11.6,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "northstar-at-tahoe-resort": {
+    "lat": 39.2617,
+    "lon": -120.135,
+    "stations": [
+      {
+        "triplet": "834:CA:SNTL",
+        "name": "Truckee #2",
+        "lat": 39.30087,
+        "lon": -120.18407,
+        "elevationM": 1981,
+        "distanceKm": 6.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "809:CA:SNTL",
+        "name": "Tahoe City Cross",
+        "lat": 39.17162,
+        "lon": -120.15362,
+        "elevationM": 2060,
+        "distanceKm": 10.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "784:CA:SNTL",
+        "name": "Palisades Tahoe",
+        "lat": 39.18986,
+        "lon": -120.26576,
+        "elevationM": 2441,
+        "distanceKm": 13.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "pajarito-mountain": {
+    "lat": 35.8909,
+    "lon": -106.3926,
+    "stations": [
+      {
+        "triplet": "708:NM:SNTL",
+        "name": "Quemazon",
+        "lat": 35.92195,
+        "lon": -106.39179,
+        "elevationM": 2896,
+        "distanceKm": 3.5,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1173:NM:SNTL",
+        "name": "Garita Peak",
+        "lat": 36.00469,
+        "lon": -106.54805,
+        "elevationM": 3078,
+        "distanceKm": 18.9,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "palisades-tahoe-alpine-meadows": {
+    "lat": 39.1543,
+    "lon": -120.2382,
+    "stations": [
+      {
+        "triplet": "848:CA:SNTL",
+        "name": "Ward Creek #3",
+        "lat": 39.13545,
+        "lon": -120.21865,
+        "elevationM": 2057,
+        "distanceKm": 2.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "784:CA:SNTL",
+        "name": "Palisades Tahoe",
+        "lat": 39.18986,
+        "lon": -120.26576,
+        "elevationM": 2441,
+        "distanceKm": 4.6,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "809:CA:SNTL",
+        "name": "Tahoe City Cross",
+        "lat": 39.17162,
+        "lon": -120.15362,
+        "elevationM": 2060,
+        "distanceKm": 7.5,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "palisades-tahoe-olympic-valley": {
+    "lat": 39.1934,
+    "lon": -120.2454,
+    "stations": [
+      {
+        "triplet": "784:CA:SNTL",
+        "name": "Palisades Tahoe",
+        "lat": 39.18986,
+        "lon": -120.26576,
+        "elevationM": 2441,
+        "distanceKm": 1.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "848:CA:SNTL",
+        "name": "Ward Creek #3",
+        "lat": 39.13545,
+        "lon": -120.21865,
+        "elevationM": 2057,
+        "distanceKm": 6.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "809:CA:SNTL",
+        "name": "Tahoe City Cross",
+        "lat": 39.17162,
+        "lon": -120.15362,
+        "elevationM": 2060,
+        "distanceKm": 8.3,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "park-city-mountain-resort": {
+    "lat": 40.6569,
+    "lon": -111.5379,
+    "stations": [
+      {
+        "triplet": "814:UT:SNTL",
+        "name": "Thaynes Canyon",
+        "lat": 40.6235,
+        "lon": -111.53322,
+        "elevationM": 2822,
+        "distanceKm": 3.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "366:UT:SNTL",
+        "name": "Brighton",
+        "lat": 40.59936,
+        "lon": -111.58167,
+        "elevationM": 2679,
+        "distanceKm": 7.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "856:UT:SNTL",
+        "name": "Parleys Upper",
+        "lat": 40.70194,
+        "lon": -111.60619,
+        "elevationM": 2539,
+        "distanceKm": 7.6,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "pebble-creek": {
+    "lat": 42.7738,
+    "lon": -112.1517,
+    "stations": [
+      {
+        "triplet": "1299:ID:SNTL",
+        "name": "Pebble Creek",
+        "lat": 42.7674,
+        "lon": -112.10648,
+        "elevationM": 1987,
+        "distanceKm": 3.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "867:ID:SNTL",
+        "name": "Wildhorse Divide",
+        "lat": 42.75743,
+        "lon": -112.47783,
+        "elevationM": 1975,
+        "distanceKm": 26.7,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "pine-creek-ski-area": {
+    "lat": 42.103,
+    "lon": -110.8288,
+    "stations": [
+      {
+        "triplet": "509:WY:SNTL",
+        "name": "Hams Fork",
+        "lat": 42.146,
+        "lon": -110.67833,
+        "elevationM": 2396,
+        "distanceKm": 13.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "554:WY:SNTL",
+        "name": "Kelley R.S.",
+        "lat": 42.26554,
+        "lon": -110.80181,
+        "elevationM": 2512,
+        "distanceKm": 18.2,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "pomerelle-mountain-resort": {
+    "lat": 42.3143,
+    "lon": -113.6112,
+    "stations": [
+      {
+        "triplet": "534:ID:SNTL",
+        "name": "Howell Canyon",
+        "lat": 42.32029,
+        "lon": -113.61587,
+        "elevationM": 2441,
+        "distanceKm": 0.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "powder-mountain-ski-resort": {
+    "lat": 41.3755,
+    "lon": -111.7621,
+    "stations": [
+      {
+        "triplet": "1300:UT:SNTL",
+        "name": "Powder Mountain",
+        "lat": 41.37428,
+        "lon": -111.76673,
+        "elevationM": 2588,
+        "distanceKm": 0.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "582:UT:SNTL",
+        "name": "Little Bear",
+        "lat": 41.40562,
+        "lon": -111.82607,
+        "elevationM": 1993,
+        "distanceKm": 6.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "333:UT:SNTL",
+        "name": "Ben Lomond Trail",
+        "lat": 41.38291,
+        "lon": -111.92103,
+        "elevationM": 1820,
+        "distanceKm": 13.3,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "powderhorn": {
+    "lat": 39.0606,
+    "lon": -108.1522,
+    "stations": [
+      {
+        "triplet": "622:CO:SNTL",
+        "name": "Mesa Lakes",
+        "lat": 39.05738,
+        "lon": -108.05756,
+        "elevationM": 3097,
+        "distanceKm": 8.2,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "682:CO:SNTL",
+        "name": "Park Reservoir",
+        "lat": 39.04433,
+        "lon": -107.87951,
+        "elevationM": 3045,
+        "distanceKm": 23.6,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "purgatory-resort": {
+    "lat": 37.6261,
+    "lon": -107.8265,
+    "stations": [
+      {
+        "triplet": "387:CO:SNTL",
+        "name": "Cascade #2",
+        "lat": 37.65751,
+        "lon": -107.80287,
+        "elevationM": 2740,
+        "distanceKm": 4.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "780:CO:SNTL",
+        "name": "Spud Mountain",
+        "lat": 37.69883,
+        "lon": -107.77841,
+        "elevationM": 3249,
+        "distanceKm": 9.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "739:CO:SNTL",
+        "name": "Scotch Creek",
+        "lat": 37.64562,
+        "lon": -108.00833,
+        "elevationM": 2792,
+        "distanceKm": 16.2,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "red-lodge-mountain": {
+    "lat": 45.1879,
+    "lon": -109.3585,
+    "stations": [
+      {
+        "triplet": "407:MT:SNTL",
+        "name": "Cole Creek",
+        "lat": 45.19405,
+        "lon": -109.34548,
+        "elevationM": 2411,
+        "distanceKm": 1.2,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "red-river-ski-area": {
+    "lat": 36.7008,
+    "lon": -105.4087,
+    "stations": [
+      {
+        "triplet": "715:NM:SNTL",
+        "name": "Red River Pass #2",
+        "lat": 36.69935,
+        "lon": -105.34145,
+        "elevationM": 2999,
+        "distanceKm": 6,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1169:NM:SNTL",
+        "name": "Shuree",
+        "lat": 36.78765,
+        "lon": -105.2392,
+        "elevationM": 3069,
+        "distanceKm": 17.9,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "sandia-peak-ski-area": {
+    "lat": 35.2014,
+    "lon": -106.4234,
+    "stations": []
+  },
+  "schweitzer-mountain-resort": {
+    "lat": 48.3866,
+    "lon": -116.6195,
+    "stations": [
+      {
+        "triplet": "738:ID:SNTL",
+        "name": "Schweitzer Basin",
+        "lat": 48.37428,
+        "lon": -116.63917,
+        "elevationM": 1856,
+        "distanceKm": 2,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "showdown": {
+    "lat": 46.8361,
+    "lon": -110.7084,
+    "stations": [
+      {
+        "triplet": "437:MT:SNTL",
+        "name": "Deadman Creek",
+        "lat": 46.79279,
+        "lon": -110.67545,
+        "elevationM": 1963,
+        "distanceKm": 5.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "781:MT:SNTL",
+        "name": "Spur Park",
+        "lat": 46.77962,
+        "lon": -110.62165,
+        "elevationM": 2463,
+        "distanceKm": 9.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1008:MT:SNTL",
+        "name": "Onion Park",
+        "lat": 46.91348,
+        "lon": -110.8536,
+        "elevationM": 2262,
+        "distanceKm": 14,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "sierra-at-tahoe-ski-resort": {
+    "lat": 38.7974,
+    "lon": -120.0768,
+    "stations": [
+      {
+        "triplet": "463:CA:SNTL",
+        "name": "Echo Peak",
+        "lat": 38.849,
+        "lon": -120.0795,
+        "elevationM": 2332,
+        "distanceKm": 5.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1067:CA:SNTL",
+        "name": "Carson Pass",
+        "lat": 38.6927,
+        "lon": -120.0022,
+        "elevationM": 2548,
+        "distanceKm": 13.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "508:CA:SNTL",
+        "name": "Hagans Meadow",
+        "lat": 38.8519,
+        "lon": -119.9374,
+        "elevationM": 2359,
+        "distanceKm": 13.5,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "silver-mountain-resort": {
+    "lat": 47.5054,
+    "lon": -116.1314,
+    "stations": [
+      {
+        "triplet": "803:ID:SNTL",
+        "name": "Sunset",
+        "lat": 47.55545,
+        "lon": -115.82422,
+        "elevationM": 1698,
+        "distanceKm": 23.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "535:ID:SNTL",
+        "name": "Humboldt Gulch",
+        "lat": 47.53178,
+        "lon": -115.77643,
+        "elevationM": 1298,
+        "distanceKm": 26.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "sipapu-ski-and-summer-resort": {
+    "lat": 36.1499,
+    "lon": -105.5512,
+    "stations": [
+      {
+        "triplet": "1083:NM:SNTL",
+        "name": "Tres Ritos",
+        "lat": 36.1279,
+        "lon": -105.52706,
+        "elevationM": 2664,
+        "distanceKm": 3.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "491:NM:SNTL",
+        "name": "Gallegos Peak",
+        "lat": 36.19418,
+        "lon": -105.55742,
+        "elevationM": 2883,
+        "distanceKm": 5,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "ski-apache": {
+    "lat": 33.3943,
+    "lon": -105.8012,
+    "stations": [
+      {
+        "triplet": "1034:NM:SNTL",
+        "name": "Sierra Blanca",
+        "lat": 33.40682,
+        "lon": -105.79467,
+        "elevationM": 3124,
+        "distanceKm": 1.5,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "ski-cooper": {
+    "lat": 39.3559,
+    "lon": -106.2889,
+    "stations": [
+      {
+        "triplet": "485:CO:SNTL",
+        "name": "Fremont Pass",
+        "lat": 39.38014,
+        "lon": -106.19784,
+        "elevationM": 3447,
+        "distanceKm": 8.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "938:CO:SNTL",
+        "name": "Buckskin Joe",
+        "lat": 39.30378,
+        "lon": -106.11316,
+        "elevationM": 3402,
+        "distanceKm": 16.2,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "415:CO:SNTL",
+        "name": "Copper Mountain",
+        "lat": 39.48917,
+        "lon": -106.17154,
+        "elevationM": 3200,
+        "distanceKm": 17.9,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "ski-santa-fe-santa-fe-q38555": {
+    "lat": 35.7918,
+    "lon": -105.7906,
+    "stations": [
+      {
+        "triplet": "922:NM:SNTL",
+        "name": "Santa Fe",
+        "lat": 35.77154,
+        "lon": -105.78487,
+        "elevationM": 3499,
+        "distanceKm": 2.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "854:NM:SNTL",
+        "name": "Wesner Springs",
+        "lat": 35.77584,
+        "lon": -105.54337,
+        "elevationM": 3386,
+        "distanceKm": 22.4,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "snow-king-mountain": {
+    "lat": 43.4679,
+    "lon": -110.7586,
+    "stations": [
+      {
+        "triplet": "689:WY:SNTL",
+        "name": "Phillips Bench",
+        "lat": 43.51687,
+        "lon": -110.91258,
+        "elevationM": 2490,
+        "distanceKm": 13.6,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "497:WY:SNTL",
+        "name": "Granite Creek",
+        "lat": 43.34298,
+        "lon": -110.43495,
+        "elevationM": 2063,
+        "distanceKm": 29.6,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "snow-summit": {
+    "lat": 34.2276,
+    "lon": -116.8905,
+    "stations": []
+  },
+  "snow-valley-mountain-resort": {
+    "lat": 34.2145,
+    "lon": -117.0363,
+    "stations": []
+  },
+  "snowbasin-resort": {
+    "lat": 41.2008,
+    "lon": -111.8629,
+    "stations": [
+      {
+        "triplet": "332:UT:SNTL",
+        "name": "Ben Lomond Peak",
+        "lat": 41.37603,
+        "lon": -111.94405,
+        "elevationM": 2344,
+        "distanceKm": 20.6,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "333:UT:SNTL",
+        "name": "Ben Lomond Trail",
+        "lat": 41.38291,
+        "lon": -111.92103,
+        "elevationM": 1820,
+        "distanceKm": 20.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1300:UT:SNTL",
+        "name": "Powder Mountain",
+        "lat": 41.37428,
+        "lon": -111.76673,
+        "elevationM": 2588,
+        "distanceKm": 20.9,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "snowbird": {
+    "lat": 40.5705,
+    "lon": -111.649,
+    "stations": [
+      {
+        "triplet": "766:UT:SNTL",
+        "name": "Snowbird",
+        "lat": 40.56914,
+        "lon": -111.65852,
+        "elevationM": 2795,
+        "distanceKm": 0.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1308:UT:SNTL",
+        "name": "Atwater",
+        "lat": 40.59124,
+        "lon": -111.63775,
+        "elevationM": 2667,
+        "distanceKm": 2.5,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "366:UT:SNTL",
+        "name": "Brighton",
+        "lat": 40.59936,
+        "lon": -111.58167,
+        "elevationM": 2679,
+        "distanceKm": 6.5,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "snowy-range": {
+    "lat": 41.3377,
+    "lon": -106.1802,
+    "stations": [
+      {
+        "triplet": "1046:WY:SNTL",
+        "name": "Cinnabar Park",
+        "lat": 41.23843,
+        "lon": -106.23101,
+        "elevationM": 2947,
+        "distanceKm": 11.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "731:WY:SNTL",
+        "name": "Sand Lake",
+        "lat": 41.4625,
+        "lon": -106.281,
+        "elevationM": 3072,
+        "distanceKm": 16.2,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "772:WY:SNTL",
+        "name": "South Brush Creek",
+        "lat": 41.3295,
+        "lon": -106.5025,
+        "elevationM": 2585,
+        "distanceKm": 26.9,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "soldier-mountain-ski-area": {
+    "lat": 43.489,
+    "lon": -114.8383,
+    "stations": [
+      {
+        "triplet": "769:ID:SNTL",
+        "name": "Soldier R.S.",
+        "lat": 43.48407,
+        "lon": -114.82692,
+        "elevationM": 1762,
+        "distanceKm": 1.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1306:ID:SNTL",
+        "name": "Couch Summit",
+        "lat": 43.51762,
+        "lon": -114.80214,
+        "elevationM": 2067,
+        "distanceKm": 4.3,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "solitude-mountain-resort": {
+    "lat": 40.6146,
+    "lon": -111.601,
+    "stations": [
+      {
+        "triplet": "366:UT:SNTL",
+        "name": "Brighton",
+        "lat": 40.59936,
+        "lon": -111.58167,
+        "elevationM": 2679,
+        "distanceKm": 2.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1308:UT:SNTL",
+        "name": "Atwater",
+        "lat": 40.59124,
+        "lon": -111.63775,
+        "elevationM": 2667,
+        "distanceKm": 4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "628:UT:SNTL",
+        "name": "Mill-D North",
+        "lat": 40.65883,
+        "lon": -111.63683,
+        "elevationM": 2725,
+        "distanceKm": 5.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "steamboat-ski-resort": {
+    "lat": 40.4611,
+    "lon": -106.7729,
+    "stations": [
+      {
+        "triplet": "457:CO:SNTL",
+        "name": "Dry Lake",
+        "lat": 40.5337,
+        "lon": -106.7814,
+        "elevationM": 2512,
+        "distanceKm": 8.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "709:CO:SNTL",
+        "name": "Rabbit Ears",
+        "lat": 40.36735,
+        "lon": -106.74118,
+        "elevationM": 2862,
+        "distanceKm": 10.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "825:CO:SNTL",
+        "name": "Tower",
+        "lat": 40.5374,
+        "lon": -106.67655,
+        "elevationM": 3234,
+        "distanceKm": 11.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "stevens-pass-ski-area": {
+    "lat": 47.7376,
+    "lon": -121.0904,
+    "stations": [
+      {
+        "triplet": "791:WA:SNTL",
+        "name": "Stevens Pass",
+        "lat": 47.74607,
+        "lon": -121.09288,
+        "elevationM": 1201,
+        "distanceKm": 1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1338:WA:SNTL",
+        "name": "Icicle Creek",
+        "lat": 47.59404,
+        "lon": -120.88255,
+        "elevationM": 1387,
+        "distanceKm": 22.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "478:WA:SNTL",
+        "name": "Fish Lake",
+        "lat": 47.53565,
+        "lon": -121.08553,
+        "elevationM": 1049,
+        "distanceKm": 22.5,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "sugar-bowl-resort": {
+    "lat": 39.3008,
+    "lon": -120.3324,
+    "stations": [
+      {
+        "triplet": "428:CA:SNTL",
+        "name": "Css Lab",
+        "lat": 39.32565,
+        "lon": -120.36807,
+        "elevationM": 2100,
+        "distanceKm": 4.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "834:CA:SNTL",
+        "name": "Truckee #2",
+        "lat": 39.30087,
+        "lon": -120.18407,
+        "elevationM": 1981,
+        "distanceKm": 12.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "784:CA:SNTL",
+        "name": "Palisades Tahoe",
+        "lat": 39.18986,
+        "lon": -120.26576,
+        "elevationM": 2441,
+        "distanceKm": 13.6,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "sun-valley-bald-mountain": {
+    "lat": 43.6675,
+    "lon": -114.3912,
+    "stations": [
+      {
+        "triplet": "895:ID:SNTL",
+        "name": "Chocolate Gulch",
+        "lat": 43.7685,
+        "lon": -114.41812,
+        "elevationM": 1923,
+        "distanceKm": 11.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "537:ID:SNTL",
+        "name": "Hyndman",
+        "lat": 43.71077,
+        "lon": -114.15894,
+        "elevationM": 2313,
+        "distanceKm": 19.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "601:ID:SNTL",
+        "name": "Lost-Wood Divide",
+        "lat": 43.82441,
+        "lon": -114.26404,
+        "elevationM": 2399,
+        "distanceKm": 20.2,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "sundance-resort": {
+    "lat": 40.3813,
+    "lon": -111.5893,
+    "stations": [
+      {
+        "triplet": "820:UT:SNTL",
+        "name": "Timpanogos Divide",
+        "lat": 40.42817,
+        "lon": -111.61633,
+        "elevationM": 2493,
+        "distanceKm": 5.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1039:UT:SNTL",
+        "name": "Cascade Mountain",
+        "lat": 40.283,
+        "lon": -111.60992,
+        "elevationM": 2362,
+        "distanceKm": 11.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1223:UT:SNTL",
+        "name": "Hobble Creek",
+        "lat": 40.18538,
+        "lon": -111.35971,
+        "elevationM": 2243,
+        "distanceKm": 29.2,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "sunlight-mountain-resort": {
+    "lat": 39.3942,
+    "lon": -107.339,
+    "stations": [
+      {
+        "triplet": "618:CO:SNTL",
+        "name": "Mc Clure Pass",
+        "lat": 39.12899,
+        "lon": -107.28834,
+        "elevationM": 2670,
+        "distanceKm": 29.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "sunrise-park-resort": {
+    "lat": 33.9555,
+    "lon": -109.5669,
+    "stations": [
+      {
+        "triplet": "310:AZ:SNTL",
+        "name": "Baldy",
+        "lat": 33.97845,
+        "lon": -109.50357,
+        "elevationM": 2807,
+        "distanceKm": 6.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "617:AZ:SNTL",
+        "name": "Maverick Fork",
+        "lat": 33.92123,
+        "lon": -109.45872,
+        "elevationM": 2807,
+        "distanceKm": 10.7,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "tamarack-resort": {
+    "lat": 44.6822,
+    "lon": -116.1421,
+    "stations": [
+      {
+        "triplet": "1016:ID:SNTL",
+        "name": "Long Valley",
+        "lat": 44.78835,
+        "lon": -116.08878,
+        "elevationM": 1490,
+        "distanceKm": 12.5,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "782:ID:SNTL",
+        "name": "Puhi Flat",
+        "lat": 44.77091,
+        "lon": -116.24805,
+        "elevationM": 1902,
+        "distanceKm": 12.9,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "338:ID:SNTL",
+        "name": "Big Creek Summit",
+        "lat": 44.62621,
+        "lon": -115.79561,
+        "elevationM": 1996,
+        "distanceKm": 28.1,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "taos-ski-valley": {
+    "lat": 36.5779,
+    "lon": -105.451,
+    "stations": [
+      {
+        "triplet": "1168:NM:SNTL",
+        "name": "Taos Powderhorn",
+        "lat": 36.58195,
+        "lon": -105.45617,
+        "elevationM": 3359,
+        "distanceKm": 0.6,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1307:NM:SNTL",
+        "name": "Taos Pueblo",
+        "lat": 36.54099,
+        "lon": -105.35944,
+        "elevationM": 3350,
+        "distanceKm": 9.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "715:NM:SNTL",
+        "name": "Red River Pass #2",
+        "lat": 36.69935,
+        "lon": -105.34145,
+        "elevationM": 2999,
+        "distanceKm": 16.7,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "telluride-ski-area": {
+    "lat": 37.9197,
+    "lon": -107.8348,
+    "stations": [
+      {
+        "triplet": "1344:CO:SNTL",
+        "name": "Alta Lakes",
+        "lat": 37.88929,
+        "lon": -107.84484,
+        "elevationM": 3441,
+        "distanceKm": 3.5,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "713:CO:SNTL",
+        "name": "Red Mountain Pass",
+        "lat": 37.89168,
+        "lon": -107.71389,
+        "elevationM": 3371,
+        "distanceKm": 11.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "629:CO:SNTL",
+        "name": "Mineral Creek",
+        "lat": 37.84737,
+        "lon": -107.72657,
+        "elevationM": 3057,
+        "distanceKm": 12.4,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "teton-pass-ski-resort": {
+    "lat": 47.9306,
+    "lon": -112.8103,
+    "stations": [
+      {
+        "triplet": "649:MT:SNTL",
+        "name": "Mount Lockhart",
+        "lat": 47.91727,
+        "lon": -112.8238,
+        "elevationM": 1960,
+        "distanceKm": 1.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "847:MT:SNTL",
+        "name": "Waldron",
+        "lat": 47.91998,
+        "lon": -112.79087,
+        "elevationM": 1719,
+        "distanceKm": 1.9,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "458:MT:SNTL",
+        "name": "Dupuyer Creek",
+        "lat": 48.06341,
+        "lon": -112.7573,
+        "elevationM": 1750,
+        "distanceKm": 15.3,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "three-summits": {
+    "lat": 47.4037,
+    "lon": -121.4148,
+    "stations": [
+      {
+        "triplet": "672:WA:SNTL",
+        "name": "Olallie Meadows",
+        "lat": 47.37406,
+        "lon": -121.44213,
+        "elevationM": 1222,
+        "distanceKm": 3.9,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "899:WA:SNTL",
+        "name": "Tinkham Creek",
+        "lat": 47.33198,
+        "lon": -121.46975,
+        "elevationM": 914,
+        "distanceKm": 9,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "898:WA:SNTL",
+        "name": "Mount Gardner",
+        "lat": 47.35768,
+        "lon": -121.56812,
+        "elevationM": 893,
+        "distanceKm": 12.6,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "timberline-lodge-ski-area": {
+    "lat": 45.3232,
+    "lon": -121.7167,
+    "stations": [
+      {
+        "triplet": "651:OR:SNTL",
+        "name": "Mt Hood Test Site",
+        "lat": 45.32097,
+        "lon": -121.7158,
+        "elevationM": 1640,
+        "distanceKm": 0.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "655:OR:SNTL",
+        "name": "Mud Ridge",
+        "lat": 45.25362,
+        "lon": -121.73673,
+        "elevationM": 1241,
+        "distanceKm": 7.9,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1314:OR:SNTL",
+        "name": "Fifteenmile",
+        "lat": 45.35265,
+        "lon": -121.53,
+        "elevationM": 1820,
+        "distanceKm": 15,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "turner-mountain": {
+    "lat": 48.6063,
+    "lon": -115.6414,
+    "stations": [
+      {
+        "triplet": "311:MT:SNTL",
+        "name": "Banfield Mountain",
+        "lat": 48.5712,
+        "lon": -115.44573,
+        "elevationM": 1701,
+        "distanceKm": 14.9,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "vail": {
+    "lat": 39.6238,
+    "lon": -106.3655,
+    "stations": [
+      {
+        "triplet": "842:CO:SNTL",
+        "name": "Vail Mountain",
+        "lat": 39.61765,
+        "lon": -106.38019,
+        "elevationM": 3136,
+        "distanceKm": 1.4,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1041:CO:SNTL",
+        "name": "Beaver Ck Village",
+        "lat": 39.59871,
+        "lon": -106.51113,
+        "elevationM": 2600,
+        "distanceKm": 12.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1040:CO:SNTL",
+        "name": "Mccoy Park",
+        "lat": 39.60231,
+        "lon": -106.544,
+        "elevationM": 2896,
+        "distanceKm": 15.5,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "white-pass-ski-area": {
+    "lat": 46.6241,
+    "lon": -121.3969,
+    "stations": [
+      {
+        "triplet": "692:WA:SNTL",
+        "name": "Pigtail Peak",
+        "lat": 46.62153,
+        "lon": -121.38643,
+        "elevationM": 1768,
+        "distanceKm": 0.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "863:WA:SNTL",
+        "name": "White Pass E.S.",
+        "lat": 46.64142,
+        "lon": -121.38153,
+        "elevationM": 1353,
+        "distanceKm": 2.3,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "502:WA:SNTL",
+        "name": "Green Lake",
+        "lat": 46.54741,
+        "lon": -121.17093,
+        "elevationM": 1804,
+        "distanceKm": 19.3,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "white-pine-resort": {
+    "lat": 42.973,
+    "lon": -109.751,
+    "stations": [
+      {
+        "triplet": "468:WY:SNTL",
+        "name": "Elkhart Park G.S.",
+        "lat": 43.00657,
+        "lon": -109.75893,
+        "elevationM": 2868,
+        "distanceKm": 3.8,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "661:WY:SNTL",
+        "name": "New Fork Lake",
+        "lat": 43.11265,
+        "lon": -109.94947,
+        "elevationM": 2554,
+        "distanceKm": 22.4,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "whitefish-mountain-resort": {
+    "lat": 48.4946,
+    "lon": -114.3449,
+    "stations": []
+  },
+  "willamette-pass": {
+    "lat": 43.6084,
+    "lon": -122.0236,
+    "stations": [
+      {
+        "triplet": "388:OR:SNTL",
+        "name": "Cascade Summit",
+        "lat": 43.59042,
+        "lon": -122.0601,
+        "elevationM": 1554,
+        "distanceKm": 3.6,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "729:OR:SNTL",
+        "name": "Salt Creek Falls",
+        "lat": 43.61193,
+        "lon": -122.11758,
+        "elevationM": 1286,
+        "distanceKm": 7.6,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "660:OR:SNTL",
+        "name": "New Crescent Lake",
+        "lat": 43.51185,
+        "lon": -121.97982,
+        "elevationM": 1497,
+        "distanceKm": 11.3,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "winter-park-resort": {
+    "lat": 39.8672,
+    "lon": -105.7791,
+    "stations": [
+      {
+        "triplet": "335:CO:SNTL",
+        "name": "Berthoud Summit",
+        "lat": 39.80364,
+        "lon": -105.77786,
+        "elevationM": 3444,
+        "distanceKm": 7.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1186:CO:SNTL",
+        "name": "Fool Creek",
+        "lat": 39.86866,
+        "lon": -105.86765,
+        "elevationM": 3392,
+        "distanceKm": 7.6,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "970:CO:SNTL",
+        "name": "Jones Pass",
+        "lat": 39.7645,
+        "lon": -105.90655,
+        "elevationM": 3179,
+        "distanceKm": 15.8,
+        "utcOffset": -8
+      }
+    ]
+  },
+  "wolf-creek-ski-area": {
+    "lat": 37.4632,
+    "lon": -106.7904,
+    "stations": [
+      {
+        "triplet": "874:CO:SNTL",
+        "name": "Wolf Creek Summit",
+        "lat": 37.47903,
+        "lon": -106.80234,
+        "elevationM": 3331,
+        "distanceKm": 2.1,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "840:CO:SNTL",
+        "name": "Upper San Juan",
+        "lat": 37.48563,
+        "lon": -106.83528,
+        "elevationM": 3091,
+        "distanceKm": 4.7,
+        "utcOffset": -8
+      },
+      {
+        "triplet": "1325:CO:SNTL",
+        "name": "Elwood Pass",
+        "lat": 37.40563,
+        "lon": -106.64136,
+        "elevationM": 3560,
+        "distanceKm": 14.6,
+        "utcOffset": -8
+      }
+    ]
+  }
+}

@@ -7,9 +7,7 @@
 // so every deploy ships fresh data; .github/workflows/forecast.yml redeploys hourly.
 //
 // NWS /points lookups never change, so they're cached in data/nws-grid.json (commit it after adding resorts).
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
-import { mergeResorts, type CuratedFile, type Resort } from '../src/resorts/merge.ts'
-import type { ResortCandidate } from '../src/resorts/openskimap.ts'
+import { mkdir, writeFile } from 'node:fs/promises'
 import { dailySnow, localDate, type NwsGridRef, type NwsValue } from '../src/forecast/nws.ts'
 import {
   openMeteoUrl,
@@ -22,14 +20,13 @@ import {
   type NwsForecast,
   type ResortForecast,
 } from '../src/forecast/types.ts'
+import { chunk, getJson, isUS, loadResorts, mapLimit, readJson, sortedJson } from './lib.ts'
 
 if (process.argv.includes('--if-workers-ci') && !process.env.WORKERS_CI) {
   console.log('forecast: skipped (not in Workers Builds)')
   process.exit(0)
 }
 
-// NWS asks for an identifying User-Agent with a way to reach us.
-const USER_AGENT = 'PowderHounds/0.1 (+https://powder-hounds-app.luckyohara.workers.dev)'
 const NWS = 'https://api.weather.gov'
 const OUT_DIR = new URL('../public/forecast/', import.meta.url)
 const GRID_CACHE = new URL('../data/nws-grid.json', import.meta.url)
@@ -37,67 +34,9 @@ const GRID_CACHE = new URL('../data/nws-grid.json', import.meta.url)
 const OPEN_METEO_BATCH = 40
 const NWS_CONCURRENCY = 4
 
-const readJson = async <T>(url: URL): Promise<T> => JSON.parse(await readFile(url, 'utf8')) as T
-
-class HttpError extends Error {
-  status: number
-  constructor(status: number, url: string) {
-    super(`${url}: HTTP ${status}`)
-    this.status = status
-  }
-}
-
-/** GET JSON with a timeout and 3 tries. NWS gridpoints return the odd 500; retrying fixes most. */
-async function getJson<T>(url: string): Promise<T> {
-  for (let attempt = 1; ; attempt++) {
-    try {
-      const res = await fetch(url, {
-        headers: { 'User-Agent': USER_AGENT, Accept: 'application/geo+json, application/json' },
-        signal: AbortSignal.timeout(30_000),
-      })
-      if (!res.ok) throw new HttpError(res.status, url)
-      return (await res.json()) as T
-    } catch (err) {
-      const permanent = err instanceof HttpError && err.status >= 400 && err.status < 500
-      if (permanent || attempt === 3) throw err
-      await new Promise((r) => setTimeout(r, 2000 * attempt))
-    }
-  }
-}
-
-/** Runs `fn` over `items` with at most `limit` in flight. */
-async function mapLimit<T, R>(
-  items: T[],
-  limit: number,
-  fn: (item: T) => Promise<R>,
-): Promise<R[]> {
-  const out: R[] = []
-  let next = 0
-  const worker = async () => {
-    while (next < items.length) {
-      const i = next++
-      out[i] = await fn(items[i])
-    }
-  }
-  await Promise.all(Array.from({ length: limit }, worker))
-  return out
-}
-
-const chunk = <T>(items: T[], size: number) =>
-  Array.from({ length: Math.ceil(items.length / size) }, (_, i) =>
-    items.slice(i * size, (i + 1) * size),
-  )
-
 // --- Resorts ---------------------------------------------------------------------------------
 
-const candidates = await readJson<{ resorts: ResortCandidate[] }>(
-  new URL('../data/resorts.openskimap.json', import.meta.url),
-)
-const curated = await readJson<CuratedFile>(
-  new URL('../data/resorts.curated.json', import.meta.url),
-)
-const resorts = mergeResorts(candidates.resorts, curated)
-const isUS = (r: Resort) => r.region.startsWith('US-')
+const resorts = await loadResorts()
 
 // --- NWS grid lookups (cached) ---------------------------------------------------------------
 
@@ -124,10 +63,7 @@ await mapLimit(needLookup, NWS_CONCURRENCY, async (r) => {
   }
 })
 if (needLookup.length) {
-  const sorted = Object.fromEntries(
-    Object.entries(gridCache).sort(([a], [b]) => a.localeCompare(b)),
-  )
-  await writeFile(GRID_CACHE, JSON.stringify(sorted, null, 2) + '\n')
+  await writeFile(GRID_CACHE, sortedJson(gridCache))
   console.log(`nws: looked up ${needLookup.length} grid points → data/nws-grid.json`)
 }
 
