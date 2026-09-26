@@ -1,10 +1,11 @@
 import type {
   HillshadeLayerSpecification,
   LayerSpecification,
+  SourceSpecification,
   StyleSpecification,
 } from 'maplibre-gl'
 
-export type MapStyleId = 'standard' | 'dark'
+export type MapStyleId = 'standard' | 'dark' | 'topo'
 
 export interface MapStyle {
   id: MapStyleId
@@ -12,6 +13,8 @@ export interface MapStyle {
   url: string
   /** Our hillshade tuned to the basemap: the default white highlights glare on a dark map. */
   hillshade: HillshadeLayerSpecification['paint']
+  /** Draw contour lines (src/map/contours.ts). */
+  contours?: boolean
 }
 
 /** Basemaps the user can pick. Radar, pins and hillshade are ours and ride along on every one. */
@@ -31,6 +34,13 @@ export const MAP_STYLES: Record<MapStyleId, MapStyle> = {
       'hillshade-shadow-color': '#000000',
       'hillshade-highlight-color': '#4a4a4a',
     },
+  },
+  topo: {
+    id: 'topo',
+    label: 'Topo',
+    url: 'https://tiles.openfreemap.org/styles/liberty',
+    hillshade: { 'hillshade-exaggeration': 0.5, 'hillshade-shadow-color': '#3d4a5c' },
+    contours: true,
   },
 }
 
@@ -59,33 +69,57 @@ export function saveStyle(id: MapStyleId) {
   }
 }
 
-/** Sources and layers we add on top of the basemap (see RadarMap and resortLayers). */
-export const isOwnId = (id: string) =>
-  id === 'terrain' || id === 'hillshade' || /^radar-\d+$/.test(id) || /^resorts?(-|$)/.test(id)
+const isContourId = (id: string) => /^contours?(-|$)/.test(id)
 
-const firstSymbolIndex = (layers: LayerSpecification[]) => {
-  const i = layers.findIndex((l) => l.type === 'symbol')
+/** Sources and layers we add on top of the basemap (see RadarMap, resortLayers, contours). */
+export const isOwnId = (id: string) =>
+  id === 'terrain' ||
+  id === 'hillshade' ||
+  /^radar-\d+$/.test(id) ||
+  /^resorts?(-|$)/.test(id) ||
+  isContourId(id)
+
+/** Where the basemap's own labels start. Our layers (contour labels are symbols too) don't count. */
+export function firstLabelIndex(layers: LayerSpecification[]): number {
+  const i = layers.findIndex((l) => l.type === 'symbol' && !isOwnId(l.id))
   return i === -1 ? layers.length : i
+}
+
+/** Contour source + layers to add when switching to a style that wants them. */
+export interface Contours {
+  id: string
+  source: SourceSpecification
+  layers: LayerSpecification[]
 }
 
 /**
  * `setStyle` replaces everything, so copy our sources and layers from the old style into the new one.
  * Layers that sat under the old basemap's labels (hillshade, radar) go under the new one's labels;
  * the rest (pins) go on top. 3D terrain carries over too; the hillshade takes the new style's paint.
+ * Contours are dropped, or added just above the hillshade when `contours` is given.
  */
 export function carryOver(
   prev: StyleSpecification | undefined,
   next: StyleSpecification,
-  hillshade: MapStyle['hillshade'],
+  target: MapStyle,
+  contours?: Contours,
 ): StyleSpecification {
   if (!prev) return next
-  const sources = Object.fromEntries(Object.entries(prev.sources).filter(([id]) => isOwnId(id)))
-  const cut = firstSymbolIndex(prev.layers)
-  const under = prev.layers
-    .filter((l, i) => i < cut && isOwnId(l.id))
-    .map((l) => (l.type === 'hillshade' ? { ...l, paint: hillshade } : l))
-  const over = prev.layers.filter((l, i) => i >= cut && isOwnId(l.id))
-  const at = firstSymbolIndex(next.layers)
+  const keep = (id: string) => isOwnId(id) && (!isContourId(id) || !!contours)
+  const sources = Object.fromEntries(Object.entries(prev.sources).filter(([id]) => keep(id)))
+  const cut = firstLabelIndex(prev.layers)
+  let under: LayerSpecification[] = prev.layers
+    .filter((l, i) => i < cut && keep(l.id))
+    .map((l): LayerSpecification =>
+      l.type === 'hillshade' ? { ...l, paint: target.hillshade } : l,
+    )
+  const over = prev.layers.filter((l, i) => i >= cut && keep(l.id))
+  if (contours && !sources[contours.id]) {
+    sources[contours.id] = contours.source
+    const h = under.findIndex((l) => l.id === 'hillshade') + 1
+    under = [...under.slice(0, h), ...contours.layers, ...under.slice(h)]
+  }
+  const at = firstLabelIndex(next.layers)
   return {
     ...next,
     sources: { ...next.sources, ...sources },

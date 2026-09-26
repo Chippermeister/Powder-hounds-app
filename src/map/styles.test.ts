@@ -1,6 +1,6 @@
-import type { LayerSpecification, StyleSpecification } from 'maplibre-gl'
+import type { LayerSpecification, SourceSpecification, StyleSpecification } from 'maplibre-gl'
 import { afterEach, expect, test, vi } from 'vitest'
-import { carryOver, isOwnId, loadStyle, saveStyle } from './styles'
+import { MAP_STYLES, carryOver, firstLabelIndex, isOwnId, loadStyle, saveStyle } from './styles'
 
 type LayerType = 'background' | 'fill' | 'symbol' | 'raster' | 'circle' | 'hillshade'
 const layer = (id: string, type: LayerType) =>
@@ -15,7 +15,16 @@ const style = (layers: LayerSpecification[], sources: string[]): StyleSpecificat
 afterEach(() => localStorage.clear())
 
 test('recognises our sources and layers, not the basemap’s', () => {
-  for (const id of ['terrain', 'hillshade', 'radar-0', 'radar-12', 'resorts', 'resort-pins'])
+  for (const id of [
+    'terrain',
+    'hillshade',
+    'radar-0',
+    'radar-12',
+    'resorts',
+    'resort-pins',
+    'contours',
+    'contour-labels',
+  ])
     expect(isOwnId(id)).toBe(true)
   for (const id of ['water', 'openmaptiles', 'radar', 'resort_area', 'road_label'])
     expect(isOwnId(id)).toBe(false)
@@ -40,7 +49,7 @@ test('carries our layers into the new style: radar under labels, pins on top', (
     ['openmaptiles', 'ne2_shaded'],
   )
 
-  const merged = carryOver(prev, next, { 'hillshade-exaggeration': 0.3 })
+  const merged = carryOver(prev, next, MAP_STYLES.dark)
 
   expect(merged.layers.map((l) => l.id)).toEqual([
     'dark_bg',
@@ -58,14 +67,57 @@ test('carries our layers into the new style: radar under labels, pins on top', (
     'terrain',
   ])
   expect(merged.layers.find((l) => l.id === 'hillshade')).toMatchObject({
-    paint: { 'hillshade-exaggeration': 0.3 },
+    paint: MAP_STYLES.dark.hillshade,
   })
   expect(merged.terrain).toEqual({ source: 'terrain', exaggeration: 1.4 })
 })
 
 test('first style load passes through untouched', () => {
   const next = style([layer('bg', 'background')], ['openmaptiles'])
-  expect(carryOver(undefined, next, {})).toBe(next)
+  expect(carryOver(undefined, next, MAP_STYLES.standard)).toBe(next)
+})
+
+const contours = {
+  id: 'contours',
+  source: { type: 'vector', tiles: ['dem-contour://x'] } as SourceSpecification,
+  layers: [layer('contour-lines', 'fill'), layer('contour-labels', 'symbol')],
+}
+
+test('Topo adds contours above the hillshade; leaving Topo drops them', () => {
+  const standard = style(
+    [
+      layer('bg', 'background'),
+      layer('hillshade', 'hillshade'),
+      layer('radar-0', 'raster'),
+      layer('place', 'symbol'),
+    ],
+    ['openmaptiles', 'terrain', 'radar-0'],
+  )
+  const topo = carryOver(
+    standard,
+    style([layer('bg', 'background'), layer('place', 'symbol')], ['openmaptiles']),
+    MAP_STYLES.topo,
+    contours,
+  )
+  expect(topo.layers.map((l) => l.id)).toEqual([
+    'bg',
+    'hillshade',
+    'contour-lines',
+    'contour-labels',
+    'radar-0',
+    'place',
+  ])
+  expect(topo.sources.contours).toBe(contours.source)
+  // Contour labels are symbols, but the basemap's labels still start at 'place'.
+  expect(topo.layers[firstLabelIndex(topo.layers)].id).toBe('place')
+
+  const back = carryOver(
+    topo,
+    style([layer('bg', 'background'), layer('place', 'symbol')], ['openmaptiles']),
+    MAP_STYLES.standard,
+  )
+  expect(back.layers.map((l) => l.id)).toEqual(['bg', 'hillshade', 'radar-0', 'place'])
+  expect(back.sources.contours).toBeUndefined()
 })
 
 test('remembers the pick, and ignores junk or broken storage', () => {

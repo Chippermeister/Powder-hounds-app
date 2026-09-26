@@ -14,9 +14,9 @@ import { RADAR_TILE_SIZE, radarTileUrl, type RadarProduct } from '../radar/wms'
 import type { Resort } from '../resorts/resorts'
 import { isClear, measurePadding } from './padding'
 import { addResortLayers, highlightResort, setResortSnow } from './resortLayers'
-import { MAP_STYLES, carryOver, type MapStyleId } from './styles'
+import { CONTOUR_LAYERS, CONTOUR_SOURCE, TERRAIN_TILES, contourSource } from './contours'
+import { MAP_STYLES, carryOver, firstLabelIndex, type MapStyle, type MapStyleId } from './styles'
 
-const TERRAIN_TILES = 'https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'
 const RADAR_OPACITY = 0.75
 /** Zoom a search jumps to: close enough to see the resort's neighbours by name. */
 const SEARCH_ZOOM = 9
@@ -111,6 +111,11 @@ export default function RadarMap(props: Props) {
         },
         firstSymbolLayer(map),
       )
+      const contours = contoursFor(MAP_STYLES[appliedStyle.current])
+      if (contours) {
+        map.addSource(contours.id, contours.source)
+        for (const l of contours.layers) map.addLayer(l, firstSymbolLayer(map))
+      }
       map.addControl(new TerrainControl({ source: 'terrain', exaggeration: 1.4 }), 'top-right')
       const slot = document.createElement('div')
       slot.className = 'maplibregl-ctrl maplibregl-ctrl-group'
@@ -128,13 +133,15 @@ export default function RadarMap(props: Props) {
   }, [])
 
   // Swap the basemap, keeping our radar, pins, hillshade and 3D terrain (see carryOver).
+  // Topo also gets contour lines.
   useEffect(() => {
     const map = mapRef.current
     if (!map || !ready || props.mapStyle === appliedStyle.current) return
     const style = MAP_STYLES[props.mapStyle]
     appliedStyle.current = style.id
+    const contours = contoursFor(style)
     map.setStyle(style.url, {
-      transformStyle: (prev, next) => carryOver(prev, next, style.hillshade),
+      transformStyle: (prev, next) => carryOver(prev, next, style, contours),
     })
   }, [ready, props.mapStyle])
 
@@ -222,5 +229,12 @@ function boundsOf(resorts: Resort[]): LngLatBounds {
 
 /** Insert our layers under the basemap's labels so place names stay readable over radar. */
 function firstSymbolLayer(map: MapLibreMap): string | undefined {
-  return map.getStyle().layers.find((l) => l.type === 'symbol')?.id
+  const layers = map.getStyle().layers
+  return layers[firstLabelIndex(layers)]?.id
+}
+
+function contoursFor(style: MapStyle) {
+  return style.contours
+    ? { id: CONTOUR_SOURCE, source: contourSource(), layers: CONTOUR_LAYERS }
+    : undefined
 }

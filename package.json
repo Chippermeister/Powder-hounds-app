@@ -19,6 +19,7 @@
     "observed": "node scripts/fetch-observed.ts"
   },
   "dependencies": {
+    "maplibre-contour": "^0.1.1",
     "maplibre-gl": "^6.11.2",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
