@@ -190,7 +190,7 @@ Plan: I generate a draft from OpenSkiMap + each resort's site, and you review.
   (~200 lines, no dependency) and only decodes the rows it needs. CONUS only: BC/AB resorts get nothing.
 - **Call budget per run:** 1 AWDB station list (only when a resort is new/moved) + 5 AWDB data calls + 2 NOHRSC folder
   listings + 3 GeoTIFFs (~0.2–2.5 MB each). Hourly: ~120 AWDB and ~120 NOHRSC requests/day, no keys or published caps.
-  NOHRSC only changes twice a day, so a 3-hourly observed run would lose nothing if we ever need to trim.
+  Owner approved running it hourly (2026-09-26). NOHRSC only changes twice a day, so a 3-hourly run would lose nothing if we ever need to trim.
 - **Season window:** NOHRSC's season starts Sep 30 12Z, so until Oct 1 the card shows last season's total, labelled
   with its dates.
 - **Not done (optional):** NOHRSC 72h map layer. The ArcGIS server doesn't have it; doing it means colouring the 72h
