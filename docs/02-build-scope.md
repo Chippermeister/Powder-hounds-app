@@ -82,7 +82,7 @@ the biggest technical unknown, so it comes right after the empty map.
 | **M2** | Resorts on the map  | ~150 resorts from OpenSkiMap + curated overrides (`data/resorts.curated.json`): pins, clustering, tap → card with blurb, webcam and site links      |
 | **M3** | Forecast pipeline   | Hourly Action → per-resort JSON: NWS 7-day snowfall + Open-Meteo base/summit; card shows it                                                         |
 | **M4** | Observed snow       | SNOTEL station matching + NOHRSC 24/72h/season values; history bars; optional NOHRSC 72h map layer                                                  |
-| **M5** | Polish + drive time | Bottom sheet, dark mode, PWA install, drive-time provider, accessibility pass, Lighthouse ≥ 90                                                      |
+| **M5** | Polish + drive time | Bottom sheet, dark mode, PWA install, drive-time provider, accessibility pass, Lighthouse ≥ 90. Plus the pre-M5 UI review decisions below           |
 | —      | Phase 3: Reporting  | README write-up, architecture diagram, demo GIF, lessons learned                                                                                    |
 
 Each milestone ends with a commit (or a few) and a check-in with you.
@@ -195,6 +195,39 @@ Plan: I generate a draft from OpenSkiMap + each resort's site, and you review.
   with its dates.
 - **Not done (optional):** NOHRSC 72h map layer. The ArcGIS server doesn't have it; doing it means colouring the 72h
   GeoTIFF into a PNG in the pipeline and adding it as a MapLibre image source. A candidate for the M5 UI review.
+
+## Pre-M5 UI review (2026-09-26)
+
+Owner reviewed every feature on the live site (desktop + phone, light + dark). Phone is the weakest part, so M5 centres on it.
+
+### Decisions
+
+- **Resort card → bottom sheet on phones.** Swipe up for detail; the map stays usable above it. Desktop keeps the side card.
+- **Colour pins by observed 72h snow** (from `/observed/index.json`: NOHRSC 72h, SNOTEL fallback). Needs a small legend.
+  Resorts with no data (BC/AB) get a neutral colour. Clusters show their snowiest member.
+- **Add resort search** (name, type-ahead, jumps to the resort and opens its card). "Near me" not requested.
+- **Canada observed snow: skipped for v1.** BC/AB cards keep the "No snow observations for this area yet" line.
+- **Shorter fine print.** Under the forecast and observed tables, just "Updated [time ago]". The source/method notes go.
+  Open-Meteo is CC BY 4.0, so its credit moves to the map attribution line (required). SNOTEL/NOHRSC are US-government
+  public domain; no credit needed, but keep source names in the table rows.
+
+### Also fix in M5 (found in the review, not contested)
+
+- Phone: the attribution line covers the radar time slider (known since M2). Collapse it to the (i) button on small screens.
+- Phone: the first view cuts off CA/CO/NM/AZ. Fit the view to all resorts on load.
+- Selecting a resort should pan the map so its pin isn't hidden under the card/sheet or the radar panel.
+- Card background is see-through (glass), so pins/radar show through text on phones. Make it opaque enough to read.
+- Observed table headers run together on phones ("24h72h Season Depth").
+- Radar: add a colour legend for both layers; show "20 min ago" style frame times; note that snow rate also paints rain.
+- Dark mode: panels go dark but the basemap stays light. Needs a dark basemap style.
+- cm/inch toggle (planned in M3 findings); straight-line distance on the card (v1 scope, not built yet).
+- Bundle is 1.25 MB (MapLibre); code-split for the Lighthouse ≥ 90 target.
+- Stale SNOTEL readings (e.g. 20 h old) only show in small print; flag them visibly once the fine print is gone.
+- Bug: BC/AB forecast note mentions NWS although those cards have no NWS row (goes away with the shorter fine print).
+
+### Still open
+
+- NOHRSC 72h map layer (optional since M4): not discussed. Pin colours may cover the same need.
 
 ## Future: global coverage (owner goal, not yet scoped)
 
