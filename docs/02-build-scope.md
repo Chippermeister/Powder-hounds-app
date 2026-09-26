@@ -248,6 +248,26 @@ now in the map attribution), and the phone fixes. Checked at 390×844 and 1440×
 - **Bug found:** the CSS build dropped the standard `backdrop-filter` when a `-webkit-` copy was also written, so
   Chrome/Android never blurred the panels. Fixed by writing only the standard property (the build adds the prefix).
 
+## M5b scope (owner, 2026-09-26)
+
+**Dropped from v1:** straight-line distance and drive time. This replaces § 7 above: no geolocation and no routing
+service.
+
+**Added: map styles.** The user can switch the basemap. Radar, pins and labels stay on top of every style.
+
+| Style     | What it is                                 | Open question (needs owner approval)                                                                               |
+| --------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| Standard  | Today's OpenFreeMap style                  | —                                                                                                                  |
+| Dark      | Dark basemap (from the review fix list)    | Which dark style; OpenFreeMap's own if it has one                                                                  |
+| Satellite | Aerial/satellite imagery with place labels | **Imagery source is a new service.** Licence and commercial terms must be checked per candidate before choosing    |
+| Topo (2D) | Contour lines + hillshade, flat            | Contours from our existing terrain tiles (would add a library) or a hosted topo tileset (new service; check terms) |
+| Topo (3D) | Same as 2D topo with 3D terrain and tilt   | None beyond 2D topo: 3D terrain already exists (terrain button)                                                    |
+
+**Kept from the review list:** cm/inch toggle, PWA install, code-splitting + Lighthouse ≥ 90, accessibility pass.
+
+Suggested order: research the satellite and topo sources first and bring a recommendation (they need approval), build
+the style switcher with Standard/Dark/3D while waiting, then the rest. Measure Lighthouse last.
+
 ## Future: global coverage (owner goal, not yet scoped)
 
 | Piece         | Global?                                                                                                                                     |

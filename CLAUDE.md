@@ -19,8 +19,9 @@ Owner is learning: explain reasoning briefly, but keep it short unless asked to 
 - Pre-M5 UI review: DONE → `docs/02-build-scope.md` § Pre-M5 UI review (decisions + fix list).
 - M5a phone UX: DONE (bottom sheet, snow-coloured pins, search, radar legends, review phone fixes). Findings in
   `docs/02-build-scope.md` § M5a.
-- Next step: M5b (drive time, PWA install, dark basemap, cm/inch toggle, straight-line distance,
-  code-splitting + Lighthouse ≥ 90, accessibility pass)
+- Next step: M5b, scope in `docs/02-build-scope.md` § M5b scope: map styles (standard, dark, satellite, 2D topo,
+  3D topo), cm/inch toggle, PWA install, code-splitting + Lighthouse ≥ 90, accessibility pass.
+  Drive time and distance are dropped from v1.
 
 ## Locked decisions (don't re-research)
 
