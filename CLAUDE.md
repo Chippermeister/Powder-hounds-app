@@ -20,8 +20,8 @@ Owner is learning: explain reasoning briefly, but keep it short unless asked to 
 - M5a phone UX: DONE (bottom sheet, snow-coloured pins, search, radar legends, review phone fixes). Findings in
   `docs/02-build-scope.md` § M5a.
 - M5b IN PROGRESS, scope in `docs/02-build-scope.md` § M5b scope. Done: source research (§ M5b source research,
-  awaiting owner approval for satellite + topo) and style switcher with Standard/Dark (§ M5b progress).
-  Left: satellite + topo styles (after approval), cm/inch toggle, PWA install, code-splitting + Lighthouse ≥ 90,
+  topo approved; satellite awaiting owner: see § Satellite follow-up) and style switcher with Standard/Dark/Topo
+  (§ M5b progress). Left: satellite style (after approval), cm/inch toggle, PWA install, code-splitting + Lighthouse ≥ 90,
   accessibility pass. Drive time and distance are dropped from v1.
 
 ## Locked decisions (don't re-research)

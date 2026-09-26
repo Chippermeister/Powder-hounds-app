@@ -274,12 +274,12 @@ Checked live: tile fetches from here, CORS headers, and coverage at Alta (UT), W
 
 **Satellite candidates**
 
-| Source                                        | Coverage                                                         | Licence / terms                                                                                                  | Key / account                                                     |
-| --------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| USGS National Map `USGSImageryOnly`           | US: sharp (NAIP) to z16. **BC/AB: nothing past z11** (tiles 404) | Public domain, no usage limits. Credit requested, not required                                                   | None. CORS `*`                                                    |
-| Esri World Imagery (ArcGIS Location Platform) | Global, high-res                                                 | Commercial use allowed. Free tier 2 M basemap tiles/month, then pay-as-you-go. "Powered by Esri" + source credit | **Free account + API key** (referrer-restricted, sits in the app) |
-| MapTiler Satellite                            | Global                                                           | Free plan is **non-commercial only**; commercial from $29/mo                                                     | Account + key                                                     |
-| EOxCloudless (Sentinel-2)                     | Global, but 10 m pixels: blurry at resort zoom                   | CC BY-NC-SA 4.0 (non-commercial); commercial needs an EOX licence                                                | None for the preview tiles                                        |
+| Source                                        | Coverage                                                                    | Licence / terms                                                                                                  | Key / account                                                     |
+| --------------------------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| USGS National Map `USGSImageryOnly`           | US: sharp (NAIP) to z16. **BC/AB: blank white tiles from z9**, 404 from z13 | Public domain, no usage limits. Credit requested, not required                                                   | None. CORS `*`                                                    |
+| Esri World Imagery (ArcGIS Location Platform) | Global, high-res                                                            | Commercial use allowed. Free tier 2 M basemap tiles/month, then pay-as-you-go. "Powered by Esri" + source credit | **Free account + API key** (referrer-restricted, sits in the app) |
+| MapTiler Satellite                            | Global                                                                      | Free plan is **non-commercial only**; commercial from $29/mo                                                     | Account + key                                                     |
+| EOxCloudless (Sentinel-2)                     | Global, but 10 m pixels: blurry at resort zoom                              | CC BY-NC-SA 4.0 (non-commercial); commercial needs an EOX licence                                                | None for the preview tiles                                        |
 
 Rejected: MapTiler and EOxCloudless (both non-commercial unless you pay).
 
@@ -288,11 +288,11 @@ Rejected: MapTiler and EOxCloudless (both non-commercial unless you pay).
 | Source                                     | What it adds                                                                                     | Licence / terms                                          | Cost / new service                                     |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------- | ------------------------------------------------------ |
 | `maplibre-contour` + our AWS terrain tiles | Contour lines (ft or m) drawn in the browser from the tiles we already load for hillshade and 3D | Library BSD-3. Terrain tiles are AWS Open Data, as today | **No new service.** Adds one small library (~11 KB gz) |
-| USGS National Map `USGSTopo`               | Classic USGS topo raster                                                                         | Public domain                                            | None, but **BC/AB blank past z11**, same as imagery    |
+| USGS National Map `USGSTopo`               | Classic USGS topo raster                                                                         | Public domain                                            | None, but **BC/AB: no tiles from z13**                 |
 
 **Recommendation**
 
-- **Topo: `maplibre-contour`.** No new service, works in Canada too, contours sit on our existing hillshade, and the
+- **Topo: `maplibre-contour`** (✅ approved by owner 2026-09-26, built). No new service, works in Canada too, contours sit on our existing hillshade, and the
   contour interval can follow the cm/inch toggle (metres vs feet). Topo 3D is then just Topo plus the 3D terrain button.
 - **Satellite: Esri World Imagery** because it's the only commercial-OK option that covers BC/AB. It needs you to make
   a free ArcGIS Location Platform account and give me a referrer-restricted API key. 2 M tiles/month is plenty for now;
@@ -309,7 +309,25 @@ Rejected: MapTiler and EOxCloudless (both non-commercial unless you pay).
   labels, pins on top. Checked in Chromium: radar, pins, current frame and 3D terrain all survive a swap.
 - The Dark style gets its own hillshade colours: the default white highlights glared on black.
 - **3D:** the existing 3D terrain button works on every style, so Topo 3D = Topo + that button (no separate entry).
+- **Topo built:** Liberty + stronger hillshade + contour lines from `maplibre-contour` (`src/map/contours.ts`). Lines
+  from z10, labels on major lines from z11; spacing in feet, from 500/2000 ft at z10 down to 40/200 ft at z14+.
+  The contour worker only starts the first time Topo is picked. Checked at Alta: lines draw, and switching back to
+  Standard removes them. Metres come with the cm/inch toggle.
 - Upstream quirk: OpenFreeMap Dark logs a harmless "circle-11 could not be loaded" console warning (its own sprite).
+
+### Satellite follow-up: USGS past z8 in Canada, and a global answer (2026-09-26)
+
+- **No USGS workaround.** USGS just has no imagery of Canada: from z9 its tiles are blank white. Stretching the last
+  real zoom (z8, ~600 m per pixel) is useless at resort scale.
+- **Patching BC/AB with provincial imagery:** B.C. runs a free imagery WMS (orthophotos down to 0.5 m,
+  `openmaps.gov.bc.ca`); licence not yet confirmed. Found nothing equivalent for Alberta. Patching country by country
+  doesn't scale to a global map.
+- **Global options (all satellite, commercial use):** Esri World Imagery (free tier 2 M tiles/month, then
+  pay-as-you-go), MapTiler Satellite (from $29/mo), Google Map Tiles API (pay-as-you-go with a free monthly allowance).
+  Truly free global imagery only exists at 10 m (Copernicus Sentinel-2, free for commercial use, but we'd have to
+  build and host the mosaic ourselves; EOX's ready-made one is non-commercial).
+- **Suggested path:** a hybrid now and later: USGS where it has imagery (US, free, sharpest), Esri everywhere else.
+  That keeps Esri usage (and cost) low and already works for a global map. Needs the Esri key either way.
 
 ## Future: global coverage (owner goal, not yet scoped)
 
