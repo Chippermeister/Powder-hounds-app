@@ -1,3 +1,4 @@
+import ForecastSection from '../forecast/ForecastSection'
 import { regionLabel, type Resort } from './resorts'
 
 interface Props {
@@ -7,12 +8,12 @@ interface Props {
 
 const ft = (m: number) => Math.round(m * 3.28084).toLocaleString()
 
-/** Tap-a-pin card. M3/M4 add forecast and observed snow below the stats. */
+/** Tap-a-pin card. M4 adds observed snow below the forecast. */
 export default function ResortCard({ resort, onClose }: Props) {
   return (
     <section
       aria-label={resort.name}
-      className="glass absolute top-4 right-14 left-4 flex max-h-[45%] flex-col gap-3 overflow-y-auto rounded-2xl p-4 shadow-lg sm:right-auto sm:w-80 sm:max-h-[calc(100%-2rem)]"
+      className="glass absolute top-4 right-14 left-4 flex max-h-[45%] flex-col gap-3 overflow-y-auto rounded-2xl p-4 shadow-lg sm:right-auto sm:w-96 sm:max-h-[calc(100%-2rem)]"
     >
       <header className="flex items-start gap-2">
         <div className="flex-1">
@@ -40,6 +41,8 @@ export default function ResortCard({ resort, onClose }: Props) {
           </div>
         ))}
       </dl>
+
+      <ForecastSection resortId={resort.id} />
 
       {resort.blurb && <p className="text-sm leading-relaxed">{resort.blurb}</p>}
 

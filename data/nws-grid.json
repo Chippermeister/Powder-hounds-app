@@ -1,0 +1,962 @@
+{
+  "49-north-mountain-resort": {
+    "lat": 48.2937,
+    "lon": -117.5615,
+    "office": "OTX",
+    "x": 141,
+    "y": 121,
+    "timeZone": "America/Los_Angeles"
+  },
+  "alpental": {
+    "lat": 47.4441,
+    "lon": -121.4316,
+    "office": "SEW",
+    "x": 152,
+    "y": 55,
+    "timeZone": "America/Los_Angeles"
+  },
+  "alta-ski-area": {
+    "lat": 40.5799,
+    "lon": -111.6223,
+    "office": "SLC",
+    "x": 109,
+    "y": 166,
+    "timeZone": "America/Denver"
+  },
+  "angel-fire-resort": {
+    "lat": 36.3816,
+    "lon": -105.2495,
+    "office": "ABQ",
+    "x": 154,
+    "y": 175,
+    "timeZone": "America/Denver"
+  },
+  "antelope-butte": {
+    "lat": 44.6055,
+    "lon": -107.5124,
+    "office": "RIW",
+    "x": 155,
+    "y": 179,
+    "timeZone": "America/Denver"
+  },
+  "arapahoe-basin": {
+    "lat": 39.6315,
+    "lon": -105.8771,
+    "office": "BOU",
+    "x": 32,
+    "y": 59,
+    "timeZone": "America/Denver"
+  },
+  "arizona-snowbowl": {
+    "lat": 35.3292,
+    "lon": -111.698,
+    "office": "FGZ",
+    "x": 73,
+    "y": 95,
+    "timeZone": "America/Phoenix"
+  },
+  "aspen-highlands": {
+    "lat": 39.1637,
+    "lon": -106.8616,
+    "office": "GJT",
+    "x": 155,
+    "y": 101,
+    "timeZone": "America/Denver"
+  },
+  "aspen-mountain": {
+    "lat": 39.1656,
+    "lon": -106.8193,
+    "office": "GJT",
+    "x": 156,
+    "y": 101,
+    "timeZone": "America/Denver"
+  },
+  "aspen-snowmass": {
+    "lat": 39.1986,
+    "lon": -106.9498,
+    "office": "GJT",
+    "x": 152,
+    "y": 103,
+    "timeZone": "America/Denver"
+  },
+  "bear-mountain": {
+    "lat": 34.2197,
+    "lon": -116.8605,
+    "office": "SGX",
+    "x": 78,
+    "y": 78,
+    "timeZone": "America/Los_Angeles"
+  },
+  "bear-paw-ski-bowl": {
+    "lat": 48.1642,
+    "lon": -109.6702,
+    "office": "TFX",
+    "x": 154,
+    "y": 170,
+    "timeZone": "America/Denver"
+  },
+  "bear-valley": {
+    "lat": 38.4827,
+    "lon": -120.0496,
+    "office": "STO",
+    "x": 90,
+    "y": 54,
+    "timeZone": "America/Los_Angeles"
+  },
+  "beaver-creek": {
+    "lat": 39.6134,
+    "lon": -106.5358,
+    "office": "GJT",
+    "x": 168,
+    "y": 120,
+    "timeZone": "America/Denver"
+  },
+  "beaver-mountain": {
+    "lat": 41.9718,
+    "lon": -111.5501,
+    "office": "SLC",
+    "x": 119,
+    "y": 229,
+    "timeZone": "America/Denver"
+  },
+  "big-sky-resort": {
+    "lat": 45.2739,
+    "lon": -111.4194,
+    "office": "TFX",
+    "x": 82,
+    "y": 40,
+    "timeZone": "America/Denver"
+  },
+  "blacktail-mountain-ski-area": {
+    "lat": 48.0229,
+    "lon": -114.3735,
+    "office": "MSO",
+    "x": 101,
+    "y": 187,
+    "timeZone": "America/Denver"
+  },
+  "bluewood": {
+    "lat": 46.0764,
+    "lon": -117.8512,
+    "office": "PDT",
+    "x": 165,
+    "y": 113,
+    "timeZone": "America/Los_Angeles"
+  },
+  "bogus-basin-mountain-recreation-area": {
+    "lat": 43.7703,
+    "lon": -116.0932,
+    "office": "BOI",
+    "x": 138,
+    "y": 92,
+    "timeZone": "America/Boise"
+  },
+  "breckenridge": {
+    "lat": 39.4784,
+    "lon": -106.0606,
+    "office": "BOU",
+    "x": 25,
+    "y": 53,
+    "timeZone": "America/Denver"
+  },
+  "brian-head-resort": {
+    "lat": 37.6892,
+    "lon": -112.8461,
+    "office": "SLC",
+    "x": 49,
+    "y": 42,
+    "timeZone": "America/Denver"
+  },
+  "bridger-bowl": {
+    "lat": 45.818,
+    "lon": -110.9123,
+    "office": "TFX",
+    "x": 101,
+    "y": 64,
+    "timeZone": "America/Denver"
+  },
+  "brighton-resort": {
+    "lat": 40.5946,
+    "lon": -111.582,
+    "office": "SLC",
+    "x": 110,
+    "y": 167,
+    "timeZone": "America/Denver"
+  },
+  "brundage-mountain": {
+    "lat": 44.9998,
+    "lon": -116.1426,
+    "office": "BOI",
+    "x": 145,
+    "y": 149,
+    "timeZone": "America/Boise"
+  },
+  "buttermilk": {
+    "lat": 39.1923,
+    "lon": -106.8701,
+    "office": "GJT",
+    "x": 155,
+    "y": 102,
+    "timeZone": "America/Denver"
+  },
+  "cherry-peak-ski-area": {
+    "lat": 41.9252,
+    "lon": -111.754,
+    "office": "SLC",
+    "x": 112,
+    "y": 228,
+    "timeZone": "America/Denver"
+  },
+  "china-peak-mountain-resort": {
+    "lat": 37.2264,
+    "lon": -119.1581,
+    "office": "HNX",
+    "x": 78,
+    "y": 117,
+    "timeZone": "America/Los_Angeles"
+  },
+  "copper-mountain": {
+    "lat": 39.4915,
+    "lon": -106.1584,
+    "office": "BOU",
+    "x": 21,
+    "y": 53,
+    "timeZone": "America/Denver"
+  },
+  "crested-butte-mountain-resort": {
+    "lat": 38.8994,
+    "lon": -106.9498,
+    "office": "GJT",
+    "x": 151,
+    "y": 89,
+    "timeZone": "America/Denver"
+  },
+  "crystal-mountain": {
+    "lat": 46.9348,
+    "lon": -121.4902,
+    "office": "SEW",
+    "x": 145,
+    "y": 31,
+    "timeZone": "America/Los_Angeles"
+  },
+  "deer-valley-resort": {
+    "lat": 40.6277,
+    "lon": -111.4829,
+    "office": "SLC",
+    "x": 114,
+    "y": 168,
+    "timeZone": "America/Denver"
+  },
+  "diamond-peak": {
+    "lat": 39.2536,
+    "lon": -119.9161,
+    "office": "REV",
+    "x": 39,
+    "y": 95,
+    "timeZone": "America/Los_Angeles"
+  },
+  "discovery-ski-area": {
+    "lat": 46.265,
+    "lon": -113.2511,
+    "office": "MSO",
+    "x": 125,
+    "y": 99,
+    "timeZone": "America/Denver"
+  },
+  "dodge-ridge-ski-area": {
+    "lat": 38.1899,
+    "lon": -119.9393,
+    "office": "STO",
+    "x": 92,
+    "y": 41,
+    "timeZone": "America/Los_Angeles"
+  },
+  "eagle-point": {
+    "lat": 38.3222,
+    "lon": -112.378,
+    "office": "SLC",
+    "x": 70,
+    "y": 68,
+    "timeZone": "America/Denver"
+  },
+  "eldora": {
+    "lat": 39.9399,
+    "lon": -105.5918,
+    "office": "BOU",
+    "x": 43,
+    "y": 72,
+    "timeZone": "America/Denver"
+  },
+  "granby-ranch": {
+    "lat": 40.0367,
+    "lon": -105.9048,
+    "office": "BOU",
+    "x": 32,
+    "y": 77,
+    "timeZone": "America/Denver"
+  },
+  "grand-targhee-resort": {
+    "lat": 43.7864,
+    "lon": -110.9478,
+    "office": "RIW",
+    "x": 37,
+    "y": 154,
+    "timeZone": "America/Denver"
+  },
+  "great-divide-ski-area": {
+    "lat": 46.7521,
+    "lon": -112.3269,
+    "office": "TFX",
+    "x": 61,
+    "y": 113,
+    "timeZone": "America/Denver"
+  },
+  "heavenly-mountain-resort": {
+    "lat": 38.9375,
+    "lon": -119.9108,
+    "office": "REV",
+    "x": 37,
+    "y": 81,
+    "timeZone": "America/Los_Angeles"
+  },
+  "homewood-ski-area": {
+    "lat": 39.0782,
+    "lon": -120.1696,
+    "office": "REV",
+    "x": 29,
+    "y": 88,
+    "timeZone": "America/Los_Angeles"
+  },
+  "hoodoo-ski-area": {
+    "lat": 44.4054,
+    "lon": -121.8792,
+    "office": "PQR",
+    "x": 128,
+    "y": 47,
+    "timeZone": "America/Los_Angeles"
+  },
+  "jackson-hole-mountain-resort": {
+    "lat": 43.6032,
+    "lon": -110.85,
+    "office": "RIW",
+    "x": 39,
+    "y": 145,
+    "timeZone": "America/Denver"
+  },
+  "june-mountain": {
+    "lat": 37.7537,
+    "lon": -119.0757,
+    "office": "REV",
+    "x": 56,
+    "y": 23,
+    "timeZone": "America/Los_Angeles"
+  },
+  "kelly-canyon-ski-resort": {
+    "lat": 43.6408,
+    "lon": -111.6222,
+    "office": "PIH",
+    "x": 139,
+    "y": 80,
+    "timeZone": "America/Boise"
+  },
+  "keystone": {
+    "lat": 39.5833,
+    "lon": -105.9338,
+    "office": "BOU",
+    "x": 30,
+    "y": 57,
+    "timeZone": "America/Denver"
+  },
+  "kirkwood-mountain-resort": {
+    "lat": 38.679,
+    "lon": -120.0674,
+    "office": "STO",
+    "x": 91,
+    "y": 63,
+    "timeZone": "America/Los_Angeles"
+  },
+  "lookout-pass": {
+    "lat": 47.4518,
+    "lon": -115.7159,
+    "office": "MSO",
+    "x": 54,
+    "y": 166,
+    "timeZone": "America/Denver"
+  },
+  "lost-trail": {
+    "lat": 45.6963,
+    "lon": -113.9558,
+    "office": "MSO",
+    "x": 99,
+    "y": 76,
+    "timeZone": "America/Denver"
+  },
+  "loup-loup-ski-bowl": {
+    "lat": 48.3928,
+    "lon": -119.9174,
+    "office": "OTX",
+    "x": 68,
+    "y": 138,
+    "timeZone": "America/Los_Angeles"
+  },
+  "loveland-basin-ski-area": {
+    "lat": 39.6778,
+    "lon": -105.9092,
+    "office": "BOU",
+    "x": 31,
+    "y": 61,
+    "timeZone": "America/Denver"
+  },
+  "mammoth-mountain": {
+    "lat": 37.6444,
+    "lon": -119.0088,
+    "office": "REV",
+    "x": 58,
+    "y": 18,
+    "timeZone": "America/Los_Angeles"
+  },
+  "maverick-mountain-ski-area": {
+    "lat": 45.4341,
+    "lon": -113.1277,
+    "office": "TFX",
+    "x": 27,
+    "y": 55,
+    "timeZone": "America/Denver"
+  },
+  "mccoy-park": {
+    "lat": 39.5903,
+    "lon": -106.5471,
+    "office": "GJT",
+    "x": 167,
+    "y": 119,
+    "timeZone": "America/Denver"
+  },
+  "mission-ridge": {
+    "lat": 47.2806,
+    "lon": -120.4109,
+    "office": "OTX",
+    "x": 42,
+    "y": 89,
+    "timeZone": "America/Los_Angeles"
+  },
+  "monarch-mountain": {
+    "lat": 38.5168,
+    "lon": -106.3444,
+    "office": "PUB",
+    "x": 35,
+    "y": 81,
+    "timeZone": "America/Denver"
+  },
+  "montana-snowbowl": {
+    "lat": 47.0204,
+    "lon": -114.0037,
+    "office": "MSO",
+    "x": 106,
+    "y": 138,
+    "timeZone": "America/Denver"
+  },
+  "mount-ashland": {
+    "lat": 42.0833,
+    "lon": -122.7128,
+    "office": "MFR",
+    "x": 108,
+    "y": 61,
+    "timeZone": "America/Los_Angeles"
+  },
+  "mount-rose-ski-tahoe": {
+    "lat": 39.3207,
+    "lon": -119.8844,
+    "office": "REV",
+    "x": 41,
+    "y": 97,
+    "timeZone": "America/Los_Angeles"
+  },
+  "mount-waterman": {
+    "lat": 34.3437,
+    "lon": -117.9318,
+    "office": "LOX",
+    "x": 169,
+    "y": 56,
+    "timeZone": "America/Los_Angeles"
+  },
+  "mountain-high": {
+    "lat": 34.3701,
+    "lon": -117.6895,
+    "office": "LOX",
+    "x": 177,
+    "y": 55,
+    "timeZone": "America/Los_Angeles"
+  },
+  "mt-bachelor": {
+    "lat": 43.9939,
+    "lon": -121.6829,
+    "office": "PDT",
+    "x": 23,
+    "y": 40,
+    "timeZone": "America/Los_Angeles"
+  },
+  "mt-baker": {
+    "lat": 48.8571,
+    "lon": -121.6652,
+    "office": "SEW",
+    "x": 157,
+    "y": 123,
+    "timeZone": "America/Los_Angeles"
+  },
+  "mt-baldy": {
+    "lat": 34.2724,
+    "lon": -117.6102,
+    "office": "SGX",
+    "x": 52,
+    "y": 85,
+    "timeZone": "America/Los_Angeles"
+  },
+  "mt-hood-meadows-ski-resort": {
+    "lat": 45.3352,
+    "lon": -121.6618,
+    "office": "PQR",
+    "x": 144,
+    "y": 89,
+    "timeZone": "America/Los_Angeles"
+  },
+  "mt-hood-skibowl": {
+    "lat": 45.2943,
+    "lon": -121.7711,
+    "office": "PQR",
+    "x": 140,
+    "y": 87,
+    "timeZone": "America/Los_Angeles"
+  },
+  "mt-shasta-ski-park": {
+    "lat": 41.3273,
+    "lon": -122.2008,
+    "office": "MFR",
+    "x": 118,
+    "y": 23,
+    "timeZone": "America/Los_Angeles"
+  },
+  "mt-spokane": {
+    "lat": 47.9278,
+    "lon": -117.1072,
+    "office": "OTX",
+    "x": 152,
+    "y": 101,
+    "timeZone": "America/Los_Angeles"
+  },
+  "nordic-valley-resort": {
+    "lat": 41.306,
+    "lon": -111.8665,
+    "office": "SLC",
+    "x": 104,
+    "y": 200,
+    "timeZone": "America/Denver"
+  },
+  "northstar-at-tahoe-resort": {
+    "lat": 39.2617,
+    "lon": -120.135,
+    "office": "REV",
+    "x": 32,
+    "y": 96,
+    "timeZone": "America/Los_Angeles"
+  },
+  "pajarito-mountain": {
+    "lat": 35.8909,
+    "lon": -106.3926,
+    "office": "ABQ",
+    "x": 111,
+    "y": 156,
+    "timeZone": "America/Denver"
+  },
+  "palisades-tahoe-alpine-meadows": {
+    "lat": 39.1543,
+    "lon": -120.2382,
+    "office": "REV",
+    "x": 27,
+    "y": 92,
+    "timeZone": "America/Los_Angeles"
+  },
+  "palisades-tahoe-olympic-valley": {
+    "lat": 39.1934,
+    "lon": -120.2454,
+    "office": "REV",
+    "x": 27,
+    "y": 94,
+    "timeZone": "America/Los_Angeles"
+  },
+  "park-city-mountain-resort": {
+    "lat": 40.6569,
+    "lon": -111.5379,
+    "office": "SLC",
+    "x": 112,
+    "y": 169,
+    "timeZone": "America/Denver"
+  },
+  "pebble-creek": {
+    "lat": 42.7738,
+    "lon": -112.1517,
+    "office": "PIH",
+    "x": 116,
+    "y": 42,
+    "timeZone": "America/Boise"
+  },
+  "pine-creek-ski-area": {
+    "lat": 42.103,
+    "lon": -110.8288,
+    "office": "RIW",
+    "x": 32,
+    "y": 76,
+    "timeZone": "America/Denver"
+  },
+  "pomerelle-mountain-resort": {
+    "lat": 42.3143,
+    "lon": -113.6112,
+    "office": "PIH",
+    "x": 64,
+    "y": 28,
+    "timeZone": "America/Boise"
+  },
+  "powder-mountain-ski-resort": {
+    "lat": 41.3755,
+    "lon": -111.7621,
+    "office": "SLC",
+    "x": 108,
+    "y": 203,
+    "timeZone": "America/Denver"
+  },
+  "powderhorn": {
+    "lat": 39.0606,
+    "lon": -108.1522,
+    "office": "GJT",
+    "x": 109,
+    "y": 100,
+    "timeZone": "America/Denver"
+  },
+  "purgatory-resort": {
+    "lat": 37.6261,
+    "lon": -107.8265,
+    "office": "GJT",
+    "x": 114,
+    "y": 35,
+    "timeZone": "America/Denver"
+  },
+  "red-lodge-mountain": {
+    "lat": 45.1879,
+    "lon": -109.3585,
+    "office": "BYZ",
+    "x": 72,
+    "y": 67,
+    "timeZone": "America/Denver"
+  },
+  "red-river-ski-area": {
+    "lat": 36.7008,
+    "lon": -105.4087,
+    "office": "ABQ",
+    "x": 149,
+    "y": 189,
+    "timeZone": "America/Denver"
+  },
+  "sandia-peak-ski-area": {
+    "lat": 35.2014,
+    "lon": -106.4234,
+    "office": "ABQ",
+    "x": 107,
+    "y": 125,
+    "timeZone": "America/Denver"
+  },
+  "schweitzer-mountain-resort": {
+    "lat": 48.3866,
+    "lon": -116.6195,
+    "office": "OTX",
+    "x": 171,
+    "y": 120,
+    "timeZone": "America/Los_Angeles"
+  },
+  "showdown": {
+    "lat": 46.8361,
+    "lon": -110.7084,
+    "office": "TFX",
+    "x": 114,
+    "y": 111,
+    "timeZone": "America/Denver"
+  },
+  "sierra-at-tahoe-ski-resort": {
+    "lat": 38.7974,
+    "lon": -120.0768,
+    "office": "STO",
+    "x": 92,
+    "y": 68,
+    "timeZone": "America/Los_Angeles"
+  },
+  "silver-mountain-resort": {
+    "lat": 47.5054,
+    "lon": -116.1314,
+    "office": "OTX",
+    "x": 180,
+    "y": 76,
+    "timeZone": "America/Los_Angeles"
+  },
+  "sipapu-ski-and-summer-resort": {
+    "lat": 36.1499,
+    "lon": -105.5512,
+    "office": "ABQ",
+    "x": 142,
+    "y": 165,
+    "timeZone": "America/Denver"
+  },
+  "ski-apache": {
+    "lat": 33.3943,
+    "lon": -105.8012,
+    "office": "ABQ",
+    "x": 123,
+    "y": 44,
+    "timeZone": "America/Denver"
+  },
+  "ski-cooper": {
+    "lat": 39.3559,
+    "lon": -106.2889,
+    "office": "GJT",
+    "x": 175,
+    "y": 108,
+    "timeZone": "America/Denver"
+  },
+  "ski-santa-fe-santa-fe-q38555": {
+    "lat": 35.7918,
+    "lon": -105.7906,
+    "office": "ABQ",
+    "x": 132,
+    "y": 150,
+    "timeZone": "America/Denver"
+  },
+  "snow-king-mountain": {
+    "lat": 43.4679,
+    "lon": -110.7586,
+    "office": "RIW",
+    "x": 42,
+    "y": 138,
+    "timeZone": "America/Denver"
+  },
+  "snow-summit": {
+    "lat": 34.2276,
+    "lon": -116.8905,
+    "office": "SGX",
+    "x": 77,
+    "y": 78,
+    "timeZone": "America/Los_Angeles"
+  },
+  "snow-valley-mountain-resort": {
+    "lat": 34.2145,
+    "lon": -117.0363,
+    "office": "SGX",
+    "x": 72,
+    "y": 79,
+    "timeZone": "America/Los_Angeles"
+  },
+  "snowbasin-resort": {
+    "lat": 41.2008,
+    "lon": -111.8629,
+    "office": "SLC",
+    "x": 104,
+    "y": 195,
+    "timeZone": "America/Denver"
+  },
+  "snowbird": {
+    "lat": 40.5705,
+    "lon": -111.649,
+    "office": "SLC",
+    "x": 108,
+    "y": 166,
+    "timeZone": "America/Denver"
+  },
+  "snowy-range": {
+    "lat": 41.3377,
+    "lon": -106.1802,
+    "office": "CYS",
+    "x": 64,
+    "y": 26,
+    "timeZone": "America/Denver"
+  },
+  "soldier-mountain-ski-area": {
+    "lat": 43.489,
+    "lon": -114.8383,
+    "office": "BOI",
+    "x": 178,
+    "y": 73,
+    "timeZone": "America/Boise"
+  },
+  "solitude-mountain-resort": {
+    "lat": 40.6146,
+    "lon": -111.601,
+    "office": "SLC",
+    "x": 109,
+    "y": 168,
+    "timeZone": "America/Denver"
+  },
+  "steamboat-ski-resort": {
+    "lat": 40.4611,
+    "lon": -106.7729,
+    "office": "GJT",
+    "x": 163,
+    "y": 159,
+    "timeZone": "America/Denver"
+  },
+  "stevens-pass-ski-area": {
+    "lat": 47.7376,
+    "lon": -121.0904,
+    "office": "SEW",
+    "x": 165,
+    "y": 66,
+    "timeZone": "America/Los_Angeles"
+  },
+  "sugar-bowl-resort": {
+    "lat": 39.3008,
+    "lon": -120.3324,
+    "office": "STO",
+    "x": 87,
+    "y": 92,
+    "timeZone": "America/Los_Angeles"
+  },
+  "sun-valley-bald-mountain": {
+    "lat": 43.6675,
+    "lon": -114.3912,
+    "office": "PIH",
+    "x": 47,
+    "y": 93,
+    "timeZone": "America/Boise"
+  },
+  "sundance-resort": {
+    "lat": 40.3813,
+    "lon": -111.5893,
+    "office": "SLC",
+    "x": 109,
+    "y": 157,
+    "timeZone": "America/Denver"
+  },
+  "sunlight-mountain-resort": {
+    "lat": 39.3942,
+    "lon": -107.339,
+    "office": "GJT",
+    "x": 139,
+    "y": 113,
+    "timeZone": "America/Denver"
+  },
+  "sunrise-park-resort": {
+    "lat": 33.9555,
+    "lon": -109.5669,
+    "office": "FGZ",
+    "x": 143,
+    "y": 25,
+    "timeZone": "America/Phoenix"
+  },
+  "tamarack-resort": {
+    "lat": 44.6822,
+    "lon": -116.1421,
+    "office": "BOI",
+    "x": 143,
+    "y": 135,
+    "timeZone": "America/Boise"
+  },
+  "taos-ski-valley": {
+    "lat": 36.5779,
+    "lon": -105.451,
+    "office": "ABQ",
+    "x": 147,
+    "y": 184,
+    "timeZone": "America/Denver"
+  },
+  "telluride-ski-area": {
+    "lat": 37.9197,
+    "lon": -107.8348,
+    "office": "GJT",
+    "x": 115,
+    "y": 48,
+    "timeZone": "America/Denver"
+  },
+  "teton-pass-ski-resort": {
+    "lat": 47.9306,
+    "lon": -112.8103,
+    "office": "TFX",
+    "x": 53,
+    "y": 171,
+    "timeZone": "America/Denver"
+  },
+  "three-summits": {
+    "lat": 47.4037,
+    "lon": -121.4148,
+    "office": "PDT",
+    "x": 63,
+    "y": 196,
+    "timeZone": "America/Los_Angeles"
+  },
+  "timberline-lodge-ski-area": {
+    "lat": 45.3232,
+    "lon": -121.7167,
+    "office": "PQR",
+    "x": 142,
+    "y": 88,
+    "timeZone": "America/Los_Angeles"
+  },
+  "turner-mountain": {
+    "lat": 48.6063,
+    "lon": -115.6414,
+    "office": "MSO",
+    "x": 65,
+    "y": 221,
+    "timeZone": "America/Denver"
+  },
+  "vail": {
+    "lat": 39.6238,
+    "lon": -106.3655,
+    "office": "GJT",
+    "x": 174,
+    "y": 120,
+    "timeZone": "America/Denver"
+  },
+  "white-pass-ski-area": {
+    "lat": 46.6241,
+    "lon": -121.3969,
+    "office": "SEW",
+    "x": 145,
+    "y": 16,
+    "timeZone": "America/Los_Angeles"
+  },
+  "white-pine-resort": {
+    "lat": 42.973,
+    "lon": -109.751,
+    "office": "RIW",
+    "x": 73,
+    "y": 112,
+    "timeZone": "America/Denver"
+  },
+  "whitefish-mountain-resort": {
+    "lat": 48.4946,
+    "lon": -114.3449,
+    "office": "MSO",
+    "x": 105,
+    "y": 209,
+    "timeZone": "America/Denver"
+  },
+  "willamette-pass": {
+    "lat": 43.6084,
+    "lon": -122.0236,
+    "office": "PQR",
+    "x": 116,
+    "y": 12,
+    "timeZone": "America/Los_Angeles"
+  },
+  "winter-park-resort": {
+    "lat": 39.8672,
+    "lon": -105.7791,
+    "office": "BOU",
+    "x": 36,
+    "y": 69,
+    "timeZone": "America/Denver"
+  },
+  "wolf-creek-ski-area": {
+    "lat": 37.4632,
+    "lon": -106.7904,
+    "office": "PUB",
+    "x": 16,
+    "y": 35,
+    "timeZone": "America/Denver"
+  }
+}
