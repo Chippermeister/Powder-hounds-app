@@ -16,7 +16,8 @@ Owner is learning: explain reasoning briefly, but keep it short unless asked to 
   `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID` repo secrets. Findings in `docs/02-build-scope.md` § M3.
 - M4 observed snow: DONE (SNOTEL + NOHRSC → `public/observed/*.json`, card table + 14-day bars). Findings in
   `docs/02-build-scope.md` § M4. NOHRSC 72h map layer not built (optional).
-- Next step: owner reviews every feature and plans UI changes, then M5
+- Pre-M5 UI review: DONE → `docs/02-build-scope.md` § Pre-M5 UI review (decisions + fix list).
+- Next step: M5 (bottom sheet, pin colours by 72h snow, search, short fine print, plus the review fix list)
 
 ## Locked decisions (don't re-research)
 
