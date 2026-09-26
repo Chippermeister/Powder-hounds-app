@@ -21,8 +21,10 @@ Owner is learning: explain reasoning briefly, but keep it short unless asked to 
   `docs/02-build-scope.md` § M5a.
 - M5b IN PROGRESS, scope in `docs/02-build-scope.md` § M5b scope. Done: source research, style switcher with
   Standard/Dark/Topo/Satellite (§ M5b progress, § Satellite built). Satellite = USGS + Esri hybrid; Esri needs the owner's
-  `VITE_ESRI_API_KEY` (not set yet). Left: cm/inch toggle, PWA install, code-splitting + Lighthouse ≥ 90,
-  accessibility pass. Drive time and distance are dropped from v1.
+  `VITE_ESRI_API_KEY` (not set yet). Left, in order: settings page + cm/inch, pin colour mode, pass filter,
+  cinematic fly-to, Esri key, PWA install, code-splitting + Lighthouse ≥ 90, accessibility pass.
+- Product vision + roadmap after M5b: `docs/03-product-roadmap.md` (DRAFT, awaiting owner approval). Features F1–F17,
+  build order easiest → hardest (M6–M10), business track B1–B5, licence gates before charging money.
 
 ## Locked decisions (don't re-research)
 

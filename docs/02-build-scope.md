@@ -265,6 +265,9 @@ service.
 
 **Kept from the review list:** cm/inch toggle, PWA install, code-splitting + Lighthouse ≥ 90, accessibility pass.
 
+**Added 2026-09-26 (owner brainstorm, see `03-product-roadmap.md` § 3):** settings page (holds the cm/inch toggle),
+pin colour mode (72 h / 7-day forecast), pass filter, cinematic fly-to. Everything after M5b is planned there.
+
 Suggested order: research the satellite and topo sources first and bring a recommendation (they need approval), build
 the style switcher with Standard/Dark/3D while waiting, then the rest. Measure Lighthouse last.
 
