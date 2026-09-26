@@ -12,7 +12,8 @@
     "typecheck": "tsc -b --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "npm run lint && npm run typecheck && npm run format:check && npm test && npm run build"
+    "check": "npm run lint && npm run typecheck && npm run format:check && npm test && npm run build",
+    "resorts:fetch": "node scripts/fetch-resorts.ts"
   },
   "dependencies": {
     "maplibre-gl": "^6.11.2",
